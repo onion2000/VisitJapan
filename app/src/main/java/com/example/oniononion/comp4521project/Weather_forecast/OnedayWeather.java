@@ -1,14 +1,18 @@
 package com.example.oniononion.comp4521project.Weather_forecast;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.oniononion.comp4521project.Object.IntentHelper;
 import com.example.oniononion.comp4521project.Object.WeatherInfo;
 import com.example.oniononion.comp4521project.R;
 
@@ -29,18 +33,19 @@ public class OnedayWeather extends Activity {
     private String weather_image_url_prefix ="http://www.jnto.go.jp/weather" ;
     private String uri = "http://www.jnto.go.jp/weather/eng/index.php?day=";
     private ArrayList<WeatherInfo> array_info = new ArrayList<>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.weather_forecast_oneday);
 
+        Button list_view_button = (Button)findViewById(R.id.list_view_button);
+        list_view_button.setOnClickListener(buttonClickListener);
+
         // use thread to use the data from website, 1 is the current day
         getDatafromWebsite(1);
-
-        // show the text and image
-        showDetails(0);
     }
 
     private void getDatafromWebsite(final int day_index) {
@@ -48,7 +53,7 @@ public class OnedayWeather extends Activity {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                array_info.clear(); // clear the array list when change to another day
+  //              array_info.clear(); // clear the array list when change to another day
                 Document doc = null;
                 try {
                     doc = Jsoup.connect(uri+day_index).timeout(10000).get();
@@ -80,17 +85,29 @@ public class OnedayWeather extends Activity {
                     WeatherInfo info= new WeatherInfo(city_name,image_url,high_temp,low_temp,prob_rain);
                     array_info.add(info);
                 }
+                showDetails(0);
             }
         });
         thread.start();
     }
 
-    private void showDetails(int index) {
-        WeatherInfo weatherInfo= array_info.get(index);
+    private void showDetails(final int index) {
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                WeatherInfo weatherInfo = array_info.get(index);
+                TextView temperature = (TextView) findViewById(R.id.temperature);
+                temperature.setText(weatherInfo.getHigh_temp() + "/" + weatherInfo.getLow_temp());
+                TextView prob_rain = (TextView) findViewById(R.id.prob_rain);
+                prob_rain.setText(weatherInfo.getProb_rain());
+                TextView location = (TextView) findViewById(R.id.location);
+                location.setText(weatherInfo.getCity_name());
+                new DownloadImageTask((ImageView) findViewById(R.id.weather_image)).execute(weather_image_url_prefix + weatherInfo.getImage_url());
+            }
+        });
 
 
-
-        new DownloadImageTask((ImageView) findViewById(R.id.weather_image)).execute(weather_image_url_prefix+ weatherInfo.getImage_url());
 
 
     }
@@ -119,4 +136,21 @@ public class OnedayWeather extends Activity {
             bmImage.setImageBitmap(result);
         }
     }
+
+    protected View.OnClickListener buttonClickListener= new View.OnClickListener(){
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.list_view_button:
+                    Intent intent = new Intent(OnedayWeather.this, LocationListViewActivity.class);
+                    IntentHelper.addObjectWithKey(array_info, "array");
+                    startActivity(intent);
+                    break;
+
+                default:
+                    break;
+
+            }
+        }
+    };
 }
