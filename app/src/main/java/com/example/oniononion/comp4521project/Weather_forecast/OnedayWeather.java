@@ -33,7 +33,8 @@ public class OnedayWeather extends Activity {
     private String weather_image_url_prefix ="http://www.jnto.go.jp/weather" ;
     private String uri = "http://www.jnto.go.jp/weather/eng/index.php?day=";
     private ArrayList<WeatherInfo> array_info = new ArrayList<>();
-
+    private int Day = 1;
+    private int LocationIndex =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,18 +46,18 @@ public class OnedayWeather extends Activity {
         list_view_button.setOnClickListener(buttonClickListener);
 
         // use thread to use the data from website, 1 is the current day
-        getDatafromWebsite(1);
+        getDatafromWebsite(Day, LocationIndex);
     }
 
-    private void getDatafromWebsite(final int day_index) {
+    private void getDatafromWebsite(final int day_index, final int LocIndex) {
 
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-  //              array_info.clear(); // clear the array list when change to another day
+                array_info.clear(); // clear the array list when change to another day
                 Document doc = null;
                 try {
-                    doc = Jsoup.connect(uri+day_index).timeout(10000).get();
+                    doc = Jsoup.connect(uri+day_index).timeout(5000).get();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -85,7 +86,7 @@ public class OnedayWeather extends Activity {
                     WeatherInfo info= new WeatherInfo(city_name,image_url,high_temp,low_temp,prob_rain);
                     array_info.add(info);
                 }
-                showDetails(0);
+                showDetails(LocIndex);
             }
         });
         thread.start();
@@ -144,7 +145,7 @@ public class OnedayWeather extends Activity {
                 case R.id.list_view_button:
                     Intent intent = new Intent(OnedayWeather.this, LocationListViewActivity.class);
                     IntentHelper.addObjectWithKey(array_info, "array");
-                    startActivity(intent);
+                    startActivityForResult(intent, 100);
                     break;
 
                 default:
@@ -153,4 +154,17 @@ public class OnedayWeather extends Activity {
             }
         }
     };
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == 100) {
+            LocationIndex = data.getExtras().getInt("locationIndex");
+            showDetails(LocationIndex);
+        }
+    }
+
+
 }
