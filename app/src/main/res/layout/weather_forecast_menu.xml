@@ -5,12 +5,17 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/today_weather_forecast"
+            android:id="@+id/future_weather_forecast"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Today Weather Forecast" />
+            android:text="Future Weather Forecast" />
 
-        <Button
+    <ViewFlipper
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewFlipper" />
+
+    <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

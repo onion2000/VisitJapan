@@ -21,7 +21,7 @@ public class WeatherActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.weather_forecast_menu);
 
-        Button translation = (Button) findViewById(R.id.today_weather_forecast);
+        Button translation = (Button) findViewById(R.id.future_weather_forecast);
         translation.setOnClickListener(buttonClickListener);
         Button weather_forecast = (Button) findViewById(R.id.button2);
         weather_forecast.setOnClickListener(buttonClickListener);
@@ -35,7 +35,7 @@ public class WeatherActivity extends Activity {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.today_weather_forecast:
+                case R.id.future_weather_forecast:
                     Intent intent = new Intent(WeatherActivity.this, OnedayWeather.class);
                     startActivity(intent);
                     break;

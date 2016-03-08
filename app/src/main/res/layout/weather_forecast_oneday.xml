@@ -8,9 +8,5 @@
         android:layout_height="fill_parent"
         layout="@layout/weather_forecast_onearea" />
 
-    <ViewAnimator
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/viewAnimator"
-        android:layout_gravity="center_horizontal" />
+
 </LinearLayout>

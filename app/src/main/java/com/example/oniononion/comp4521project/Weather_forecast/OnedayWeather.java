@@ -23,17 +23,22 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 
 /**
  * Created by oniononion on 6/3/2016.
  */
 public class OnedayWeather extends Activity {
     private static final String TAG = OnedayWeather.class.getSimpleName();
-    private String weather_image_url_prefix ="http://www.jnto.go.jp/weather" ;
-    private String uri = "http://www.jnto.go.jp/weather/eng/index.php?day=";
+    private final String weather_image_url_prefix ="http://www.jnto.go.jp/weather" ;
+    private final String uri = "http://www.jnto.go.jp/weather/eng/index.php?day=";
     private ArrayList<WeatherInfo> array_info = new ArrayList<>();
-    private int Day = 1;
+    private final int MaximumDay =9;
+    private String[] dateList = new String[MaximumDay];
+    private int DateIndex = 1;
     private int LocationIndex =0;
 
     @Override
@@ -42,14 +47,29 @@ public class OnedayWeather extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.weather_forecast_oneday);
 
-        Button list_view_button = (Button)findViewById(R.id.list_view_button);
-        list_view_button.setOnClickListener(buttonClickListener);
+        Button other_location_button = (Button)findViewById(R.id.other_location_button);
+        other_location_button.setOnClickListener(buttonClickListener);
 
+        createDateList();
+
+        Button other_day_button = (Button)findViewById(R.id.other_day_button);
+        other_day_button.setOnClickListener(buttonClickListener);
         // use thread to use the data from website, 1 is the current day
-        getDatafromWebsite(Day, LocationIndex);
+        getDatafromWebsite(DateIndex, LocationIndex);
     }
 
-    private void getDatafromWebsite(final int day_index, final int LocIndex) {
+    private void createDateList() {
+        String formattedDate ;
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("EEE MMM-d", Locale.ENGLISH);
+        for (int i = 0; i < 9; i++) {
+            c.add(Calendar.DATE, 1);
+            formattedDate = df.format(c.getTime());
+            dateList[i]=formattedDate;
+        }
+    }
+
+    private void getDatafromWebsite(final int DateIndex, final int LocIndex) {
 
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -57,7 +77,7 @@ public class OnedayWeather extends Activity {
                 array_info.clear(); // clear the array list when change to another day
                 Document doc = null;
                 try {
-                    doc = Jsoup.connect(uri+day_index).timeout(5000).get();
+                    doc = Jsoup.connect(uri+DateIndex).timeout(5000).get();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -104,6 +124,8 @@ public class OnedayWeather extends Activity {
                 prob_rain.setText(weatherInfo.getProb_rain());
                 TextView location = (TextView) findViewById(R.id.location);
                 location.setText(weatherInfo.getCity_name());
+                TextView date =(TextView) findViewById(R.id.date);
+                date.setText(dateList[DateIndex-1]);
                 new DownloadImageTask((ImageView) findViewById(R.id.weather_image)).execute(weather_image_url_prefix + weatherInfo.getImage_url());
             }
         });
@@ -142,12 +164,15 @@ public class OnedayWeather extends Activity {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.list_view_button:
+                case R.id.other_location_button:
                     Intent intent = new Intent(OnedayWeather.this, LocationListViewActivity.class);
                     IntentHelper.addObjectWithKey(array_info, "array");
                     startActivityForResult(intent, 100);
                     break;
-
+                case R.id.other_day_button:
+                    Intent intent2 = new Intent(OnedayWeather.this, DateListViewActivity.class);
+                    IntentHelper.addObjectWithKey(dateList, "list");
+                    startActivityForResult(intent2, 200);
                 default:
                     break;
 
@@ -163,6 +188,10 @@ public class OnedayWeather extends Activity {
         if (resultCode == 100) {
             LocationIndex = data.getExtras().getInt("locationIndex");
             showDetails(LocationIndex);
+        }else if(resultCode ==200){
+            DateIndex = data.getExtras().getInt("dateIndex");
+            getDatafromWebsite(DateIndex,LocationIndex);
+
         }
     }
 

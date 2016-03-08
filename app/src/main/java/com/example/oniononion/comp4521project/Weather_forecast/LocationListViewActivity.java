@@ -1,6 +1,5 @@
 package com.example.oniononion.comp4521project.Weather_forecast;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,7 +41,7 @@ public class LocationListViewActivity  extends ListActivity {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent intent = new Intent(getApplicationContext(), OnedayWeather.class);
                     intent.putExtra("locationIndex", position);
-                    // return the same return code 100 that    MusicActivity used to start this activity
+                    // return the same return code 100 that   OnedayWeather used to start this activity
                     setResult(100, intent);
                     // exit from this activity
                     finish();
