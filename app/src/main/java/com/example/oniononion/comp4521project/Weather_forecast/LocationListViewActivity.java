@@ -27,7 +27,7 @@ public class LocationListViewActivity  extends Activity {
         setContentView(R.layout.weather_forecast_location_list);
 
 
-        RadListView listView = (RadListView)findViewById(R.id.listView);
+        RadListView listView = (RadListView)findViewById(R.id.location_listView);
        // List<String> list = Arrays.asList(locationList);
 
         ListViewAdapter listViewAdapter = new ListViewAdapter(getListOfLocations());
