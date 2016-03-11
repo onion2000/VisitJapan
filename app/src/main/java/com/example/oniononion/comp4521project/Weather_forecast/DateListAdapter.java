@@ -14,32 +14,32 @@ import java.util.List;
 /**
  * Created by oniononion on 11/3/2016.
  */
-public class LocationListAdapter extends ListViewAdapter {
-    public LocationListAdapter(List items) {
+public class DateListAdapter extends ListViewAdapter {
+    public DateListAdapter(List items) {
         super(items);
     }
 
     @Override
     public ListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.weather_forecast_location_list_item, parent, false);
-        return new LocationViewHolder(view);
+        View view = inflater.inflate(R.layout.weather_forecast_date_list_item, parent, false);
+        return new DateViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ListViewHolder holder, int position) {
-        LocationViewHolder viewHolder = (LocationViewHolder)holder;
-        LocationListViewActivity.Location location= (LocationListViewActivity.Location) getItems().get(position);
-        viewHolder.locationNameView.setText(location.getLocation());
+        DateViewHolder viewHolder = (DateViewHolder)holder;
+        String date= (String) getItems().get(position);
+        viewHolder.dateView.setText(date);
     }
 
-    public static class LocationViewHolder extends ListViewHolder {
+    public static class DateViewHolder extends ListViewHolder {
 
-        TextView locationNameView;
-        public LocationViewHolder (View itemView) {
+        TextView dateView;
+        public DateViewHolder (View itemView) {
             super(itemView);
 
-            locationNameView = (TextView)itemView.findViewById(R.id.location_name_view);
+            dateView = (TextView)itemView.findViewById(R.id.date_view);
         }
     }
 }

@@ -30,9 +30,9 @@ public class LocationListViewActivity  extends Activity {
         RadListView listView = (RadListView)findViewById(R.id.location_listView);
        // List<String> list = Arrays.asList(locationList);
 
-        ListViewAdapter listViewAdapter = new ListViewAdapter(getListOfLocations());
-       // LocationListAdapter locationAdapter = new LocationListAdapter(getListOfLocations());
-        listView.setAdapter(listViewAdapter);
+      //  ListViewAdapter listViewAdapter = new ListViewAdapter(getListOfLocations());
+        LocationListAdapter locationAdapter = new LocationListAdapter(getListOfLocations());
+        listView.setAdapter(locationAdapter);
         listView.addItemClickListener(itemClickListener);
     }
 

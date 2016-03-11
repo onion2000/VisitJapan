@@ -30,8 +30,9 @@ public class DateListViewActivity extends Activity {
 
         RadListView listView = (RadListView) findViewById(R.id.date_listView);
         //  this.setListAdapter(new ArrayAdapter<>(this, R.layout.weather_forecast_date_list, R.id.date_list_view, array_list));
-        ListViewAdapter listViewAdapter = new ListViewAdapter(Arrays.asList(array_list));
-        listView.setAdapter(listViewAdapter);
+      //  ListViewAdapter listViewAdapter = new ListViewAdapter(Arrays.asList(array_list));
+        DateListAdapter dateAdapter = new DateListAdapter(Arrays.asList(array_list));
+        listView.setAdapter(dateAdapter);
         listView.addItemClickListener(itemClickListener);
 
     }

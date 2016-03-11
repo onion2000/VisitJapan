@@ -61,7 +61,7 @@ public class OnedayWeather extends Activity {
     private void createDateList() {
         String formattedDate ;
         Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("EEE MMM-d", Locale.ENGLISH);
+        SimpleDateFormat df = new SimpleDateFormat("MMM-d EEE", Locale.ENGLISH);
         for (int i = 0; i < 9; i++) {
             c.add(Calendar.DATE, 1);
             formattedDate = df.format(c.getTime());
