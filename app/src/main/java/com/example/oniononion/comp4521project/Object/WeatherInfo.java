@@ -61,4 +61,6 @@ public class WeatherInfo {
         this.image_url = image_url;
     }
 
+
+
 }
