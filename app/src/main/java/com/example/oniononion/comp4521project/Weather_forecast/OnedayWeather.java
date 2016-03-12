@@ -13,9 +13,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.oniononion.comp4521project.NavigationDrawerInstaller;
 import com.example.oniononion.comp4521project.Object.IntentHelper;
 import com.example.oniononion.comp4521project.Object.WeatherInfo;
 import com.example.oniononion.comp4521project.R;
+import com.mikepenz.materialdrawer.Drawer;
 import com.telerik.android.primitives.widget.sidedrawer.RadSideDrawer;
 
 import org.jsoup.Jsoup;
@@ -42,24 +44,18 @@ public class OnedayWeather extends Activity {
     private String[] dateList = new String[MaximumDay];
     private int DateIndex = 1;
     private int LocationIndex =0;
+    Drawer result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-     //   setContentView(R.layout.weather_forecast_oneday);
-        setContentView(R.layout.blank_xml);
-
-        RadSideDrawer drawer = new RadSideDrawer(this);
-        drawer.setMainContent(R.layout.weather_forecast_oneday);
-        drawer.setDrawerContent(R.layout.main_activity_drawer_side_content);
-
-        ViewGroup rootPanel = (ViewGroup)this.findViewById(R.id.blank);
-        rootPanel.addView(drawer);
+        setContentView(R.layout.weather_forecast_oneday);
 
         Button other_location_button = (Button)findViewById(R.id.other_location_button);
         other_location_button.setOnClickListener(buttonClickListener);
 
+        result= NavigationDrawerInstaller.installOnActivity(this);
         createDateList();
 
         Button other_day_button = (Button)findViewById(R.id.other_day_button);
@@ -181,6 +177,15 @@ public class OnedayWeather extends Activity {
             DateIndex = data.getExtras().getInt("dateIndex");
             getDatafromWebsite(DateIndex,LocationIndex);
 
+        }
+    }
+    @Override
+    public void onBackPressed() {
+        //handle the back press close the drawer first and if the drawer is closed close the activity
+        if (result != null && result.isDrawerOpen()) {
+            result.closeDrawer();
+        } else {
+            super.onBackPressed();
         }
     }
 

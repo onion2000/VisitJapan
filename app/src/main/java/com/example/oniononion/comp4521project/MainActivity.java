@@ -9,11 +9,10 @@ import android.view.Window;
 import android.widget.Button;
 
 import com.example.oniononion.comp4521project.Weather_forecast.WeatherActivity;
-
+import com.mikepenz.materialdrawer.Drawer;
 
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +47,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
             }
-        }
+
+    }
+
     };
 
 }

@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.oniononion.comp4521project.NavigationDrawerInstaller;
 import com.example.oniononion.comp4521project.Object.IntentHelper;
 import com.example.oniononion.comp4521project.R;
 import com.telerik.widget.list.ListViewAdapter;
@@ -27,6 +28,7 @@ public class DateListViewActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.weather_forecast_date_list);
+        NavigationDrawerInstaller.installOnActivity(this);
 
         RadListView listView = (RadListView) findViewById(R.id.date_listView);
         //  this.setListAdapter(new ArrayAdapter<>(this, R.layout.weather_forecast_date_list, R.id.date_list_view, array_list));

@@ -42,4 +42,6 @@ public class DateListAdapter extends ListViewAdapter {
             dateView = (TextView)itemView.findViewById(R.id.date_view);
         }
     }
+
+
 }
