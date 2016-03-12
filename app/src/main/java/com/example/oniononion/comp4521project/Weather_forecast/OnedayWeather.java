@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import com.example.oniononion.comp4521project.Object.IntentHelper;
 import com.example.oniononion.comp4521project.Object.WeatherInfo;
 import com.example.oniononion.comp4521project.R;
+import com.telerik.android.primitives.widget.sidedrawer.RadSideDrawer;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -45,7 +47,15 @@ public class OnedayWeather extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.weather_forecast_oneday);
+     //   setContentView(R.layout.weather_forecast_oneday);
+        setContentView(R.layout.blank_xml);
+
+        RadSideDrawer drawer = new RadSideDrawer(this);
+        drawer.setMainContent(R.layout.weather_forecast_oneday);
+        drawer.setDrawerContent(R.layout.main_activity_drawer_side_content);
+
+        ViewGroup rootPanel = (ViewGroup)this.findViewById(R.id.blank);
+        rootPanel.addView(drawer);
 
         Button other_location_button = (Button)findViewById(R.id.other_location_button);
         other_location_button.setOnClickListener(buttonClickListener);
@@ -159,6 +169,20 @@ public class OnedayWeather extends Activity {
             bmImage.setImageBitmap(result);
         }
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == 100) {
+            LocationIndex = data.getExtras().getInt("locationIndex");
+            showDetails(LocationIndex);
+        }else if(resultCode ==200){
+            DateIndex = data.getExtras().getInt("dateIndex");
+            getDatafromWebsite(DateIndex,LocationIndex);
+
+        }
+    }
 
     protected View.OnClickListener buttonClickListener= new View.OnClickListener(){
         @Override
@@ -179,21 +203,5 @@ public class OnedayWeather extends Activity {
             }
         }
     };
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == 100) {
-            LocationIndex = data.getExtras().getInt("locationIndex");
-            showDetails(LocationIndex);
-        }else if(resultCode ==200){
-            DateIndex = data.getExtras().getInt("dateIndex");
-            getDatafromWebsite(DateIndex,LocationIndex);
-
-        }
-    }
-
 
 }

@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
+import android.view.ViewGroup;
 
 import com.example.oniononion.comp4521project.Object.IntentHelper;
 import com.example.oniononion.comp4521project.Object.WeatherInfo;
 import com.example.oniononion.comp4521project.R;
+import com.telerik.android.primitives.widget.sidedrawer.RadSideDrawer;
 import com.telerik.widget.list.ListViewAdapter;
 import com.telerik.widget.list.RadListView;
 
@@ -24,7 +26,19 @@ public class LocationListViewActivity  extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.weather_forecast_location_list);
+       // setContentView(R.layout.weather_forecast_location_list);
+
+
+        setContentView(R.layout.blank_xml);
+
+        RadSideDrawer drawer = new RadSideDrawer(this);
+        drawer.setMainContent(R.layout.weather_forecast_location_list);
+        drawer.setDrawerContent(R.layout.main_activity_drawer_side_content);
+
+        ViewGroup rootPanel = (ViewGroup)this.findViewById(R.id.blank);
+        rootPanel.addView(drawer);
+
+
 
 
         RadListView listView = (RadListView)findViewById(R.id.location_listView);

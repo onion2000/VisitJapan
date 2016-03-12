@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/relativeLayout">
+    　　
+
+    <Button
+        android:id="@+id/translation"
+        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_gravity="fill"
+        android:text="translation" />
+    　　
+    <Button
+        android:id="@+id/weather_forecast"
+        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_gravity="fill"
+        android:text="weather forecast"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    　　　
+    <Button
+        android:id="@+id/rate_exchange"
+        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_gravity="fill"
+        android:text="rate exchange" />
+    　　
+    <Button
+        android:id="@+id/four"
+        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_gravity="fill"
+        android:text="4" />
+    　　
+    <Button
+        android:id="@+id/five"
+        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_gravity="fill"
+        android:text="5" />
+    　　
+    <Button
+        android:id="@+id/six"
+        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_gravity="fill"
+        android:text="6" />
+    　　
+    <Button
+        android:id="@+id/seven"
+        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_gravity="fill"
+        android:text="7" />
+    　　
+</LinearLayout>
+
+
