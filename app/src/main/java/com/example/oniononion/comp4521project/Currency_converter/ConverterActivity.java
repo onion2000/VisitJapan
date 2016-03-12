@@ -1,8 +1,210 @@
 package com.example.oniononion.comp4521project.Currency_converter;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import com.example.oniononion.comp4521project.NavigationDrawerInstaller;
+import com.example.oniononion.comp4521project.Object.Currency;
+import com.example.oniononion.comp4521project.Object.IntentHelper;
+import com.example.oniononion.comp4521project.Object.WeatherInfo;
+import com.example.oniononion.comp4521project.R;
+import com.example.oniononion.comp4521project.Weather_forecast.DateListViewActivity;
+import com.example.oniononion.comp4521project.Weather_forecast.LocationListViewActivity;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by oniononion on 11/3/2016.
  */
-public class ConverterActivity {
 
+public class ConverterActivity extends Activity {
+    private static final String TAG = ConverterActivity.class.getSimpleName();
+    private final String uri = "http://www.x-rates.com/table/?from=JPY&amount=1";
+    private ArrayList<Currency> currency_array = new ArrayList<>();
+    private ArrayList<String> name_array = new ArrayList<>();
+    private ArrayList<Float> rate_array = new ArrayList<>();
+    EditText input;
+    TextView from_amount;
+    TextView from_type;
+    TextView result;
+    private int current_position = 0;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.currency_converter_activity);
+
+        NavigationDrawerInstaller.installOnActivity(this);
+
+        try {
+            getDataFromWebsite();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        input = (EditText) findViewById(R.id.currency_edittext);
+        input.setOnKeyListener(textviewKeyListener);
+
+        Button go = (Button) findViewById(R.id.currency_go_button);
+        go.setOnClickListener(buttonClickListener);
+        Button reverse = (Button) findViewById(R.id.currency_reverse_button);
+        reverse.setOnClickListener(buttonClickListener);
+
+        from_amount = (TextView) findViewById(R.id.currency_from_amout_textview);
+        from_type = (TextView) findViewById(R.id.currency_from_type_textview);
+        result = (TextView) findViewById(R.id.currency_result_textview);
+
+
+    }
+
+    private void InitializeSpinner() {
+
+        Spinner fromSpinner = (Spinner) findViewById(R.id.currency_from_spinner);
+        ArrayAdapter<String> fromAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new String[]{"Japanese Yen - JPY"});
+        fromAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        fromSpinner.setAdapter(fromAdapter);
+        fromSpinner.setOnItemSelectedListener(SpinnerListener);
+
+        Spinner toSpinner = (Spinner) findViewById(R.id.currency_to_spinner);
+        ArrayAdapter<String> toAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, name_array);
+        toAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        toSpinner.setAdapter(toAdapter);
+        toSpinner.setOnItemSelectedListener(SpinnerListener);
+
+    }
+
+    private void calculationResult() {
+
+
+        String temp = input.getText().toString();
+        float input_float = Float.valueOf(temp);
+
+        if (input_float == Math.round(input_float)) {
+            from_amount.setText(temp + ".00");
+        } else {
+            from_amount.setText(temp);
+        }
+        from_type.setText("JPY =");
+
+        float resultAmount = input_float * rate_array.get(current_position);
+        result.setText(String.valueOf(resultAmount) + currency_array.get(current_position).getShort_name());
+
+    }
+
+
+    private void getDataFromWebsite() throws InterruptedException {
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Document doc = null;
+                try {
+                    doc = Jsoup.connect(uri).timeout(5000).get();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                Elements content = doc.select("table.tablesorter.ratesTable");
+
+                Elements tbody = content.first().getElementsByTag("tbody");
+                Elements links = tbody.select("tr");
+                for (Element link : links) {
+                    //Element tempDiv = link.children().first();
+                    Element tempTr = link.select("td").first();
+                    String currency_name = tempTr.text();
+                    Log.d(TAG, "currency name :" + currency_name);
+                    Element tempSrc = link.select("td.rtRates").first().children().first();
+                    String currency_rate_string = tempSrc.text();
+                    float currency_rate = Float.valueOf(currency_rate_string);
+                    Log.d(TAG, "currency rate string :" + currency_rate_string);
+                    Currency info = new Currency(currency_name, currency_rate);
+                    currency_array.add(info);
+                }
+
+            }
+
+
+        });
+        thread.start();
+        thread.join();
+        // get name and rate array from the list get from website
+        getNameArrayFromList();
+        getRateArrayFromList();
+
+    }
+
+    private void getNameArrayFromList() {
+
+        for (int i = 0; i < currency_array.size(); i++) {
+            name_array.add(currency_array.get(i).getFull_name() + " - " + currency_array.get(i).getShort_name());
+        }
+        // only can initialize spinner here because it should wait for thread for getting data from website
+        InitializeSpinner();
+    }
+
+    private void getRateArrayFromList() {
+        for (int i = 0; i < currency_array.size(); i++) {
+            rate_array.add(currency_array.get(i).getExchange_rate());
+        }
+    }
+
+    protected View.OnClickListener buttonClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.currency_go_button:
+                    calculationResult();
+                    break;
+                case R.id.currency_reverse_button:
+
+                default:
+                    break;
+
+            }
+        }
+    };
+
+
+
+    // TODO: need check the valid input
+
+    protected EditText.OnKeyListener textviewKeyListener = new EditText.OnKeyListener() {
+        @Override
+        public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+            return false;
+        }
+
+    };
+
+
+    protected Spinner.OnItemSelectedListener SpinnerListener = new Spinner.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            current_position = position;
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+
+        }
+    };
 }

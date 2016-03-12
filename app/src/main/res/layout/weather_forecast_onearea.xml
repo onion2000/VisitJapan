@@ -40,19 +40,18 @@
             android:id="@+id/date"
             android:textSize="25dp"
             android:textStyle="bold"
-            android:layout_weight="0.50"
+            android:layout_weight="0.95"
             android:textIsSelectable="false" />
 
         <TextView
             android:layout_width="151dp"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:text="HK"
             android:id="@+id/location"
             android:textSize="30dp"
             android:gravity="center_vertical|center"
             android:textStyle="bold"
-            android:layout_marginLeft="50dp"
-            android:layout_weight="0.30" />
+            android:layout_marginLeft="50dp" />
     </LinearLayout>
 
     <ImageView

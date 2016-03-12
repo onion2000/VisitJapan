@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 
+import com.example.oniononion.comp4521project.Currency_converter.ConverterActivity;
 import com.example.oniononion.comp4521project.Weather_forecast.WeatherActivity;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
@@ -49,19 +50,19 @@ public class NavigationDrawerInstaller {
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        Intent intent;
                         switch (position) {
-                            case 1:
-
-                                break;
+                            case 1: break;
                             case 2:
 
                                 break;
                             case 3:
-
-                                Intent intent = new Intent(activity, WeatherActivity.class);
+                                intent = new Intent(activity, WeatherActivity.class);
                                 activity.startActivity(intent);
                                 break;
                             case 4:
+                                intent = new Intent(activity, ConverterActivity.class);
+                                activity.startActivity(intent);
                                 break;
                             case 5:
                                 break;
@@ -70,7 +71,7 @@ public class NavigationDrawerInstaller {
                             case 7:
                                 break;
                             case 8:
-                                break;
+                                 break;
 
                             default:
                                 break;

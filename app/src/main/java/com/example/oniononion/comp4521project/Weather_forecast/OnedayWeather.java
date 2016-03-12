@@ -61,7 +61,7 @@ public class OnedayWeather extends Activity {
         Button other_day_button = (Button)findViewById(R.id.other_day_button);
         other_day_button.setOnClickListener(buttonClickListener);
         // use thread to use the data from website, 1 is the current day
-        getDatafromWebsite(DateIndex, LocationIndex);
+        getDataFromWebsite(DateIndex, LocationIndex);
     }
 
     private void createDateList() {
@@ -75,7 +75,7 @@ public class OnedayWeather extends Activity {
         }
     }
 
-    private void getDatafromWebsite(final int DateIndex, final int LocIndex) {
+    private void getDataFromWebsite(final int DateIndex, final int LocIndex) {
 
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -175,7 +175,7 @@ public class OnedayWeather extends Activity {
             showDetails(LocationIndex);
         }else if(resultCode ==200){
             DateIndex = data.getExtras().getInt("dateIndex");
-            getDatafromWebsite(DateIndex,LocationIndex);
+            getDataFromWebsite(DateIndex,LocationIndex);
 
         }
     }

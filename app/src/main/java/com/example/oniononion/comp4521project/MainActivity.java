@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
+import com.example.oniononion.comp4521project.Currency_converter.ConverterActivity;
 import com.example.oniononion.comp4521project.Weather_forecast.WeatherActivity;
 import com.mikepenz.materialdrawer.Drawer;
 
@@ -33,15 +34,23 @@ public class MainActivity extends AppCompatActivity {
     protected View.OnClickListener buttonClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            Intent intent;
             switch (v.getId()) {
                 case R.id.translation:
 
                     break;
                 case R.id.weather_forecast:
-                    Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
+                    intent = new Intent(MainActivity.this, WeatherActivity.class);
                     startActivity(intent);
                     break;
                 case R.id.rate_exchange:
+                    intent = new Intent(MainActivity.this, ConverterActivity.class);
+                    startActivity(intent);
+                    break;
+
+                case R.id.exit:
+                finish();
+                System.exit(0);
                     break;
                 default:
                     break;
