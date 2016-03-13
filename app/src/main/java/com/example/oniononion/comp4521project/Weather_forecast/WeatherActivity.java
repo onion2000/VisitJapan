@@ -4,14 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.oniononion.comp4521project.MainActivity;
 import com.example.oniononion.comp4521project.NavigationDrawerInstaller;
 import com.example.oniononion.comp4521project.R;
-import com.telerik.android.primitives.widget.sidedrawer.RadSideDrawer;
-import com.telerik.widget.list.RadListView;
 
 
 /**

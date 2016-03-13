@@ -52,14 +52,6 @@
         android:layout_weight="0.05"
         android:spinnerMode="dropdown" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reverse"
-        android:id="@+id/currency_reverse_button"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.05" />
-
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -101,6 +93,14 @@
             android:layout_weight="0.47"
             android:gravity="center"
             android:textSize="40dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reverse"
+            android:id="@+id/currency_reverse_button"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.05" />
     </LinearLayout>
 
 </LinearLayout>

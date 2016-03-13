@@ -14,6 +14,11 @@ import com.mikepenz.materialdrawer.Drawer;
 
 
 public class MainActivity extends AppCompatActivity {
+    //TODO: change all the id to the String.xml in the res file
+    //TODO: all the file name must be consistency
+    //TODO: delete all the unnecessary things
+    //TODO: write comment
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

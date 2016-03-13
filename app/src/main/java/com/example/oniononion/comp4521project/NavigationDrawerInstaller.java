@@ -2,8 +2,6 @@ package com.example.oniononion.comp4521project;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.view.View;
 
 import com.example.oniononion.comp4521project.Currency_converter.ConverterActivity;
@@ -12,7 +10,6 @@ import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
-import com.mikepenz.materialdrawer.holder.BadgeStyle;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
@@ -34,7 +31,6 @@ public class NavigationDrawerInstaller {
         SecondaryDrawerItem item6 = new SecondaryDrawerItem().withName("Tourist Information").withIcon(FontAwesome.Icon.faw_hospital_o);
         SecondaryDrawerItem item7 = new SecondaryDrawerItem().withName("Japanese Vocabulary").withIcon(FontAwesome.Icon.faw_font);
         SecondaryDrawerItem item8 = new SecondaryDrawerItem().withName("Travel Information").withIcon(FontAwesome.Icon.faw_subway);
-
 
         Drawer result = new DrawerBuilder()
                 .withActivity(activity)
@@ -84,8 +80,6 @@ public class NavigationDrawerInstaller {
                 })
                 .withShowDrawerOnFirstLaunch(true)
                 .build();
-
-
         result.setSelection(-1);
         return result;
 
