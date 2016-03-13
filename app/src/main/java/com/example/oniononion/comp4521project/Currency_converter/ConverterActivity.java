@@ -21,11 +21,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by oniononion on 11/3/2016.
@@ -238,7 +235,6 @@ public class ConverterActivity extends Activity {
                         reversed=false;
                         calculationResult();
                     }
-
                     break;
                 default:
                     break;
@@ -247,14 +243,11 @@ public class ConverterActivity extends Activity {
         }
     };
 
-
-
     protected Spinner.OnItemSelectedListener SpinnerListener = new Spinner.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             current_position = position;
         }
-
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
 
