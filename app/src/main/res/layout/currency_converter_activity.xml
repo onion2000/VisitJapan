@@ -29,7 +29,7 @@
             android:layout_below="@+id/textView1"
             android:layout_marginTop="61dp"
             android:ems="10"
-            android:text="1000" android:inputType="text"
+            android:text="1" android:inputType="text"
             android:layout_gravity="left"
             android:layout_weight="0.77"
             android:paddingLeft="20dp"
@@ -71,7 +71,7 @@
         <TextView
             android:layout_width="93dp"
             android:layout_height="wrap_content"
-            android:text="1.00(ex)"
+            android:text="1.00"
             android:id="@+id/currency_from_amout_textview"
             android:textSize="20dp"
             android:layout_gravity="left" />
@@ -79,7 +79,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
+            android:text="JPY ="
             android:id="@+id/currency_from_type_textview"
             android:textSize="20dp" />
 
@@ -87,7 +87,7 @@
             android:layout_width="378dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="0.0078(Ex)"
+            android:text="0.068181 HKD"
             android:id="@+id/currency_result_textview"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.47"

@@ -1,10 +1,8 @@
 package com.example.oniononion.comp4521project.Currency_converter;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,11 +13,7 @@ import android.widget.TextView;
 
 import com.example.oniononion.comp4521project.NavigationDrawerInstaller;
 import com.example.oniononion.comp4521project.Object.Currency;
-import com.example.oniononion.comp4521project.Object.IntentHelper;
-import com.example.oniononion.comp4521project.Object.WeatherInfo;
 import com.example.oniononion.comp4521project.R;
-import com.example.oniononion.comp4521project.Weather_forecast.DateListViewActivity;
-import com.example.oniononion.comp4521project.Weather_forecast.LocationListViewActivity;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -27,6 +21,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -48,7 +43,8 @@ public class ConverterActivity extends Activity {
     TextView from_amount;
     TextView from_type;
     TextView result;
-    private int current_position = 0;
+    private int current_position = 15;
+    private boolean reversed= false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +58,7 @@ public class ConverterActivity extends Activity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-// TODO: set the initialize the type of from and to currency
         input = (EditText) findViewById(R.id.currency_edittext);
-        input.setOnKeyListener(textviewKeyListener);
 
         Button go = (Button) findViewById(R.id.currency_go_button);
         go.setOnClickListener(buttonClickListener);
@@ -75,7 +69,7 @@ public class ConverterActivity extends Activity {
         from_type = (TextView) findViewById(R.id.currency_from_type_textview);
         result = (TextView) findViewById(R.id.currency_result_textview);
 
-
+        calculationResult();
     }
 
     private void calculationResult() {
@@ -95,10 +89,31 @@ public class ConverterActivity extends Activity {
         from_type.setText("JPY =");
 
         float resultAmount = input_float * rate_array.get(current_position);
-        result.setText(String.valueOf(resultAmount) + currency_array.get(current_position).getShort_name());
+        result.setText(String.valueOf(resultAmount) + " "+ currency_array.get(current_position).getShort_name());
+    }
+
+    private void reverse_calculationResult() {
+        String temp = input.getText().toString();
+        float input_float;
+        if(isNumeric(temp)&&(!temp.isEmpty())){
+            input_float = Float.valueOf(temp);
+            if (input_float == Math.round(input_float)) {
+                from_amount.setText(temp + ".00");
+            } else {
+                from_amount.setText(temp);
+            }
+        }else{
+            input_float = 1;
+            from_amount.setText("1.00");
+        }
+        from_type.setText( currency_array.get(current_position).getShort_name() +" = ");
+
+        float resultAmount = input_float * (1/rate_array.get(current_position));
+        result.setText(String.valueOf(resultAmount) + " JPY");
     }
 
     public static boolean isNumeric(String str) {
+        // check the string is valid input or not
         int dotCount=0;
         for (char c : str.toCharArray()) {
             if (!Character.isDigit(c)) {
@@ -166,6 +181,7 @@ public class ConverterActivity extends Activity {
         }
     }
     private void makeHashMap() {
+        //import the string into hashmap
         String short_name[] = {"ARS","AUD","BHD","BWP","BRL","GBP","BND","BGN","CAD","CLP","CNY","COP","HRK","CZK","DKK","AED","EUR","HKD","HUF","ISK","INR","IDR","IRR","ILS","KZT","KWD","EUR","LYD","EUR","MYR","MUR","MXN","NRP","NZD","NOK","OMR","PKR","PHP","PLN","QAR","RON","RUB","SAR","SGD","ZAR","KRW","LKR","SEK","CHF","TWD","THB","TTD","TRY","USD","VEF"};
         String long_name[] = {"Argentine Peso","Australian Dollar","Bahraini Dinar","Botswana Pula","Brazilian Real","British Pound","Bruneian Dollar","Bulgarian Lev","Canadian Dollar","Chilean Peso","Chinese Yuan Renminbi","Colombian Peso","Croatian Kuna","Czech Koruna","Danish Krone","Emirati Dirham","Euro","Hong Kong Dollar","Hungarian Forint","Icelandic Krona","Indian Rupee","Indonesian Rupiah","Iranian Rial","Israeli Shekel","Kazakhstani Tenge","Kuwaiti Dinar","Latvian Lat","Libyan Dinar","Lithuanian Litas","Malaysian Ringgit","Mauritian Rupee","Mexican Peso","Nepalese Rupee","New Zealand Dollar","Norwegian Krone","Omani Rial","Pakistani Rupee","Philippine Peso","Polish Zloty","Qatari Riyal","Romanian New Leu","Russian Ruble","Saudi Arabian Riyal","Singapore Dollar","South African Rand","South Korean Won","Sri Lankan Rupee","Swedish Krona","Swiss Franc","Taiwan New Dollar","Thai Baht","Trinidadian Dollar","Turkish Lira","US Dollar","Venezuelan Bolivar"};
         for(int i=0; i< long_name.length ;i++) {
@@ -190,12 +206,12 @@ public class ConverterActivity extends Activity {
         fromSpinner.setAdapter(fromAdapter);
         fromSpinner.setOnItemSelectedListener(SpinnerListener);
 
-        ArrayList<String> array = merged_name_array();
+        ArrayList<String> array = merged_name_array(); // get the merger name array by adding the full name and short name
         Spinner toSpinner = (Spinner) findViewById(R.id.currency_to_spinner);
         ArrayAdapter<String> toAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, array);
         toAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         toSpinner.setAdapter(toAdapter);
-        toSpinner.setSelection(15);
+        toSpinner.setSelection(15);  // set the default currency to HKD
         toSpinner.setOnItemSelectedListener(SpinnerListener);
     }
 
@@ -211,11 +227,19 @@ public class ConverterActivity extends Activity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.currency_go_button:
-
+                    reversed=false;
                     calculationResult();
                     break;
                 case R.id.currency_reverse_button:
-// TODO: reverse_button
+                    if(!reversed){
+                        reversed=true;
+                        reverse_calculationResult();
+                    }else{
+                        reversed=false;
+                        calculationResult();
+                    }
+
+                    break;
                 default:
                     break;
 
@@ -223,18 +247,6 @@ public class ConverterActivity extends Activity {
         }
     };
 
-
-
-    // TODO: need check the valid input
-
-    protected EditText.OnKeyListener textviewKeyListener = new EditText.OnKeyListener() {
-        @Override
-        public boolean onKey(View v, int keyCode, KeyEvent event) {
-
-            return false;
-        }
-
-    };
 
 
     protected Spinner.OnItemSelectedListener SpinnerListener = new Spinner.OnItemSelectedListener() {
