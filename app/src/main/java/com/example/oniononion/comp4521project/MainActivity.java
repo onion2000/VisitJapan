@@ -9,6 +9,7 @@ import android.view.Window;
 import android.widget.Button;
 
 import com.example.oniononion.comp4521project.Currency_converter.ConverterActivity;
+import com.example.oniononion.comp4521project.Travel_information.TravelActivity;
 import com.example.oniononion.comp4521project.Weather_forecast.WeatherActivity;
 import com.mikepenz.materialdrawer.Drawer;
 
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         weather_forecast.setOnClickListener(buttonClickListener);
         Button rate_exchange = (Button) findViewById(R.id.rate_exchange);
         rate_exchange.setOnClickListener(buttonClickListener);
+        Button travel_info = (Button) findViewById(R.id.travel_info);
+        travel_info.setOnClickListener(buttonClickListener);
 
 
     }
@@ -50,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.rate_exchange:
                     intent = new Intent(MainActivity.this, ConverterActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.travel_info:
+                    intent = new Intent(MainActivity.this, TravelActivity.class);
                     startActivity(intent);
                     break;
 

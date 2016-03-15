@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.example.oniononion.comp4521project.Currency_converter.ConverterActivity;
+import com.example.oniononion.comp4521project.Travel_information.TravelActivity;
 import com.example.oniononion.comp4521project.Weather_forecast.WeatherActivity;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
@@ -67,6 +68,8 @@ public class NavigationDrawerInstaller {
                             case 7:
                                 break;
                             case 8:
+                                intent = new Intent(activity, TravelActivity.class);
+                                activity.startActivity(intent);
                                  break;
 
                             default:
