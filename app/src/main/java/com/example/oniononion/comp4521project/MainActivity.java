@@ -1,6 +1,7 @@
 package com.example.oniononion.comp4521project;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,11 +18,13 @@ import com.example.oniononion.comp4521project.Weather_forecast.WeatherActivity;
 
 
 public class MainActivity extends AppCompatActivity {
+   // private static Dialog InternetAlertDialog;
     //TODO: change all the id to the String.xml in the res file
     //TODO: all the file name must be consistency
     //TODO: delete all the unnecessary things
     //TODO: write comment
-    AlertDialog.Builder InternetAlertDialog;
+   private static AlertDialog.Builder InternetAlertDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Intent intent;
-            if(isOnline()) {
+            if(isOnline(getApplicationContext())) {
 
                 switch (v.getId()) {
                     case R.id.translation:
@@ -74,26 +77,31 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }else{
-                InternetAlertDialog.setTitle("No connection");
-                DialogInterface.OnClickListener closeButton = new DialogInterface.OnClickListener()
-                {
-                    public void onClick(DialogInterface dialog, int which) {
-                        //
-                    }
-                };
-                InternetAlertDialog.setPositiveButton("Close",closeButton );
-                InternetAlertDialog.show();
+
+                showInternetDialog();
             }
 
     }
 
     };
 
+    public static void showInternetDialog() {
+        InternetAlertDialog.setTitle("No connection");
+        DialogInterface.OnClickListener closeButton = new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog, int which) {
+                //
+            }
+        };
+        InternetAlertDialog.setPositiveButton("Close",closeButton );
+        InternetAlertDialog.show();
+    }
 
-    public boolean isOnline() {
+
+    public static boolean isOnline( Context c) {
         // check the devices network connectivity
         ConnectivityManager cm =
-                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                (ConnectivityManager) c.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnectedOrConnecting();
     }

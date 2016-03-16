@@ -26,7 +26,7 @@ public class TravelWebViewActivity extends Activity {
 
         travelWebView.getSettings().setJavaScriptEnabled(true);    // the website are using javascript
         travelWebView.getSettings().setLoadWithOverviewMode(true);
-        travelWebView.getSettings().setUseWideViewPort(true);   // load the webview completely zoomed out
+        //travelWebView.getSettings().setUseWideViewPort(true);   // load the webview completely zoomed out
         travelWebView.loadUrl(url);
     }
 

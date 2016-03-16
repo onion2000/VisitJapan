@@ -1,7 +1,12 @@
 package com.example.oniononion.comp4521project;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.view.View;
 
 import com.example.oniononion.comp4521project.Currency_converter.ConverterActivity;
@@ -16,13 +21,14 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
+import static com.example.oniononion.comp4521project.MainActivity.isOnline;
+
 /**
  * Created by oniononion on 12/3/2016.
  */
 public class NavigationDrawerInstaller {
+        public static Drawer installOnActivity(Activity act) {
 
-
-    public static Drawer installOnActivity(Activity act) {
         final Activity activity= act;
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withName("Function Menu").withTextColorRes(R.color.material_drawer_primary_dark);
         SecondaryDrawerItem item2 = new SecondaryDrawerItem().withName("Translation").withIcon(GoogleMaterial.Icon.gmd_translate);
@@ -48,33 +54,38 @@ public class NavigationDrawerInstaller {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         Intent intent;
-                        switch (position) {
-                            case 1: break;
-                            case 2:
+                        if(isOnline(activity.getApplicationContext())) {
+                            switch (position) {
+                                case 1:
+                                    break;
+                                case 2:
 
-                                break;
-                            case 3:
-                                intent = new Intent(activity, WeatherActivity.class);
-                                activity.startActivity(intent);
-                                break;
-                            case 4:
-                                intent = new Intent(activity, ConverterActivity.class);
-                                activity.startActivity(intent);
-                                break;
-                            case 5:
-                                break;
-                            case 6:
-                                break;
-                            case 7:
-                                break;
-                            case 8:
-                                intent = new Intent(activity, TravelActivity.class);
-                                activity.startActivity(intent);
-                                 break;
+                                    break;
+                                case 3:
+                                    intent = new Intent(activity, WeatherActivity.class);
+                                    activity.startActivity(intent);
+                                    break;
+                                case 4:
+                                    intent = new Intent(activity, ConverterActivity.class);
+                                    activity.startActivity(intent);
+                                    break;
+                                case 5:
+                                    break;
+                                case 6:
+                                    break;
+                                case 7:
+                                    break;
+                                case 8:
+                                    intent = new Intent(activity, TravelActivity.class);
+                                    activity.startActivity(intent);
+                                    break;
 
-                            default:
-                                break;
+                                default:
+                                    break;
 
+                            }
+                        }else{
+                            MainActivity.showInternetDialog();
                         }
                         return true;
                     }
@@ -87,5 +98,7 @@ public class NavigationDrawerInstaller {
         return result;
 
     }
+
+
 
 }
