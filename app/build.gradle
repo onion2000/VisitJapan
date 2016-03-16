@@ -29,7 +29,7 @@ repositories {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:appcompat-v7:23.2.1'
     compile(name: 'List-2016.1.113-trial-release', ext: 'aar')
     compile(name: 'Data-2016.1.113-trial-release', ext: 'aar')
     compile(name: 'Common-2016.1.113-trial-release', ext: 'aar')

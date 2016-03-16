@@ -1,17 +1,19 @@
 package com.example.oniononion.comp4521project;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 
 import com.example.oniononion.comp4521project.Currency_converter.ConverterActivity;
 import com.example.oniononion.comp4521project.Travel_information.TravelActivity;
 import com.example.oniononion.comp4521project.Weather_forecast.WeatherActivity;
-import com.mikepenz.materialdrawer.Drawer;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -19,13 +21,14 @@ public class MainActivity extends AppCompatActivity {
     //TODO: all the file name must be consistency
     //TODO: delete all the unnecessary things
     //TODO: write comment
-
+    AlertDialog.Builder InternetAlertDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         NavigationDrawerInstaller.installOnActivity(this);
+        InternetAlertDialog = new AlertDialog.Builder(this);
 
         Button translation = (Button) findViewById(R.id.translation);
         translation.setOnClickListener(buttonClickListener);
@@ -43,34 +46,55 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Intent intent;
-            switch (v.getId()) {
-                case R.id.translation:
+            if(isOnline()) {
 
-                    break;
-                case R.id.weather_forecast:
-                    intent = new Intent(MainActivity.this, WeatherActivity.class);
-                    startActivity(intent);
-                    break;
-                case R.id.rate_exchange:
-                    intent = new Intent(MainActivity.this, ConverterActivity.class);
-                    startActivity(intent);
-                    break;
-                case R.id.travel_info:
-                    intent = new Intent(MainActivity.this, TravelActivity.class);
-                    startActivity(intent);
-                    break;
+                switch (v.getId()) {
+                    case R.id.translation:
 
-                case R.id.exit:
-                finish();
-                System.exit(0);
-                    break;
-                default:
-                    break;
+                        break;
+                    case R.id.weather_forecast:
+                        intent = new Intent(MainActivity.this, WeatherActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.rate_exchange:
+                        intent = new Intent(MainActivity.this, ConverterActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.travel_info:
+                        intent = new Intent(MainActivity.this, TravelActivity.class);
+                        startActivity(intent);
+                        break;
 
+                    case R.id.exit:
+                        finish();
+                        System.exit(0);
+                        break;
+                    default:
+                        break;
+
+                }
+            }else{
+                InternetAlertDialog.setTitle("No connection");
+                DialogInterface.OnClickListener closeButton = new DialogInterface.OnClickListener()
+                {
+                    public void onClick(DialogInterface dialog, int which) {
+                        //
+                    }
+                };
+                InternetAlertDialog.setPositiveButton("Close",closeButton );
+                InternetAlertDialog.show();
             }
 
     }
 
     };
 
+
+    public boolean isOnline() {
+        // check the devices network connectivity
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
+    }
 }
