@@ -12,8 +12,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TimePicker;
 
 import com.example.oniononion.comp4521project.NavigationDrawerInstaller;
@@ -27,9 +31,19 @@ import java.util.Calendar;
  */
 public class TravelActivity extends AppCompatActivity {
     private static final String TAG = TravelActivity.class.getSimpleName();
-    private String result="http://www.hyperdia.com/en/cgi/en/search.html?dep_node=TOKYO&arv_node=NAGOYA&via_node01=&via_node02=&via_node03=&year=2016&month=03&day=15&hour=23&minute=00&search_type=0&search_way=&transtime=undefined&sort=0&max_route=5&faretype=0&ship=off&lmlimit=null&search_target=route&facility=reserved&sum_target=7";
-    private TimePicker timePicker;
+    private String result="http://www.hyperdia.com/en";
     private Calendar calendar;
+    private static int selectedYear, selectedMonth, selectedday, selectedHour, selectedMins;
+    EditText fromEditText;
+    EditText toEditText;
+    Spinner searchTypeSpinner;
+    Spinner fareTypeSpinner;
+    static Button timePicker;
+    static Button datePicker;
+    private static boolean dateChanged= false;
+    private static boolean timeChanged= false;
+    final Calendar c = Calendar.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,26 +55,72 @@ public class TravelActivity extends AppCompatActivity {
         Button travelButton =(Button)findViewById(R.id.travel_button);
 
         calendar = Calendar.getInstance();
-        Button timePicker =(Button)findViewById(R.id.time_picker_button);
-        Button datePicker =(Button)findViewById(R.id.date_picker_button);
+        timePicker =(Button)findViewById(R.id.time_picker_button);
+        datePicker =(Button)findViewById(R.id.date_picker_button);
+
+
+
+        searchTypeSpinner = (Spinner) findViewById(R.id.search_type_spinner);
+        ArrayAdapter<String> searchTypeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new String[]{"departure", "arrival", "average"});
+        searchTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        searchTypeSpinner.setAdapter(searchTypeAdapter);
+
+        fareTypeSpinner = (Spinner) findViewById(R.id.fare_type_spinner);
+        ArrayAdapter<String> fareTypeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new String[]{"ticket", "IC"});
+        fareTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        fareTypeSpinner.setAdapter(fareTypeAdapter);
+
+        // TODO: check valid input
+        fromEditText= (EditText)findViewById(R.id.from_edittext);
+        toEditText =(EditText)findViewById(R.id.to_edittext);
+
+        selectedHour =  c.get(Calendar.HOUR_OF_DAY);
+        selectedMins = c.get(Calendar.MINUTE);
+        selectedYear = c.get(Calendar.YEAR);
+        selectedMonth = c.get(Calendar.MONTH)+1;
+        selectedday = c.get(Calendar.DAY_OF_MONTH);
 
         if(timePicker!=null && datePicker!=null && travelButton!=null) {
-            timePicker.setText("Click here to change the Time" + "\n" + "The time now is" +
-                    calendar.get(Calendar.HOUR) + ":" + calendar.get(Calendar.MINUTE));
+            timePicker.setText("Time:" + calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE));
 
-            datePicker.setText(calendar.get(Calendar.YEAR) + "\n" + calendar.get(Calendar.MONTH) + "\n" + calendar.get(Calendar.DAY_OF_MONTH));
+            datePicker.setText("Date:" + calendar.get(Calendar.YEAR) + "-"+ (calendar.get(Calendar.MONTH)+1) +  "-"+ calendar.get(Calendar.DAY_OF_MONTH));
 
 
             travelButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(TravelActivity.this, TravelWebViewActivity.class);
+                    result = produce_url();
                     intent.putExtra("url", result);
                     startActivity(intent);
                 }
             });
 
         }
+    }
+
+    private String produce_url() {
+
+        String Month, Day, Hour,Mins;
+        Month = (selectedMonth< 10) ? ( "0"+ String.valueOf(selectedMonth) ) : String.valueOf(selectedMonth);
+        Day = (selectedday<10)? ( "0"+ String.valueOf(selectedday) ) : String.valueOf(selectedday);
+        Hour =  (selectedHour<10)? ( "0"+ String.valueOf(selectedHour) ) : String.valueOf(selectedHour);
+        if(selectedHour==0) Hour ="00";
+        Mins =  (selectedMins<10)? ( "0"+ String.valueOf(selectedMins) ) : String.valueOf(selectedMins);
+        if(selectedMins==0) Mins ="00";
+
+
+        String result= "http://www.hyperdia.com/en/cgi/en/search.html?dep_node=" + fromEditText.getText().toString()
+                        + "&arv_node=" + toEditText.getText().toString()
+                        + "&via_node01=&via_node02=&via_node03=&year=" + String.valueOf(selectedYear)
+                        + "&month=" + Month
+                        + "&day=" + Day
+                        + "&hour=" + Hour
+                        + "&minute=" + Mins
+                        + "&search_type=" +searchTypeSpinner.getSelectedItem()
+                        + "&search_way=&transtime=undefined&sort=0&max_route=5&faretype=" + fareTypeSpinner.getSelectedItem()
+                        + "&ship=off&lmlimit=null&search_target=route&facility=reserved&sum_target=7";
+        return result;
     }
 
     public void showTimePickerDialog(View v) {
@@ -80,17 +140,21 @@ public class TravelActivity extends AppCompatActivity {
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             // Use the current time as the default values for the picker
             final Calendar c = Calendar.getInstance();
-            int hour = c.get(Calendar.HOUR_OF_DAY);
-            int minute = c.get(Calendar.MINUTE);
-
+            if(!timeChanged) {
+                selectedHour = c.get(Calendar.HOUR_OF_DAY);
+                selectedMins = c.get(Calendar.MINUTE);
+            }
             // Create a new instance of TimePickerDialog and return it
-            return new TimePickerDialog(getActivity(), this, hour, minute,
+            return new TimePickerDialog(getActivity(), this, selectedHour, selectedMins,
                     DateFormat.is24HourFormat(getActivity()));
         }
 
         @Override
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            // Do something with the time chosen by the user
+            timeChanged = true;
+            selectedHour=hourOfDay;
+            selectedMins=minute;
+            timePicker.setText("Time:" + selectedHour + ":" +selectedMins);
         }
     }
 
@@ -100,19 +164,27 @@ public class TravelActivity extends AppCompatActivity {
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             // Use the current time as the default values for the picker
-            final Calendar c = Calendar.getInstance();
-            int year = c.get(Calendar.YEAR);
-            int monthOfYear = c.get(Calendar.MONTH);
-            int dayOfMonth = c.get(Calendar.DAY_OF_MONTH);
 
+            final Calendar c = Calendar.getInstance();
+            if(!dateChanged) {
+                selectedYear = c.get(Calendar.YEAR);
+                selectedMonth = c.get(Calendar.MONTH)+1;
+                selectedday = c.get(Calendar.DAY_OF_MONTH);
+            }
             // Create a new instance of DatePickerDialog and return it
-            return new DatePickerDialog(getActivity(), this, year, monthOfYear,dayOfMonth);
+            return new DatePickerDialog(getActivity(), this, selectedYear, selectedMonth-1,selectedday);
         }
 
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            // Do something with the time chosen by the user
+            dateChanged=true;
+            selectedYear=year;
+            selectedMonth=monthOfYear+1;
+            selectedday=dayOfMonth;
+            datePicker.setText("Date:" + selectedYear  + "-"+ selectedMonth+  "-"+ selectedday);
+
         }
     }
+
 
 }

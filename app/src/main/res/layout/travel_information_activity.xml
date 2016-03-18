@@ -10,6 +10,19 @@
         layout="@layout/toolbar"
         android:id="@+id/include" />
 
+    <EditText
+        android:id="@+id/from_edittext"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:ems="10"
+        android:text="TOKYO"
+        android:inputType="text"
+        android:layout_gravity="left"
+        android:layout_below="@+id/from_textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/to_edittext"
+        android:layout_toLeftOf="@+id/to_edittext" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,47 +30,116 @@
         android:onClick="showTimePickerDialog"
         android:id="@+id/time_picker_button"
         android:height="100dp"
-        android:lines="2"
-        android:layout_above="@+id/date_picker_button"
+        android:textSize="30dp"
+        android:layout_below="@+id/date_picker_button"
+        android:layout_alignRight="@+id/to_edittext"
+        android:layout_alignEnd="@+id/to_edittext"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Open Date Picker"
+        android:text="@string/date_picker"
         android:onClick="showDatePickerDialog"
         android:id="@+id/date_picker_button"
         android:height="100dp"
-        android:lines="3"
-        android:layout_centerVertical="true"
+        android:textSize="30dp"
+        android:layout_below="@+id/from_edittext"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="GO"
         android:id="@+id/travel_button"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/date_picker_button"
-        android:layout_toEndOf="@+id/date_picker_button" />
+        android:layout_above="@+id/provide_text_view"
+        android:layout_centerHorizontal="true" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/search_type_spinner"
         android:spinnerMode="dropdown"
-        android:layout_below="@+id/date_picker_button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/time_picker_button"
+        android:layout_toEndOf="@+id/search_type_textview"
+        android:layout_toRightOf="@+id/search_type_textview" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/fare_type_spinner"
         android:spinnerMode="dropdown"
-        android:layout_above="@+id/travel_button"
+        android:layout_below="@+id/search_type_spinner"
+        android:layout_alignLeft="@+id/search_type_spinner"
+        android:layout_alignStart="@+id/search_type_spinner"
+        android:layout_alignBottom="@+id/fare_type_textview" />
+
+    <EditText
+        android:id="@+id/to_edittext"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:ems="10"
+        android:text="NAGOYA"
+        android:inputType="text"
+        android:layout_gravity="right"
+        android:layout_above="@+id/date_picker_button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/to_text_view"
+        android:layout_alignStart="@+id/to_text_view" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="From:"
+        android:id="@+id/from_textView"
+        android:layout_below="@+id/include"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="To :"
+        android:id="@+id/to_text_view"
+        android:textSize="20dp"
+        android:layout_below="@+id/include"
+        android:layout_alignRight="@+id/travel_button"
+        android:layout_alignEnd="@+id/travel_button"
+        android:layout_above="@+id/to_edittext" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search Type:"
+        android:id="@+id/search_type_textview"
+        android:layout_alignTop="@+id/search_type_spinner"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fare Type:"
+        android:id="@+id/fare_type_textview"
+        android:textSize="20dp"
+        android:layout_below="@+id/search_type_spinner"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Provided by Hyperdia"
+        android:id="@+id/provide_text_view"
+        android:textSize="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/fare_type_textview"
+        android:layout_toEndOf="@+id/fare_type_textview" />
 
 </RelativeLayout>
