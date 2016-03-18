@@ -33,15 +33,16 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:layout_width="116dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="xx/xx"
-        android:id="@+id/temperature"
+        android:text="XX"
+        android:id="@+id/highest_temp"
         android:layout_gravity="center_horizontal"
         android:textSize="30dp"
-        android:gravity="center"
+        android:gravity="center|right"
         android:layout_below="@+id/weather_image"
-        android:layout_centerHorizontal="true" />
+        android:layout_toLeftOf="@+id/decp5"
+        android:textColor="@color/highest_temp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -50,11 +51,12 @@
         android:id="@+id/decp1"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.03"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:gravity="right"
         android:layout_alignTop="@+id/decp3"
         android:layout_toLeftOf="@+id/decp4"
-        android:layout_toStartOf="@+id/decp4" />
+        android:layout_toStartOf="@+id/decp4"
+        android:textColor="@color/highest_temp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -65,28 +67,29 @@
         android:allowUndo="false"
         android:autoText="false"
         android:gravity="center_horizontal"
+        android:textColor="@color/prob_precipitation"
         android:layout_below="@+id/decp1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignRight="@+id/location"
+        android:layout_alignEnd="@+id/location" />
 
     <TextView
         android:layout_width="151dp"
         android:layout_height="45dp"
-        android:text="HK"
+        android:text="Sapporo"
         android:id="@+id/location"
         android:textSize="30dp"
-        android:gravity="center_vertical|center"
+        android:gravity="center|center_vertical"
         android:textStyle="bold"
         android:layout_below="@+id/other_location_button"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/other_location_button"
-        android:layout_alignStart="@+id/other_location_button" />
+        android:layout_toRightOf="@+id/decp5"
+        android:layout_toEndOf="@+id/decp5" />
 
     <TextView
         android:layout_width="91dp"
         android:layout_height="match_parent"
-        android:text="ABC DEF-5"
+        android:text="Mar-23 Wed"
         android:id="@+id/date"
         android:textSize="25dp"
         android:textStyle="bold"
@@ -96,8 +99,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignBottom="@+id/location"
-        android:layout_toLeftOf="@+id/prob_rain"
-        android:layout_toStartOf="@+id/prob_rain" />
+        android:layout_toStartOf="@+id/decp4"
+        android:gravity="center|center_vertical"
+        android:layout_toLeftOf="@+id/decp4" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -108,7 +112,8 @@
         android:layout_weight="0.03"
         android:textSize="30dp"
         android:gravity="center"
-        android:layout_below="@+id/temperature"
+        android:textColor="@color/prob_precipitation"
+        android:layout_below="@+id/highest_temp"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -119,8 +124,9 @@
         android:layout_above="@+id/location"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/date"
-        android:layout_alignEnd="@+id/date" />
+        android:gravity="center"
+        android:layout_toLeftOf="@+id/prob_rain"
+        android:layout_toStartOf="@+id/prob_rain" />
 
     <Button
         android:layout_width="fill_parent"
@@ -132,7 +138,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/prob_rain"
-        android:layout_toEndOf="@+id/prob_rain" />
+        android:layout_toEndOf="@+id/prob_rain"
+        android:gravity="center" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -147,18 +154,43 @@
         android:layout_height="wrap_content"
         android:text="Lowest Temp"
         android:id="@+id/decp3"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_below="@+id/prob_rain"
         android:layout_toRightOf="@+id/decp4"
-        android:layout_toEndOf="@+id/decp4" />
+        android:layout_toEndOf="@+id/decp4"
+        android:textColor="@color/lowest_temp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="/"
         android:id="@+id/decp4"
-        android:layout_above="@+id/decp2"
+        android:textSize="15dp"
+        android:gravity="center"
+        android:layout_alignBottom="@+id/decp3"
         android:layout_centerHorizontal="true"
-        android:textSize="20dp" />
+        android:textColor="@color/material_drawer_primary_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:id="@+id/decp5"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:layout_alignTop="@+id/highest_temp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XX"
+        android:id="@+id/lowest_temp"
+        android:gravity="center|left"
+        android:textSize="30dp"
+        android:layout_above="@+id/prob_rain"
+        android:layout_toRightOf="@+id/decp5"
+        android:layout_toEndOf="@+id/decp5"
+        android:textColor="@color/lowest_temp"/>
 
 </RelativeLayout>

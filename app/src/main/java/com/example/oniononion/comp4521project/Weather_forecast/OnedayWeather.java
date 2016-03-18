@@ -1,6 +1,5 @@
 package com.example.oniononion.comp4521project.Weather_forecast;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,7 +8,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,7 +18,6 @@ import com.example.oniononion.comp4521project.Object.WeatherInfo;
 import com.example.oniononion.comp4521project.R;
 import com.example.oniononion.comp4521project.ToolbarInstaller;
 import com.mikepenz.materialdrawer.Drawer;
-import com.telerik.android.primitives.widget.sidedrawer.RadSideDrawer;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -127,8 +124,10 @@ public class OnedayWeather extends AppCompatActivity {
             @Override
             public void run() {
                 WeatherInfo weatherInfo = array_info.get(index);
-                TextView temperature = (TextView) findViewById(R.id.temperature);
-                temperature.setText(weatherInfo.getHigh_temp() + "/" + weatherInfo.getLow_temp());
+                TextView highest_temp = (TextView) findViewById(R.id.highest_temp);
+                highest_temp.setText(weatherInfo.getHigh_temp());
+                TextView lowest_temp = (TextView) findViewById(R.id.lowest_temp);
+                lowest_temp.setText(weatherInfo.getLow_temp());
                 TextView prob_rain = (TextView) findViewById(R.id.prob_rain);
                 prob_rain.setText(weatherInfo.getProb_rain());
                 TextView location = (TextView) findViewById(R.id.location);

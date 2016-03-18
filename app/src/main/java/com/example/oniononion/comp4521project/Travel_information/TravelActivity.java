@@ -83,9 +83,9 @@ public class TravelActivity extends AppCompatActivity {
         selectedday = c.get(Calendar.DAY_OF_MONTH);
 
         if(timePicker!=null && datePicker!=null && travelButton!=null) {
-            timePicker.setText("Time:" + calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE));
 
-            datePicker.setText("Date:" + calendar.get(Calendar.YEAR) + "-"+ (calendar.get(Calendar.MONTH)+1) +  "-"+ calendar.get(Calendar.DAY_OF_MONTH));
+            setTime();
+            datePicker.setText("Date: " + calendar.get(Calendar.YEAR) + "-"+ (calendar.get(Calendar.MONTH)+1) +  "-"+ calendar.get(Calendar.DAY_OF_MONTH));
 
 
             travelButton.setOnClickListener(new View.OnClickListener() {
@@ -156,7 +156,7 @@ public class TravelActivity extends AppCompatActivity {
             timeChanged = true;
             selectedHour=hourOfDay;
             selectedMins=minute;
-            timePicker.setText("Time:" + selectedHour + ":" +selectedMins);
+            setTime();
         }
     }
 
@@ -183,10 +183,21 @@ public class TravelActivity extends AppCompatActivity {
             selectedYear=year;
             selectedMonth=monthOfYear+1;
             selectedday=dayOfMonth;
-            datePicker.setText("Date:" + selectedYear  + "-"+ selectedMonth+  "-"+ selectedday);
+            datePicker.setText("Date: " + selectedYear  + "-"+ selectedMonth+  "-"+ selectedday);
 
         }
     }
 
-
+    private static void setTime() {
+        if(selectedHour <10 && selectedMins <10){
+            timePicker.setText("Time: 0" + selectedHour + ":0" +selectedMins);
+        }else if(selectedHour <10 && selectedMins >10 )
+        {
+            timePicker.setText("Time: 0" + selectedHour + ":" +selectedMins);
+        }else if(selectedHour >10 && selectedMins <10){
+            timePicker.setText("Time: " + selectedHour + ":0" +selectedMins);
+        }else {
+            timePicker.setText("Time: " + selectedHour + ":" + selectedMins);
+        }
+    }
 }
