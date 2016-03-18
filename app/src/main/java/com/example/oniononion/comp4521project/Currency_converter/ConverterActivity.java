@@ -1,7 +1,7 @@
 package com.example.oniononion.comp4521project.Currency_converter;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,7 +13,9 @@ import android.widget.TextView;
 
 import com.example.oniononion.comp4521project.NavigationDrawerInstaller;
 import com.example.oniononion.comp4521project.Object.Currency;
+import com.example.oniononion.comp4521project.ToolbarInstaller;
 import com.example.oniononion.comp4521project.R;
+import com.mikepenz.materialdrawer.Drawer;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -28,7 +30,7 @@ import java.util.HashMap;
  * Created by oniononion on 11/3/2016.
  */
 
-public class ConverterActivity extends Activity {
+public class ConverterActivity extends AppCompatActivity {
     private static final String TAG = ConverterActivity.class.getSimpleName();
     private final String uri = "http://www.x-rates.com/table/?from=JPY&amount=1";
     private ArrayList<Currency> currency_array = new ArrayList<>();
@@ -40,6 +42,7 @@ public class ConverterActivity extends Activity {
     TextView from_amount;
     TextView from_type;
     TextView result;
+    Drawer drawerResult;
     private int current_position = 15;
     private boolean reversed= false;
 
@@ -48,13 +51,16 @@ public class ConverterActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.currency_converter_activity);
 
-        NavigationDrawerInstaller.installOnActivity(this);
+        drawerResult= NavigationDrawerInstaller.installOnActivity(this);
+        ToolbarInstaller.installOnActivity(this);
 
         try {
             getDataFromWebsite();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+
         input = (EditText) findViewById(R.id.currency_edittext);
 
         Button go = (Button) findViewById(R.id.currency_go_button);
@@ -253,4 +259,15 @@ public class ConverterActivity extends Activity {
 
         }
     };
+
+    @Override
+    public void onBackPressed() {
+        //handle the back press close the drawer first and if the drawer is closed close the activity
+        if (drawerResult != null && drawerResult.isDrawerOpen()) {
+            drawerResult.closeDrawer();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
 }

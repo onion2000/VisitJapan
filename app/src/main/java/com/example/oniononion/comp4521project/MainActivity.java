@@ -9,11 +9,13 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.oniononion.comp4521project.Currency_converter.ConverterActivity;
 import com.example.oniononion.comp4521project.Travel_information.TravelActivity;
+import com.example.oniononion.comp4521project.Weather_forecast.OnedayWeather;
 import com.example.oniononion.comp4521project.Weather_forecast.WeatherActivity;
 
 
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     //TODO: all the file name must be consistency
     //TODO: delete all the unnecessary things
     //TODO: write comment
+    // TODO: back button in drawer
+    // TODO: change dialog to notification
    private static AlertDialog.Builder InternetAlertDialog;
 
     @Override
@@ -32,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
         NavigationDrawerInstaller.installOnActivity(this);
         InternetAlertDialog = new AlertDialog.Builder(this);
+
+        ToolbarInstaller.installOnActivity(this);
+
 
         Button translation = (Button) findViewById(R.id.translation);
         translation.setOnClickListener(buttonClickListener);
@@ -56,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
                         break;
                     case R.id.weather_forecast:
-                        intent = new Intent(MainActivity.this, WeatherActivity.class);
+                        intent = new Intent(MainActivity.this, OnedayWeather.class);
                         startActivity(intent);
                         break;
                     case R.id.rate_exchange:

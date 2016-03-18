@@ -3,6 +3,8 @@ package com.example.oniononion.comp4521project.Weather_forecast;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
@@ -13,7 +15,9 @@ import com.example.oniononion.comp4521project.R;
 /**
  * Created by oniononion on 6/3/2016.
  */
-public class WeatherActivity extends Activity {
+
+//TODO:  not use this act anymore
+public class WeatherActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,9 @@ public class WeatherActivity extends Activity {
         setContentView(R.layout.weather_forecast_menu);
 
         NavigationDrawerInstaller.installOnActivity(this);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         Button translation = (Button) findViewById(R.id.future_weather_forecast);
         translation.setOnClickListener(buttonClickListener);

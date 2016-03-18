@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.example.oniononion.comp4521project.NavigationDrawerInstaller;
 import com.example.oniononion.comp4521project.Object.IntentHelper;
 import com.example.oniononion.comp4521project.Object.WeatherInfo;
 import com.example.oniononion.comp4521project.R;
+import com.example.oniononion.comp4521project.ToolbarInstaller;
 import com.mikepenz.materialdrawer.Drawer;
 import com.telerik.android.primitives.widget.sidedrawer.RadSideDrawer;
 
@@ -35,7 +37,7 @@ import java.util.Locale;
 /**
  * Created by oniononion on 6/3/2016.
  */
-public class OnedayWeather extends Activity {
+public class OnedayWeather extends AppCompatActivity {
     private static final String TAG = OnedayWeather.class.getSimpleName();
     private final String weather_image_url_prefix ="http://www.jnto.go.jp/weather" ;
     private final String uri = "http://www.jnto.go.jp/weather/eng/index.php?day=";
@@ -44,7 +46,7 @@ public class OnedayWeather extends Activity {
     private String[] dateList = new String[MaximumDay];
     private int DateIndex = 1;
     private int LocationIndex =0;
-    Drawer result;
+    Drawer drawerResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +57,8 @@ public class OnedayWeather extends Activity {
         Button other_location_button = (Button)findViewById(R.id.other_location_button);
         other_location_button.setOnClickListener(buttonClickListener);
 
-        result= NavigationDrawerInstaller.installOnActivity(this);
+        drawerResult= NavigationDrawerInstaller.installOnActivity(this);
+        ToolbarInstaller.installOnActivity(this);
         createDateList();
 
         Button other_day_button = (Button)findViewById(R.id.other_day_button);
@@ -182,8 +185,8 @@ public class OnedayWeather extends Activity {
     @Override
     public void onBackPressed() {
         //handle the back press close the drawer first and if the drawer is closed close the activity
-        if (result != null && result.isDrawerOpen()) {
-            result.closeDrawer();
+        if (drawerResult != null && drawerResult.isDrawerOpen()) {
+            drawerResult.closeDrawer();
         } else {
             super.onBackPressed();
         }

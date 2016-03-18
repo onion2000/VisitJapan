@@ -1,16 +1,12 @@
 package com.example.oniononion.comp4521project;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.view.View;
 
 import com.example.oniononion.comp4521project.Currency_converter.ConverterActivity;
 import com.example.oniononion.comp4521project.Travel_information.TravelActivity;
+import com.example.oniononion.comp4521project.Weather_forecast.OnedayWeather;
 import com.example.oniononion.comp4521project.Weather_forecast.WeatherActivity;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
@@ -27,9 +23,9 @@ import static com.example.oniononion.comp4521project.MainActivity.isOnline;
  * Created by oniononion on 12/3/2016.
  */
 public class NavigationDrawerInstaller {
-        public static Drawer installOnActivity(Activity act) {
+        public static Drawer installOnActivity(final Activity act) {
 
-        final Activity activity= act;
+
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withName("Function Menu").withTextColorRes(R.color.material_drawer_primary_dark);
         SecondaryDrawerItem item2 = new SecondaryDrawerItem().withName("Translation").withIcon(GoogleMaterial.Icon.gmd_translate);
         SecondaryDrawerItem item3 = new SecondaryDrawerItem().withName("Weather Forecast").withIcon(FontAwesome.Icon.faw_sun_o);
@@ -40,7 +36,7 @@ public class NavigationDrawerInstaller {
         SecondaryDrawerItem item8 = new SecondaryDrawerItem().withName("Travel Information").withIcon(FontAwesome.Icon.faw_subway);
 
         Drawer result = new DrawerBuilder()
-                .withActivity(activity)
+                .withActivity(act)
                 .withTranslucentNavigationBar(false)
                 .withActionBarDrawerToggle(false)
                 .withDrawerLayout(R.layout.material_drawer)
@@ -54,7 +50,7 @@ public class NavigationDrawerInstaller {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         Intent intent;
-                        if(isOnline(activity.getApplicationContext())) {
+                        if(isOnline(act.getApplicationContext())) {
                             switch (position) {
                                 case 1:
                                     break;
@@ -62,12 +58,12 @@ public class NavigationDrawerInstaller {
 
                                     break;
                                 case 3:
-                                    intent = new Intent(activity, WeatherActivity.class);
-                                    activity.startActivity(intent);
+                                    intent = new Intent(act, OnedayWeather.class);
+                                    act.startActivity(intent);
                                     break;
                                 case 4:
-                                    intent = new Intent(activity, ConverterActivity.class);
-                                    activity.startActivity(intent);
+                                    intent = new Intent(act, ConverterActivity.class);
+                                    act.startActivity(intent);
                                     break;
                                 case 5:
                                     break;
@@ -76,8 +72,8 @@ public class NavigationDrawerInstaller {
                                 case 7:
                                     break;
                                 case 8:
-                                    intent = new Intent(activity, TravelActivity.class);
-                                    activity.startActivity(intent);
+                                    intent = new Intent(act, TravelActivity.class);
+                                    act.startActivity(intent);
                                     break;
 
                                 default:

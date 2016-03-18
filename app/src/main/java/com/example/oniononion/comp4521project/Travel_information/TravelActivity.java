@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
@@ -15,37 +18,49 @@ import android.widget.TimePicker;
 
 import com.example.oniononion.comp4521project.NavigationDrawerInstaller;
 import com.example.oniononion.comp4521project.R;
+import com.example.oniononion.comp4521project.ToolbarInstaller;
 
 import java.util.Calendar;
 
 /**
  * Created by oniononion on 15/3/2016.
  */
-public class TravelActivity extends FragmentActivity {
+public class TravelActivity extends AppCompatActivity {
     private static final String TAG = TravelActivity.class.getSimpleName();
     private String result="http://www.hyperdia.com/en/cgi/en/search.html?dep_node=TOKYO&arv_node=NAGOYA&via_node01=&via_node02=&via_node03=&year=2016&month=03&day=15&hour=23&minute=00&search_type=0&search_way=&transtime=undefined&sort=0&max_route=5&faretype=0&ship=off&lmlimit=null&search_target=route&facility=reserved&sum_target=7";
     private TimePicker timePicker;
+    private Calendar calendar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.travel_information_activity);
 
         NavigationDrawerInstaller.installOnActivity(this);
+        ToolbarInstaller.installOnActivity(this);
 
         Button travelButton =(Button)findViewById(R.id.travel_button);
 
+        calendar = Calendar.getInstance();
+        Button timePicker =(Button)findViewById(R.id.time_picker_button);
+        Button datePicker =(Button)findViewById(R.id.date_picker_button);
+
+        if(timePicker!=null && datePicker!=null && travelButton!=null) {
+            timePicker.setText("Click here to change the Time" + "\n" + "The time now is" +
+                    calendar.get(Calendar.HOUR) + ":" + calendar.get(Calendar.MINUTE));
+
+            datePicker.setText(calendar.get(Calendar.YEAR) + "\n" + calendar.get(Calendar.MONTH) + "\n" + calendar.get(Calendar.DAY_OF_MONTH));
 
 
-        travelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(TravelActivity.this, TravelWebViewActivity.class);
-                intent.putExtra("url", result);
-                startActivity(intent);
-            }
-        });
+            travelButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(TravelActivity.this, TravelWebViewActivity.class);
+                    intent.putExtra("url", result);
+                    startActivity(intent);
+                }
+            });
 
-
+        }
     }
 
     public void showTimePickerDialog(View v) {

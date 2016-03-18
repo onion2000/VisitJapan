@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:columnCount="4"
@@ -9,10 +10,16 @@
     android:paddingTop="0dp"
     android:paddingLeft="0dp">
     　　
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        layout="@layout/toolbar"
+        android:id="@+id/include" />
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="390dp"
+        android:layout_height="340dp"
         android:src="@drawable/visit_japan_s"
         android:id="@+id/imageView"
         android:contextClickable="false"
@@ -21,14 +28,19 @@
         android:baselineAlignBottom="false"
         android:layout_column="0"
         android:layout_columnSpan="4"
-        android:layout_gravity="center|fill_horizontal" />
+        android:layout_gravity="center|fill_horizontal"
+        android:layout_below="@+id/include"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/translation"
         android:layout_height="90dp"
         android:layout_width="90dp"
         android:layout_gravity="fill"
-        android:text="translation" />
+        android:text="translation"
+        android:layout_above="@+id/six"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     　　
 
     <Button
@@ -36,7 +48,10 @@
         android:layout_height="90dp"
         android:layout_width="90dp"
         android:layout_gravity="fill"
-        android:text="weather forecast" />
+        android:text="weather forecast"
+        android:layout_above="@+id/six"
+        android:layout_toLeftOf="@+id/rate_exchange"
+        android:layout_toStartOf="@+id/rate_exchange" />
     　　　
 
     <Button
@@ -44,7 +59,10 @@
         android:layout_height="90dp"
         android:layout_width="90dp"
         android:layout_gravity="fill"
-        android:text="rate exchange" />
+        android:text="rate exchange"
+        android:layout_above="@+id/travel_info"
+        android:layout_toRightOf="@+id/seven"
+        android:layout_toEndOf="@+id/seven" />
     　　
 
     　　
@@ -54,7 +72,10 @@
         android:layout_height="90dp"
         android:layout_width="90dp"
         android:layout_gravity="fill"
-        android:text="5" />
+        android:text="5"
+        android:layout_above="@+id/exit"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
     　　
 
     <Button
@@ -62,7 +83,10 @@
         android:layout_height="90dp"
         android:layout_width="90dp"
         android:layout_gravity="fill"
-        android:text="6" />
+        android:text="6"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     　　
 
     <Button
@@ -70,23 +94,32 @@
         android:layout_height="90dp"
         android:layout_width="90dp"
         android:layout_gravity="fill"
-        android:text="7" />
+        android:text="7"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/translation"
+        android:layout_toEndOf="@+id/translation" />
 
     <Button
         android:id="@+id/travel_info"
         android:layout_height="90dp"
         android:layout_width="90dp"
         android:layout_gravity="fill"
-        android:text="Travel Information" />
+        android:text="Travel Information"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/seven"
+        android:layout_toEndOf="@+id/seven" />
 
     <Button
     android:id="@+id/exit"
     android:layout_height="90dp"
     android:layout_width="90dp"
     android:layout_gravity="fill"
-    android:text="exit" />
+    android:text="exit"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
-</GridLayout>
+</RelativeLayout>
 
 
