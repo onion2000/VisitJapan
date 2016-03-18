@@ -61,14 +61,16 @@ public class TravelActivity extends AppCompatActivity {
 
 
         searchTypeSpinner = (Spinner) findViewById(R.id.search_type_spinner);
-        ArrayAdapter<String> searchTypeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new String[]{"departure", "arrival", "average"});
+        ArrayAdapter<String> searchTypeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new String[]{"Departure", "Arrival", "Average"});
         searchTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         searchTypeSpinner.setAdapter(searchTypeAdapter);
 
+
         fareTypeSpinner = (Spinner) findViewById(R.id.fare_type_spinner);
-        ArrayAdapter<String> fareTypeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new String[]{"ticket", "IC"});
+        ArrayAdapter<String> fareTypeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new String[]{"Ticket", "IC"});
         fareTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         fareTypeSpinner.setAdapter(fareTypeAdapter);
+
 
         // TODO: check valid input
         fromEditText= (EditText)findViewById(R.id.from_edittext);

@@ -36,7 +36,7 @@ public class ConverterActivity extends AppCompatActivity {
     private ArrayList<Currency> currency_array = new ArrayList<>();
     private ArrayList<String> name_array = new ArrayList<>();
     private ArrayList<String> merger_name_array  = new ArrayList<>();
-    private ArrayList<Float> rate_array = new ArrayList<>();
+    private ArrayList<Double> rate_array = new ArrayList<>();
     private HashMap<String, String> hmap = new HashMap<>();
     EditText input;
     TextView from_amount;
@@ -77,41 +77,43 @@ public class ConverterActivity extends AppCompatActivity {
 
     private void calculationResult() {
         String temp = input.getText().toString();
-        float input_float;
+        double input_double;
         if(isNumeric(temp)&&(!temp.isEmpty())){
-            input_float = Float.valueOf(temp);
-            if (input_float == Math.round(input_float)) {
+            input_double = Double.valueOf(temp);
+            if (input_double == Math.round(input_double)) {
                 from_amount.setText(temp + ".00");
             } else {
                 from_amount.setText(temp);
             }
         }else{
-            input_float = 1;
+            input_double = 1;
             from_amount.setText("1.00");
         }
         from_type.setText("JPY =");
 
-        float resultAmount = input_float * rate_array.get(current_position);
+        double resultAmount = input_double * rate_array.get(current_position);
+        resultAmount=roundToSignificantFigures(resultAmount,7);
         result.setText(String.valueOf(resultAmount) + " "+ currency_array.get(current_position).getShort_name());
     }
 
     private void reverse_calculationResult() {
         String temp = input.getText().toString();
-        float input_float;
+        double input_double;
         if(isNumeric(temp)&&(!temp.isEmpty())){
-            input_float = Float.valueOf(temp);
-            if (input_float == Math.round(input_float)) {
+            input_double = Double.valueOf(temp);
+            if (input_double == Math.round(input_double)) {
                 from_amount.setText(temp + ".00");
             } else {
                 from_amount.setText(temp);
             }
         }else{
-            input_float = 1;
+            input_double = 1;
             from_amount.setText("1.00");
         }
         from_type.setText( currency_array.get(current_position).getShort_name() +" = ");
 
-        float resultAmount = input_float * (1/rate_array.get(current_position));
+        double resultAmount = input_double * (1/rate_array.get(current_position));
+        resultAmount=roundToSignificantFigures(resultAmount,7);
         result.setText(String.valueOf(resultAmount) + " JPY");
     }
 
@@ -270,4 +272,16 @@ public class ConverterActivity extends AppCompatActivity {
         }
     }
 
+    public static double roundToSignificantFigures(double num, int n) {
+        if(num == 0) {
+            return 0;
+        }
+
+        final double d = Math.ceil(Math.log10(num < 0 ? -num: num));
+        final int power = n - (int) d;
+
+        final double magnitude = Math.pow(10, power);
+        final long shifted = Math.round(num*magnitude);
+        return shifted/magnitude;
+    }
 }

@@ -7,7 +7,7 @@ public class Currency {
 
     private String full_name;
     private String short_name;
-    private float exchange_rate;
+    private double exchange_rate;
     private static int counter =0;
 
     public Currency(String full_name, float exchange_rate) {
@@ -16,7 +16,7 @@ public class Currency {
         this.short_name = "aaa";
     }
 
-    public float getExchange_rate() {
+    public double getExchange_rate() {
         return exchange_rate;
     }
 

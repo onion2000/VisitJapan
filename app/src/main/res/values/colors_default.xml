@@ -5,6 +5,6 @@
     <color name="color_primaryDark">@color/md_red_700</color>
     <color name="color_accent">@color/md_blue_500</color>
     <color name="color_primaryText">@android:color/white</color>
-    <color name="color_windowBackground">@color/md_blue_50</color>
+    <color name="color_windowBackground">@color/md_grey_50</color>
 
 </resources>

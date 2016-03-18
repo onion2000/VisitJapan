@@ -55,6 +55,7 @@
     <color name="md_red_A700">#D50000</color>
 
     <!--blue-->
+    <color name="md_grey_50">#FAFAFA</color>
     <color name="md_blue_50">#E3F2FD</color>
     <color name="md_blue_100">#BBDEFB</color>
     <color name="md_blue_200">#90CAF9</color>
