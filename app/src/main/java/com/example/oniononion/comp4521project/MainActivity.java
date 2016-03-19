@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.oniononion.comp4521project.Currency_converter.ConverterActivity;
 import com.example.oniononion.comp4521project.Travel_information.TravelActivity;
@@ -37,13 +38,13 @@ public class MainActivity extends AppCompatActivity {
         ToolbarInstaller.installOnActivity(this);
 
 
-        Button translation = (Button) findViewById(R.id.translation);
+        ImageButton translation = (ImageButton) findViewById(R.id.translation);
         translation.setOnClickListener(buttonClickListener);
-        Button weather_forecast = (Button) findViewById(R.id.weather_forecast);
+        ImageButton weather_forecast = (ImageButton) findViewById(R.id.weather_forecast);
         weather_forecast.setOnClickListener(buttonClickListener);
-        Button rate_exchange = (Button) findViewById(R.id.rate_exchange);
+        ImageButton rate_exchange = (ImageButton) findViewById(R.id.rate_exchange);
         rate_exchange.setOnClickListener(buttonClickListener);
-        Button travel_info = (Button) findViewById(R.id.travel_info);
+        ImageButton travel_info = (ImageButton) findViewById(R.id.travel_info);
         travel_info.setOnClickListener(buttonClickListener);
 
 

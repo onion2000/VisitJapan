@@ -33,92 +33,111 @@
         android:layout_below="@+id/include"
         android:layout_centerHorizontal="true" />
 
-    <Button
+    <ImageButton
         android:id="@+id/translation"
-        android:layout_height="90dp"
-        android:layout_width="90dp"
+        android:layout_height="80dp"
+        android:layout_width="80dp"
         android:layout_gravity="fill"
         android:text="translation"
-        android:layout_above="@+id/six"
+        android:background="@drawable/icon_01"
+        android:layout_above="@+id/travel_info"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="8dp" />
     　　
 
-    <Button
+    <ImageButton
         android:id="@+id/weather_forecast"
-        android:layout_height="90dp"
-        android:layout_width="90dp"
+        android:layout_height="80dp"
+        android:layout_width="80dp"
         android:layout_gravity="fill"
         android:text="weather forecast"
-        android:layout_above="@+id/six"
-        android:layout_toLeftOf="@+id/rate_exchange"
-        android:layout_toStartOf="@+id/rate_exchange" />
+        android:layout_above="@+id/travel_info"
+        android:layout_toRightOf="@+id/translation"
+        android:layout_toEndOf="@+id/translation"
+        android:background="@drawable/icon_02"
+        android:layout_marginLeft="8dp" />
     　　　
 
-    <Button
+    <ImageButton
         android:id="@+id/rate_exchange"
-        android:layout_height="90dp"
-        android:layout_width="90dp"
+        android:layout_height="80dp"
+        android:layout_width="80dp"
         android:layout_gravity="fill"
         android:text="rate exchange"
+        android:background="@drawable/icon_03"
         android:layout_above="@+id/travel_info"
-        android:layout_toRightOf="@+id/seven"
-        android:layout_toEndOf="@+id/seven" />
+        android:layout_toRightOf="@+id/weather_forecast"
+        android:layout_toEndOf="@+id/weather_forecast"
+        android:layout_marginLeft="8dp" />
     　　
 
     　　
 
-    <Button
-        android:id="@+id/five"
-        android:layout_height="90dp"
-        android:layout_width="90dp"
+    <ImageButton
+        android:id="@+id/local_culture"
+        android:layout_height="80dp"
+        android:layout_width="80dp"
         android:layout_gravity="fill"
         android:text="5"
-        android:layout_above="@+id/exit"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:background="@drawable/icon_04"
+        android:layout_above="@+id/travel_info"
+        android:layout_toRightOf="@+id/rate_exchange"
+        android:layout_toEndOf="@+id/rate_exchange"
+        android:layout_marginLeft="8dp" />
     　　
 
-    <Button
-        android:id="@+id/six"
-        android:layout_height="90dp"
-        android:layout_width="90dp"
+    <ImageButton
+        android:id="@+id/tourist_information"
+        android:layout_height="80dp"
+        android:layout_width="80dp"
         android:layout_gravity="fill"
         android:text="6"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/icon_05"/>
     　　
 
-    <Button
-        android:id="@+id/seven"
-        android:layout_height="90dp"
-        android:layout_width="90dp"
+    <ImageButton
+        android:id="@+id/vocabulary"
+        android:layout_height="80dp"
+        android:layout_width="80dp"
         android:layout_gravity="fill"
         android:text="7"
+        android:background="@drawable/icon_06"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/translation"
-        android:layout_toEndOf="@+id/translation" />
+        android:layout_toLeftOf="@+id/rate_exchange"
+        android:layout_toStartOf="@+id/rate_exchange"
+        android:layout_marginLeft="8dp" />
 
-    <Button
+    <ImageButton
         android:id="@+id/travel_info"
-        android:layout_height="90dp"
-        android:layout_width="90dp"
+        android:layout_height="80dp"
+        android:layout_width="80dp"
         android:layout_gravity="fill"
         android:text="Travel Information"
+        android:background="@drawable/icon_07"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/seven"
-        android:layout_toEndOf="@+id/seven" />
+        android:layout_toRightOf="@+id/vocabulary"
+        android:layout_toEndOf="@+id/vocabulary"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="5dp" />
 
-    <Button
-    android:id="@+id/exit"
-    android:layout_height="90dp"
-    android:layout_width="90dp"
-    android:layout_gravity="fill"
-    android:text="exit"
+    <ImageButton
+        android:id="@+id/exit"
+        android:layout_height="80dp"
+        android:layout_width="80dp"
+        android:layout_gravity="fill"
+        android:text="exit"
+        android:background="@drawable/icon_08"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_toRightOf="@+id/travel_info"
+        android:layout_toEndOf="@+id/travel_info"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="5dp" />
 
 
 </RelativeLayout>

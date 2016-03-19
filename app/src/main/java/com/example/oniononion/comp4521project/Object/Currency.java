@@ -8,7 +8,6 @@ public class Currency {
     private String full_name;
     private String short_name;
     private double exchange_rate;
-    private static int counter =0;
 
     public Currency(String full_name, float exchange_rate) {
         this.full_name = full_name;

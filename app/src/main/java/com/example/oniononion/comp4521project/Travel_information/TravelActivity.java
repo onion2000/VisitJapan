@@ -71,7 +71,6 @@ public class TravelActivity extends AppCompatActivity {
         fareTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         fareTypeSpinner.setAdapter(fareTypeAdapter);
 
-
         // TODO: check valid input
         fromEditText= (EditText)findViewById(R.id.from_edittext);
         toEditText =(EditText)findViewById(R.id.to_edittext);
@@ -191,8 +190,7 @@ public class TravelActivity extends AppCompatActivity {
     private static void setTime() {
         if(selectedHour <10 && selectedMins <10){
             timePicker.setText("Time: 0" + selectedHour + ":0" +selectedMins);
-        }else if(selectedHour <10 && selectedMins >10 )
-        {
+        }else if(selectedHour <10 && selectedMins >10 ){
             timePicker.setText("Time: 0" + selectedHour + ":" +selectedMins);
         }else if(selectedHour >10 && selectedMins <10){
             timePicker.setText("Time: " + selectedHour + ":0" +selectedMins);

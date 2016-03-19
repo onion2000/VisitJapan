@@ -132,7 +132,7 @@ public class ConverterActivity extends AppCompatActivity {
         return true;
     }
     private void getDataFromWebsite() throws InterruptedException {
-
+        // parse the website and get the exchange rate information
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -148,7 +148,6 @@ public class ConverterActivity extends AppCompatActivity {
                 Elements tbody = content.first().getElementsByTag("tbody");
                 Elements links = tbody.select("tr");
                 for (Element link : links) {
-                    //Element tempDiv = link.children().first();
                     Element tempTr = link.select("td").first();
                     String currency_name = tempTr.text();
                     Log.d(TAG, "currency name :" + currency_name);
