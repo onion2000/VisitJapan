@@ -48,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
         travel_info.setOnClickListener(buttonClickListener);
 
 
+        ImageButton exit = (ImageButton) findViewById(R.id.exit);
+        exit.setOnClickListener(buttonClickListener);
+
     }
 
     protected View.OnClickListener buttonClickListener = new View.OnClickListener() {
@@ -68,13 +71,22 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(MainActivity.this, ConverterActivity.class);
                         startActivity(intent);
                         break;
+                    case R.id.local_culture:
+
+                        break;
+                    case R.id.tourist_information:
+
+                        break;
+                    case R.id.vocabulary:
+
+                        break;
                     case R.id.travel_info:
                         intent = new Intent(MainActivity.this, TravelActivity.class);
                         startActivity(intent);
                         break;
-
                     case R.id.exit:
                         finish();
+                        moveTaskToBack(true);
                         System.exit(0);
                         break;
                     default:

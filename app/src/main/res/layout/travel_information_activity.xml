@@ -49,7 +49,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -96,10 +97,10 @@
         android:layout_height="wrap_content"
         android:text="From:"
         android:id="@+id/from_textView"
-        android:layout_below="@+id/include"
+        android:textSize="20dp"
+        android:layout_below="@+id/title"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="20dp" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="50dp"
@@ -107,10 +108,9 @@
         android:text="To :"
         android:id="@+id/to_text_view"
         android:textSize="20dp"
-        android:layout_below="@+id/include"
+        android:layout_below="@+id/title"
         android:layout_alignRight="@+id/travel_button"
-        android:layout_alignEnd="@+id/travel_button"
-        android:layout_above="@+id/to_edittext" />
+        android:layout_alignEnd="@+id/travel_button" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -144,5 +144,19 @@
         android:textSize="15dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Timetable and Route Search"
+        android:id="@+id/title"
+        android:layout_below="@+id/include"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/to_edittext"
+        android:layout_alignEnd="@+id/to_edittext"
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:textSize="25dp" />
 
 </RelativeLayout>
