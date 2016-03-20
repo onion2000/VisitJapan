@@ -32,7 +32,8 @@
         android:layout_below="@+id/currency_edittext"
         android:layout_centerHorizontal="true" />
 
-    <Spinner
+
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:layout_width="297dp"
         android:layout_height="50dp"
         android:id="@+id/currency_to_spinner"
@@ -125,16 +126,16 @@
         android:layout_below="@+id/converter_title"
         android:layout_alignRight="@+id/currency_from_spinner"
         android:layout_alignEnd="@+id/currency_from_spinner"
-        android:layout_toEndOf="@+id/currency_reverse_button"
-        android:layout_toRightOf="@+id/currency_reverse_button" />
+        android:layout_toEndOf="@+id/currency_reverse_button" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Exchange rate provided by x-rates"
-        android:id="@+id/textView"
+        android:id="@+id/provide_textview"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:textSize="15dp" />
+
 
 </RelativeLayout>
