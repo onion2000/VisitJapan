@@ -38,6 +38,7 @@
         android:layout_alignEnd="@+id/to_edittext"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:background="@drawable/big_button"
         />
     <Button
         android:layout_width="wrap_content"
@@ -52,7 +53,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:background="@drawable/big_button"/>
 
     <Button
         android:layout_width="wrap_content"

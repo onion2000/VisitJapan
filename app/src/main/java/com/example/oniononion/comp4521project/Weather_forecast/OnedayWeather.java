@@ -53,6 +53,7 @@ public class OnedayWeather extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.weather_forecast_oneday);
 
+
         drawerResult= NavigationDrawerInstaller.installOnActivity(this);
         ToolbarInstaller.installOnActivity(this);
 

@@ -12,6 +12,10 @@
         <item name="colorAccent">@color/color_accent</item>
         <item name="android:windowBackground">@color/color_windowBackground</item>
         <item name="android:textColorPrimary">@color/text_color_primary</item>
+        <item name="android:windowContentTransitions">true</item>
 
+        <!-- enable overlap of transitions -->
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
     </style>
 </resources>

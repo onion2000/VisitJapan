@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
+    android:transitionOrdering="together"
+    android:duration="500">
+    <fade>
+        <targets>
+            <target android:excludeId="@android:id/statusBarBackground" />
+            <target android:excludeId="@android:id/navigationBarBackground" />
+            <target android:excludeId="@id/custom_toolbar" />
+        </targets>
+    </fade>
+    <slide android:slideEdge="bottom">
+        <targets>
+            <target android:targetId="@id/gridLayout1" />
+            <target android:excludeId="@id/main_image" />
+            <target android:excludeId="@id/custom_toolbar" />
+        </targets>
+    </slide>
+</transitionSet>

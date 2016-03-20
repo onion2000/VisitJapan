@@ -1,5 +1,6 @@
 package com.example.oniononion.comp4521project;
 
+import android.app.ActivityOptions;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -8,7 +9,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.transition.Fade;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 
@@ -31,13 +36,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+      //  getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+        Transition mEnterTran = new Fade();
+        Transition mReturnTran = new Fade();
+        getWindow().setExitTransition(mReturnTran);
+        getWindow().setReenterTransition(mEnterTran);
         setContentView(R.layout.activity_main);
 
         NavigationDrawerInstaller.installOnActivity(this);
         InternetAlertDialog = new AlertDialog.Builder(this);
 
         ToolbarInstaller.installOnActivity(this);
-
 
         ImageButton translation = (ImageButton) findViewById(R.id.translation);
         translation.setOnClickListener(buttonClickListener);
@@ -58,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Intent intent;
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this);
             if(isOnline(getApplicationContext())) {
 
                 switch (v.getId()) {
@@ -66,11 +77,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.weather_forecast:
                         intent = new Intent(MainActivity.this, OnedayWeather.class);
-                        startActivity(intent);
+                        startActivity(intent, options.toBundle());
                         break;
                     case R.id.rate_exchange:
                         intent = new Intent(MainActivity.this, ConverterActivity.class);
-                        startActivity(intent);
+                        startActivity(intent, options.toBundle());
                         break;
                     case R.id.local_culture:
 
@@ -83,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.travel_info:
                         intent = new Intent(MainActivity.this, TravelActivity.class);
-                        startActivity(intent);
+                        startActivity(intent, options.toBundle());
                         break;
                     case R.id.exit:
                         finish();
