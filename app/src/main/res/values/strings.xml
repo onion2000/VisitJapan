@@ -2,5 +2,13 @@
     <string name="app_name">VisitJapan</string>
     <string name="time_picker">hours: minutes </string>
     <string name="date_picker">Year-Month-Day </string>
-
+    <string-array name="search_type_list">
+        <item>Departure</item>
+        <item>Arrival</item>
+        <item>Average</item>
+    </string-array>
+    <string-array name="fare_type_list">
+        <item>Ticket</item>
+        <item>IC</item>
+    </string-array>
 </resources>

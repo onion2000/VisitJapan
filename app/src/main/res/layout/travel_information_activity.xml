@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:mstb="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_selector" >
@@ -60,24 +61,6 @@
         android:layout_above="@+id/provide_text_view"
         android:layout_centerHorizontal="true" />
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:id="@+id/search_type_spinner"
-        android:spinnerMode="dropdown"
-        android:layout_below="@+id/time_picker_button"
-        android:layout_toEndOf="@+id/search_type_textview"
-        android:layout_toRightOf="@+id/search_type_textview" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:id="@+id/fare_type_spinner"
-        android:spinnerMode="dropdown"
-        android:layout_below="@+id/search_type_spinner"
-        android:layout_alignLeft="@+id/search_type_spinner"
-        android:layout_alignStart="@+id/search_type_spinner" />
-
     <EditText
         android:id="@+id/to_edittext"
         android:layout_width="150dp"
@@ -112,29 +95,56 @@
         android:layout_alignRight="@+id/travel_button"
         android:layout_alignEnd="@+id/travel_button" />
 
-    <TextView
+    <org.honorato.multistatetogglebutton.MultiStateToggleButton
+        android:id="@+id/search_type_toggle_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search Type:"
-        android:id="@+id/search_type_textview"
-        android:layout_alignTop="@+id/search_type_spinner"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="20dp"
-        android:layout_above="@+id/fare_type_spinner"
-        android:gravity="center" />
+        android:layout_height="40dp"
+        mstb:mstbPrimaryColor="@color/md_grey_50"
+        mstb:mstbSecondaryColor="@color/md_blue_400"
+        mstb:values="@array/search_type_list"
+        android:layout_below="@+id/time_picker_button"
+        android:gravity="center"
+        android:layout_alignRight="@+id/to_edittext"
+        android:layout_alignEnd="@+id/to_edittext"
+        android:layout_alignBottom="@+id/search_type_textview"
+        android:layout_toRightOf="@+id/search_type_textview"
+        android:layout_toEndOf="@+id/search_type_textview" />
+
+    <org.honorato.multistatetogglebutton.MultiStateToggleButton
+        android:id="@+id/fare_type_toggle_button"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        mstb:mstbPrimaryColor="@color/md_grey_50"
+        mstb:mstbSecondaryColor="@color/md_blue_400"
+        mstb:values="@array/fare_type_list"
+        android:gravity="center"
+        android:layout_alignBottom="@+id/fare_type_textview"
+        android:layout_alignRight="@+id/to_edittext"
+        android:layout_alignEnd="@+id/to_edittext"
+        android:layout_toRightOf="@+id/search_type_textview"
+        android:layout_toEndOf="@+id/search_type_textview" />
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:text="Search Type:"
+        android:id="@+id/search_type_textview"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_below="@+id/time_picker_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
         android:text="Fare Type:"
         android:id="@+id/fare_type_textview"
         android:textSize="20dp"
-        android:layout_below="@+id/search_type_spinner"
+        android:gravity="center"
+        android:layout_below="@+id/search_type_textview"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/fare_type_spinner"
-        android:gravity="center" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"

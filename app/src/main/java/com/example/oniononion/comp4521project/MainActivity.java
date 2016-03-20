@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     //TODO: write comment
     // TODO: back button in drawer
     // TODO: change dialog to notification
+   // TODO: add exit button in drawer
    private static AlertDialog.Builder InternetAlertDialog;
 
     @Override

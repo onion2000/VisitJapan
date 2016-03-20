@@ -17,7 +17,6 @@ public class ToolbarInstaller {
             android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) act.findViewById(R.id.toolbar);
             act.setSupportActionBar(toolbar);
 
-
             if(!act.getClass().getSimpleName().equals("MainActivity")) {
                 act.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
                 act.getSupportActionBar().setDisplayShowHomeEnabled(true);

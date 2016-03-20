@@ -11,6 +11,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,6 +25,9 @@ import com.example.oniononion.comp4521project.NavigationDrawerInstaller;
 import com.example.oniononion.comp4521project.R;
 import com.example.oniononion.comp4521project.ToolbarInstaller;
 
+import org.honorato.multistatetogglebutton.MultiStateToggleButton;
+import org.honorato.multistatetogglebutton.ToggleButton;
+
 import java.util.Calendar;
 
 /**
@@ -36,8 +40,13 @@ public class TravelActivity extends AppCompatActivity {
     private static int selectedYear, selectedMonth, selectedday, selectedHour, selectedMins;
     EditText fromEditText;
     EditText toEditText;
-    Spinner searchTypeSpinner;
-    Spinner fareTypeSpinner;
+    MultiStateToggleButton fare_button;
+    MultiStateToggleButton search_button;
+    CharSequence[] fare_type_list;
+    CharSequence[] search_type_list;
+    private int fare_index=0;
+    private int search_index=0;
+
     static Button timePicker;
     static Button datePicker;
     private static boolean dateChanged= false;
@@ -58,18 +67,24 @@ public class TravelActivity extends AppCompatActivity {
         timePicker =(Button)findViewById(R.id.time_picker_button);
         datePicker =(Button)findViewById(R.id.date_picker_button);
 
-
-
-        searchTypeSpinner = (Spinner) findViewById(R.id.search_type_spinner);
-        ArrayAdapter<String> searchTypeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new String[]{"Departure", "Arrival", "Average"});
-        searchTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        searchTypeSpinner.setAdapter(searchTypeAdapter);
-
-
-        fareTypeSpinner = (Spinner) findViewById(R.id.fare_type_spinner);
-        ArrayAdapter<String> fareTypeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new String[]{"Ticket", "IC"});
-        fareTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        fareTypeSpinner.setAdapter(fareTypeAdapter);
+        fare_button = (MultiStateToggleButton) this.findViewById(R.id.fare_type_toggle_button);
+        fare_type_list = new CharSequence[]{"Ticket", "IC"};
+        fare_button.setElements(R.array.fare_type_list,0);
+        fare_button.setOnValueChangedListener(new ToggleButton.OnValueChangedListener() {
+            @Override
+            public void onValueChanged(int position) {
+                fare_index = position;
+            }
+        });
+        search_button = (MultiStateToggleButton) this.findViewById(R.id.search_type_toggle_button);
+        search_type_list = new CharSequence[]{"Departure", "Arrival","Average"};
+        search_button.setElements(R.array.search_type_list,0);
+        search_button.setOnValueChangedListener(new ToggleButton.OnValueChangedListener() {
+            @Override
+            public void onValueChanged(int position) {
+                search_index = position;
+            }
+        });
 
         // TODO: check valid input
         fromEditText= (EditText)findViewById(R.id.from_edittext);
@@ -109,8 +124,6 @@ public class TravelActivity extends AppCompatActivity {
         if(selectedHour==0) Hour ="00";
         Mins =  (selectedMins<10)? ( "0"+ String.valueOf(selectedMins) ) : String.valueOf(selectedMins);
         if(selectedMins==0) Mins ="00";
-
-
         String result= "http://www.hyperdia.com/en/cgi/en/search.html?dep_node=" + fromEditText.getText().toString()
                         + "&arv_node=" + toEditText.getText().toString()
                         + "&via_node01=&via_node02=&via_node03=&year=" + String.valueOf(selectedYear)
@@ -118,8 +131,8 @@ public class TravelActivity extends AppCompatActivity {
                         + "&day=" + Day
                         + "&hour=" + Hour
                         + "&minute=" + Mins
-                        + "&search_type=" +searchTypeSpinner.getSelectedItem()
-                        + "&search_way=&transtime=undefined&sort=0&max_route=5&faretype=" + fareTypeSpinner.getSelectedItem()
+                        + "&search_type=" +  search_type_list[search_index].toString()
+                        + "&search_way=&transtime=undefined&sort=0&max_route=5&faretype=" + fare_type_list[fare_index].toString()
                         + "&ship=off&lmlimit=null&search_target=route&facility=reserved&sum_target=7";
         return result;
     }
