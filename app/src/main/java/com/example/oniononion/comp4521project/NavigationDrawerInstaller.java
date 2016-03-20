@@ -51,8 +51,6 @@ public class NavigationDrawerInstaller {
                         Intent intent;
                         if(isOnline(act.getApplicationContext())) {
                             switch (position) {
-                                case 1:
-                                    break;
                                 case 2:
 
                                     break;

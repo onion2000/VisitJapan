@@ -24,18 +24,23 @@
         android:layout_alignParentStart="true"
         android:textStyle="bold|italic" />
 
-    <Spinner
+    <TextView
         android:layout_width="301dp"
         android:layout_height="50dp"
         android:id="@+id/currency_from_spinner"
         android:spinnerMode="dropdown"
+        android:text="Japanese Yen - JPY"
         android:layout_below="@+id/currency_edittext"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="17dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="6dp"
+        android:paddingTop="2dp" />
 
 
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:layout_width="297dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:id="@+id/currency_to_spinner"
         android:spinnerMode="dropdown"
         android:layout_below="@+id/currency_from_spinner"
@@ -86,7 +91,10 @@
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.05"
         android:layout_below="@+id/currency_result_textview"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_button"
+
+        />
 
     <TextView
         android:layout_width="378dp"
@@ -102,7 +110,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <EditText
+        <EditText
         android:id="@+id/currency_edittext"
         android:layout_width="138dp"
         android:layout_height="55dp"
@@ -126,7 +134,9 @@
         android:layout_below="@+id/converter_title"
         android:layout_alignRight="@+id/currency_from_spinner"
         android:layout_alignEnd="@+id/currency_from_spinner"
-        android:layout_toEndOf="@+id/currency_reverse_button" />
+        android:layout_toRightOf="@+id/currency_reverse_button"
+        android:layout_toEndOf="@+id/currency_reverse_button"
+        android:background="@drawable/rounded_button"/>
 
     <TextView
         android:layout_width="wrap_content"

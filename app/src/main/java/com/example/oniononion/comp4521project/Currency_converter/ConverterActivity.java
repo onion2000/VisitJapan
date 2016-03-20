@@ -204,12 +204,6 @@ public class ConverterActivity extends AppCompatActivity {
     }
 
     private void InitializeSpinner() {
-        Spinner fromSpinner = (Spinner) findViewById(R.id.currency_from_spinner);
-        ArrayAdapter<String> fromAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new String[]{"Japanese Yen - JPY"});
-        fromAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        fromSpinner.setAdapter(fromAdapter);
-        fromSpinner.setOnItemSelectedListener(SpinnerListener);
-
         ArrayList<String> array = merged_name_array(); // get the merger name array by adding the full name and short name
         Spinner toSpinner = (Spinner) findViewById(R.id.currency_to_spinner);
         ArrayAdapter<String> toAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, array);
@@ -283,4 +277,8 @@ public class ConverterActivity extends AppCompatActivity {
         final long shifted = Math.round(num*magnitude);
         return shifted/magnitude;
     }
+
+
+
+
 }

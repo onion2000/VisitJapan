@@ -37,7 +37,8 @@
         android:layout_alignRight="@+id/to_edittext"
         android:layout_alignEnd="@+id/to_edittext"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,7 +60,8 @@
         android:text="GO"
         android:id="@+id/travel_button"
         android:layout_above="@+id/provide_text_view"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_button"/>
 
     <EditText
         android:id="@+id/to_edittext"
@@ -122,7 +124,8 @@
         android:layout_alignRight="@+id/to_edittext"
         android:layout_alignEnd="@+id/to_edittext"
         android:layout_toRightOf="@+id/search_type_textview"
-        android:layout_toEndOf="@+id/search_type_textview" />
+        android:layout_toEndOf="@+id/search_type_textview"
+        android:layout_alignTop="@+id/fare_type_textview" />
 
     <TextView
         android:layout_width="wrap_content"
