@@ -5,6 +5,8 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -51,6 +53,15 @@ public class OnedayWeather extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        Transition mEnterTran =
+                TransitionInflater.from(this).
+                        inflateTransition(R.transition.currency_enter_transition);
+        Transition mReturnTran =
+                TransitionInflater.from(this).
+                        inflateTransition(R.transition.currency_return_transition);
+
+        getWindow().setEnterTransition(mEnterTran);
+        getWindow().setReturnTransition(mReturnTran);
         setContentView(R.layout.weather_forecast_oneday);
 
 

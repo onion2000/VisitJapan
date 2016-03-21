@@ -9,12 +9,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.transition.Fade;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.oniononion.comp4521project.Currency_converter.ConverterActivity;
@@ -31,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     // TODO: back button in drawer
     // TODO: change dialog to notification
    // TODO: add exit button in drawer
+    //TODO: vocal add 50 vocal table
    private static AlertDialog.Builder InternetAlertDialog;
 
     @Override
@@ -38,10 +37,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
       //  getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-        Transition mEnterTran = new Fade();
-        Transition mReturnTran = new Fade();
-        getWindow().setExitTransition(mReturnTran);
-        getWindow().setReenterTransition(mEnterTran);
+       // Transition mEnterTran = new Fade();
+       // Transition mReturnTran = new Fade();
+       Transition mReenterTran =
+                TransitionInflater.from(this).
+                        inflateTransition(R.transition.main_activity_reenter_transition);
+        Transition mExitTran =
+                TransitionInflater.from(this).
+                        inflateTransition(R.transition.main_activity_exit_transition);
+
+        getWindow().setExitTransition(mExitTran);
+        getWindow().setReenterTransition(mReenterTran);
         setContentView(R.layout.activity_main);
 
         NavigationDrawerInstaller.installOnActivity(this);

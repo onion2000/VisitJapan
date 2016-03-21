@@ -53,6 +53,17 @@ public class ConverterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Transition mEnterTran =
+                TransitionInflater.from(this).
+                        inflateTransition(R.transition.currency_enter_transition);
+        Transition mReturnTran =
+                TransitionInflater.from(this).
+                        inflateTransition(R.transition.currency_return_transition);
+
+        getWindow().setEnterTransition(mEnterTran);
+        getWindow().setReturnTransition(mReturnTran);
+
+
         setContentView(R.layout.currency_converter_activity);
 
         drawerResult= NavigationDrawerInstaller.installOnActivity(this);

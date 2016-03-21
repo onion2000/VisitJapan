@@ -11,6 +11,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.format.DateFormat;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -56,6 +58,15 @@ public class TravelActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Transition mEnterTran =
+                TransitionInflater.from(this).
+                        inflateTransition(R.transition.currency_enter_transition);
+        Transition mReturnTran =
+                TransitionInflater.from(this).
+                        inflateTransition(R.transition.currency_return_transition);
+
+        getWindow().setEnterTransition(mEnterTran);
+        getWindow().setReturnTransition(mReturnTran);
         setContentView(R.layout.travel_information_activity);
 
         NavigationDrawerInstaller.installOnActivity(this);

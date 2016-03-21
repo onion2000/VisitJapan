@@ -4,13 +4,14 @@
     xmlns:mstb="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_selector" >
+    android:background="@drawable/background_selector"
+    android:id="@+id/layout">
     <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         layout="@layout/toolbar"
-        android:id="@+id/include" />
+        android:id="@+id/toolbar" />
 
     <EditText
         android:id="@+id/from_edittext"
@@ -165,13 +166,10 @@
         android:layout_height="wrap_content"
         android:text="Timetable and Route Search"
         android:id="@+id/title"
-        android:layout_below="@+id/include"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/to_edittext"
-        android:layout_alignEnd="@+id/to_edittext"
         android:gravity="center"
         android:textStyle="bold|italic"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

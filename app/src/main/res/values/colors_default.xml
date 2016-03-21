@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="text_color_primary">@color/md_grey_800</color>
-    <color name="color_primary">@color/md_red_500</color>
-    <color name="color_primaryDark">@color/md_red_700</color>
+    <color name="color_primary">@color/md_cyan_700</color>
+    <color name="color_primaryDark">@color/md_cyan_900</color>
     <color name="color_accent">@color/md_blue_500</color>
     <color name="color_primaryText">@android:color/white</color>
     <color name="color_windowBackground">@color/md_grey_50</color>
