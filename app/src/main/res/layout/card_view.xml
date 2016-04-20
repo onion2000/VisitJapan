@@ -19,7 +19,7 @@
 
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="vocab_hiragana"
             android:id="@+id/vocab_hiragana_text"
@@ -27,26 +27,32 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
             android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:paddingLeft="10dp" />
 
         <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="vocab_romaji"
                 android:id="@+id/vocab_romaji_text"
                 android:textSize="15dp"
                 android:layout_gravity="center_horizontal"
             android:layout_below="@+id/vocab_hiragana_text"
-            android:layout_alignStart="@+id/vocab_hiragana_text" />
+            android:layout_alignStart="@+id/vocab_hiragana_text"
+            android:paddingLeft="10dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="vocab_meaning"
                 android:id="@+id/vocab_meaning_text"
                 android:textSize="15dp"
+                android:maxLines="2"
+                android:lines="2"
                 android:layout_below="@+id/vocab_romaji_text"
-                android:layout_alignStart="@+id/vocab_romaji_text" />
+                android:layout_alignStart="@+id/vocab_romaji_text"
+                android:paddingLeft="10dp"
+                />
 
     </RelativeLayout>
 

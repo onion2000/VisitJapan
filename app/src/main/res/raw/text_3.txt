@@ -42,7 +42,7 @@ midori no hi
 Greenery Day (April 29)
 15.	ゴールデンウイーク
 go-ruden ui-ku
-Golden Week (Early May Holiday Season in Japan)
+Golden Week
 16.	子供の日	こどものひ
 kodomo no hi
 Children's Day (May 5th)
@@ -63,10 +63,10 @@ obon
 Bon Festival (mid August)
 22.	灯篭流し	とうろうながし
 tourou nagashi
-Ceremony in which Paper Lanterns are floated down a River (August 15/16)
+Ceremony in which Paper Lanterns are floated \n down a River (August 15/16)
 23.	七五三	しちごさん
 shichi go san
-Festival for 3-year-old Boys and Girls, 5-year-old Boys and 7-year-old Girls (November 15)
+Festival for 3-year-old Boys and Girls, 5-year-old \n Boys and 7-year-old Girls (November 15)
 24.	文化の日	ぶんかのひ
 bunka no hi
 Culture Day (November 3)
@@ -80,7 +80,8 @@ New Year's Eve (December 31st)
 natsu yasumi
 Summer Vacation
 28.	冬休み	ふゆやすみ
-fuyu yasumi	Winter Vacation
+fuyu yasumi
+Winter Vacation
 29.	誕生日	たんじょうび
 tanjoubi
 Birthday

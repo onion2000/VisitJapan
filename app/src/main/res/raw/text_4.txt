@@ -1,0 +1,180 @@
+﻿1.	食べ物	たべもの
+tabe mono
+Food
+2.	日本料理	にほんりょうり
+nihon ryouri
+Japanese Cooking / Japanese Food
+3.	朝食	ちょうしょく
+chou shoku
+Breakfast
+4.	朝御飯	あさごはん
+asa gohan
+Breakfast
+5.	昼食	ちゅうしょく
+chuu shoku
+Lunch
+6.	昼御飯	ひるごはん
+hiru gohan
+Lunch
+7.	夕食	ゆうしょく
+yuu shoku
+Dinner
+8.	晩御飯	ばんごはん
+ban gohan
+Dinner
+9.	夜食	やしょく
+ya shoku
+Supper
+10.	おかず
+okazu
+Side Dish
+11.	お八つ	おやつ
+oyatsu
+Snack / Refreshment
+12.	弁当	べんとう
+bentou
+Box Lunch
+13.	駅弁	えきべん
+ekiben
+Train Station Box Lunch
+14.	御飯	ごはん
+gohan
+Meal / Cooked Rice
+15.	刺身	さしみ
+sashimi
+Sliced Raw Fish
+16.	寿司 / 鮨 / 鮓	すし
+sushi
+Sushi
+17.	天婦羅	てんぷら
+tenpura
+Tempura / Deep-fried Fish and Vegetables
+18.	牛丼	ぎゅうどん
+gyuu don
+Rice topped with Beef and Vegetables
+19.	親子丼	おやこどん
+oyako don
+Rice topped with Boiled Chicken and Eggs
+20.	天丼	てんどん
+ten don
+Rice topped with Deep-fried Prawns & Fishes
+21.	鰻丼	うなぎどん
+unagi don
+Rice topped with Glaze-grilled Eel
+22.	鰻	うなぎ
+unagi
+Eel
+23.	豚カツ	とんカツ
+tonkatsu
+Pork Cutlet
+24.	カレーライス
+kare- raisu
+Curry and Rice
+25.	鋤焼き	すきやき
+suki yaki
+Thin Slices of Beef cooked with various Vegetables
+26.	お好み焼き	おこのみやき
+okonomi yaki
+Thin and Flat Pancake cooked on a Hot Plate
+27.	鉄板焼き	てっぱんやき
+teppan yaki
+Grilled Meat cooked on Iron Plate
+28.	焼き鳥	やきとり
+yaki tori
+Grilled Chicken / Broiled Chicken
+29.	蛸焼き	たこやき
+tako yaki
+Octopus Dumpling
+30.	焼きそば	やきそば
+yaki soba
+Pan Fried Noodle
+31.	餃子	ギョウザ
+gyouza
+Dumpling stuffed with Minced Pork and Vegetables
+32.	茶碗蒸し	ちゃわんむし
+chawan mushi
+Steamed Egg Custard in Tea Cup
+33.	しゃぶしゃぶ
+shabu shabu
+Japanese Style Hotpot
+34.	味噌	みそ
+miso
+Miso / Bean Paste
+35.	味噌汁	みそしる
+miso shiru
+Miso Soup
+36.		ラーメン
+ra-men
+Ramen
+37.		うどん
+udon
+Noodle made of Wheat Flour
+38.	蕎麦	そば
+soba
+Buckwheat Noodle
+39.	餅	もち
+mochi
+Sticky Rice Cake
+40.	餡パン	あんパン
+anpan
+Japanese Bun filled with Red Bean Paste
+41.	牛肉	ぎゅうにく
+gyuuniku
+Beef
+42.	豚肉	ぶたにく
+butaniku
+Pork
+43.	鶏肉	とりにく
+toriniku
+Chicken Meat
+44.	羊肉	ようにく
+youniku
+Mutton / Lamb
+45.	魚	さかな
+sakana
+Fish
+46.	海老 / 蝦	えび
+ebi
+Prawn / Shrimp
+47.	蟹	かに
+kani
+Crab
+48.	豆腐	とうふ
+toufu
+Tofu / Bean Curd
+49.	卵	たまご
+tamago
+Egg
+50.	食パン	しょくパン
+shoku pan
+Plain Bread / White Bread
+51.	玉葱	たまねぎ
+tamanegi
+Onion
+52.	胡瓜	きゅうり
+kyuuri
+Cucumber
+53.	醤油	しょうゆ
+shouyu
+Soy Sauce
+54.	酢	す
+su
+Vinegar
+55.	山葵	わさび
+wasabi
+Japanese Horseradish
+56.	油	あぶら
+abura
+Oil
+57.	砂糖	さとう
+satou
+Sugar
+58.	塩	しお
+shio
+Salt
+59.	胡椒	こしょう
+koshou
+Pepper
+60.	調味料	ちょうみ りょう
+choumi ryou
+Seasoning / Condiment / Flavoring / Spices

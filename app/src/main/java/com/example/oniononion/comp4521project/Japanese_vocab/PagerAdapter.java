@@ -27,6 +27,8 @@ public class PagerAdapter  extends FragmentStatePagerAdapter {
                 return new PhrasesFragment2();
             case 3:
                 return new WordsFragment();
+            case 4:
+                return new WordsFragment2();
             default:
                 return null;
         }

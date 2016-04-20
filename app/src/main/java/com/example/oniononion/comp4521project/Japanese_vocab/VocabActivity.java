@@ -26,6 +26,7 @@ public class VocabActivity  extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("Useful Phrases"));
         tabLayout.addTab(tabLayout.newTab().setText("Basic Phrases"));
         tabLayout.addTab(tabLayout.newTab().setText("Festivals & Events"));
+        tabLayout.addTab(tabLayout.newTab().setText("Food"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
