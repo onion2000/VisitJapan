@@ -5,8 +5,9 @@ import android.content.Intent;
 import android.view.View;
 
 import com.example.oniononion.comp4521project.Currency_converter.ConverterActivity;
+import com.example.oniononion.comp4521project.Japanese_vocab.VocabActivity;
 import com.example.oniononion.comp4521project.Travel_information.TravelActivity;
-import com.example.oniononion.comp4521project.Weather_forecast.OnedayWeather;
+import com.example.oniononion.comp4521project.Weather_forecast.OnedayWeatherActivity;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.materialdrawer.Drawer;
@@ -55,7 +56,7 @@ public class NavigationDrawerInstaller {
 
                                     break;
                                 case 3:
-                                    intent = new Intent(act, OnedayWeather.class);
+                                    intent = new Intent(act, OnedayWeatherActivity.class);
                                     act.startActivity(intent);
                                     break;
                                 case 4:
@@ -67,6 +68,8 @@ public class NavigationDrawerInstaller {
                                 case 6:
                                     break;
                                 case 7:
+                                    intent = new Intent(act, VocabActivity.class);
+                                    act.startActivity(intent);
                                     break;
                                 case 8:
                                     intent = new Intent(act, TravelActivity.class);

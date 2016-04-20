@@ -36,8 +36,8 @@ import java.util.Locale;
 /**
  * Created by oniononion on 6/3/2016.
  */
-public class OnedayWeather extends AppCompatActivity {
-    private static final String TAG = OnedayWeather.class.getSimpleName();
+public class OnedayWeatherActivity extends AppCompatActivity {
+    private static final String TAG = OnedayWeatherActivity.class.getSimpleName();
     private final String weather_image_url_prefix ="http://www.jnto.go.jp/weather" ;
     private final String uri = "http://www.jnto.go.jp/weather/eng/index.php?day=";
     private ArrayList<WeatherInfo> array_info = new ArrayList<>();

@@ -1,0 +1,105 @@
+﻿1.	おもちゃ売り場はどこですか
+omocha uriba wa doko desu ka
+Where is the toy department?
+2.	五階でございます
+gokai de gozaimasu
+It's on the 5th floor
+3.	その電子辞書を見せてください
+sono denshi jisho wo misete kudasai
+Please show me that electronic dictionary
+4.	はい、どうぞ
+hai, douzo
+Here it is
+5.	これは日本製ですか
+kore wa nihonsei desu ka
+Is this made in Japan?
+6.	これはいくらですか
+kore wa ikura desu ka
+How much is this?
+7.	二万五千円です
+niman gosen en desu
+It's 25,000 yen
+8.	これをください
+kore wo kudasai
+Please give me this
+9.	博物館の電話番号は何番ですか
+hakubutsukan no denwabangou wa nanban desu ka
+What is the telephone no. of the museum?
+10.	何時から何時まで開いていますか
+nanji kara nanji made aite imasu ka
+When are you (shop/place) open?
+11.	九時から五時までです
+kuji kara goji made desu
+From 9am to 5pm
+12.	休みは何曜日ですか
+yasumi wa nanyoubi desu ka
+Which of the days that you (shop/place) are closed?
+13.	土曜日と日曜日です
+doyoubi to nichiyoubi desu
+Saturday and Sunday
+14.	この電車は動物園へ行きますか
+kono densha wa doubutsuen e ikimasu ka
+Does this train go to the zoo?
+15.	いいえ、次の「普通」です
+iie, tsugi no "futsuu desu"
+No, take the next "ordinary" train
+16.	この電車は渋谷駅に止まりますか
+kono densha wa shibuya eki ni tomarimasu ka
+Does this train stop at Shibuya station?
+17.	どのぐらいかかりますか
+dono gurai kakarimasu ka
+How long does it take (to reach there)?
+18.	何時に出ますか
+nanji ni demasu ka
+What time does the train leave?
+19.	何時に着きますか
+nanji ni tsukimasu ka
+What time does the train arrive?
+20.	切符を二枚ください
+kippu wo nimai kudasai
+Please give me two tickets
+21.	道に迷ってしまいました
+michi ni mayotte shimaimashita
+I lost my way
+22.	新宿駅までお願いします
+shinjuku eki made onegaishimasu
+Please take me to Shinjuku station
+23.	あの交差点を右に曲がってください
+ano kousaten wo migi ni magatte kudasai
+Please turn right at that intersection
+24.	あの信号を左に曲がってください
+ano shingou wo hidari ni magatte kudasai
+Please turn left at that traffic light
+25.	まっすぐ行って下さい
+massugu itte kudasai
+Please go straight
+26.	あのサインボードの前で止めてください
+ano saibo-do no mae de tomete kudasai
+Please stop in front of that signboard
+27.	空港にはどう行けばいいですか
+kuukou niwa dou ikeba ii desu ka
+How can I go to the Airport?
+28.	バスで行けますか
+basu de ikemasu ka
+Can I go by bus?
+29.	バス乗り場はどこですか
+basu noriba wa doko desu ka
+Where is the place to board the bus?
+30.	こちらで両替ができますか
+kochira de ryougae ga dekimasu ka
+Can I change some money here?
+31.	100 ドルを円に両替してください
+100 doru wo en ni ryougaeshite kudasai
+Please exchange 100 dollars into yen
+32.	荷物を預けてもいいですか
+nimotsu wo azuketemo ii desu ka	
+(in the hotel) Can I leave my luggage here?
+33.	ここにトイレがありますか
+koko ni toire ga arimasu ka
+Is there a toilet here?
+34.	ちょっと聞いてもいいですか
+chotto kiitemo ii desu ka
+Can I ask you something?
+35.	手伝ってくれませんか
+tetsudatte kuremasen ka
+Can you help me?

@@ -16,8 +16,9 @@ import android.view.Window;
 import android.widget.ImageButton;
 
 import com.example.oniononion.comp4521project.Currency_converter.ConverterActivity;
+import com.example.oniononion.comp4521project.Japanese_vocab.VocabActivity;
 import com.example.oniononion.comp4521project.Travel_information.TravelActivity;
-import com.example.oniononion.comp4521project.Weather_forecast.OnedayWeather;
+import com.example.oniononion.comp4521project.Weather_forecast.OnedayWeatherActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -63,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
         rate_exchange.setOnClickListener(buttonClickListener);
         ImageButton travel_info = (ImageButton) findViewById(R.id.travel_info);
         travel_info.setOnClickListener(buttonClickListener);
+        ImageButton vocabulary = (ImageButton) findViewById(R.id.vocabulary);
+        vocabulary.setOnClickListener(buttonClickListener);
+
+
 
 
         ImageButton exit = (ImageButton) findViewById(R.id.exit);
@@ -82,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
                         break;
                     case R.id.weather_forecast:
-                        intent = new Intent(MainActivity.this, OnedayWeather.class);
+                        intent = new Intent(MainActivity.this, OnedayWeatherActivity.class);
                         startActivity(intent, options.toBundle());
                         break;
                     case R.id.rate_exchange:
@@ -96,7 +101,8 @@ public class MainActivity extends AppCompatActivity {
 
                         break;
                     case R.id.vocabulary:
-
+                        intent = new Intent(MainActivity.this, VocabActivity.class);
+                        startActivity(intent, options.toBundle());
                         break;
                     case R.id.travel_info:
                         intent = new Intent(MainActivity.this, TravelActivity.class);

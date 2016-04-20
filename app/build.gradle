@@ -30,12 +30,8 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.2.1'
-    compile(name: 'List-2016.1.113-trial-release', ext: 'aar')
-    compile(name: 'Data-2016.1.113-trial-release', ext: 'aar')
-    compile(name: 'Common-2016.1.113-trial-release', ext: 'aar')
-    compile(name: 'Chart-2016.1.113-trial-release', ext: 'aar')
-    compile(name: 'Feedback-2016.1.113-trial-release', ext: 'aar')
-    compile(name: 'Primitives-2016.1.113-trial-release', ext: 'aar')
+    compile 'com.android.support:design:23.2.0'
+    compile 'com.android.support:cardview-v7:23.+'
     compile 'com.android.support:recyclerview-v7'
     compile 'com.mikepenz:iconics-core:2.5.9'
     compile 'com.mikepenz:materialdrawer:5.1.3'

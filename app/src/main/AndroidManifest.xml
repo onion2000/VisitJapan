@@ -21,7 +21,7 @@
 
 
         <activity
-            android:name=".Weather_forecast.OnedayWeather">
+            android:name=".Weather_forecast.OnedayWeatherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -47,6 +47,14 @@
         </activity>
         <activity
             android:name=".Travel_information.TravelWebViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Japanese_vocab.VocabActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

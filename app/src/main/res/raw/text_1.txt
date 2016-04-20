@@ -1,0 +1,123 @@
+﻿1.	お早うございます
+ohayou gozaimasu
+Good morning
+2.	こんにちは
+konnichiwa
+Hello/Good afternoon
+3.	こんばんは
+konbanwa
+Good evening
+4.	ようこそ
+youkoso
+Welcome (aboard)
+5.	さようなら
+sayounara
+Good bye
+6.	また明日
+mata ashita
+See you tomorrow
+7.	ではまた
+dewa mata
+See you
+8.	すみません
+sumimasen
+Excuse me (when asking for something)
+9.	すみません
+sumimasen
+I am sorry (for my fault)
+10.	すみません
+sumimasen
+Pardon me (for missing what you said)
+11.	すみません
+sumimasen
+Thank you (for taking the trouble to do... for me)
+12.	ごめんなさい
+gomen nasai
+I am sorry
+13.	失礼ですが
+shitsurei desuga
+Excuse me, but... (when asking for something)
+14.	ありがとうございます
+arigatou gozaimasu
+Thank you very much
+15.	どういたしまして
+dou itashimashite
+You are welcome/Don't mention it/Not at all
+16.	どうぞ
+douzo
+Here you are. (Used when offering something to someone)
+17.	どうも
+doumo
+Well, thanks
+18.	お休みなさい
+oyasumi nasai
+Good night
+19.	おめでとうございます
+omedetou gozaimasu
+Congratulations
+20.	お元気ですか
+ogenki desu ka
+How are you?
+21.	はい、おかげさまで 元気です
+hai, okagesamade genki desu
+Yes, due to your kind thought, I am very good
+22.	大丈夫ですか
+daijoubu desu ka
+Are you OK?
+23.	大丈夫です
+daijoubu desu
+I am OK
+24.	はじめまして
+hajimemashite
+How do you do?
+25.	マイクと申します
+maiku to moushimasu
+My name is Mike (Assuming your name is Mike)
+26.	どうぞよろしくお願いします
+douzo yoroshiku onegaishimasu
+I am pleased to meet you. 
+27.	こちらこそよろしく お願いします
+kochira koso yoroshiku onegaishimasu
+I am please to meet you too. 
+28.	これからお世話になります
+korekara osewani narimasu
+I hope for your assistance hereafter.
+29.	ごめんください
+gomenkudasai
+Anybody home?/May I come in?
+30.	いらっしゃい
+irasshai
+How nice of you to come/Welcome
+31.	どうぞお上がりください
+douzo oagari kudasai
+Please come in (the house)
+32.	お邪魔します
+ojamashimasu
+Excuse me for disturbing you
+33.	お名前は
+o namae wa
+What is your name?
+34.	いただきます
+itadakimasu
+You say this to express your gratitude before meals
+35.	ごちそうさまでした
+gochisou sama deshita
+You say this to express your gratitude after meals
+36.	行ってきます
+ittekimasu
+I am going out now. See you later
+37.	行ってらっしゃい
+itterasshai
+Take care. Have a nice day 
+38.	ただいま
+tadaima
+I am home
+39.	お帰りなさい
+okaerinasai
+Welcome back
+40.	お気をつけて
+o ki wo tsukete
+Be careful
+41.	お大事に
+o daiji ni
+Take care of your body

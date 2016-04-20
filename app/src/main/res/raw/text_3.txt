@@ -1,0 +1,110 @@
+﻿1.	祭り	まつり
+matsuri
+Festival
+2.	行事	ぎょうじ
+gyouji
+Event
+3.	春祭り	はるまつり
+haru matsuri
+Spring Festival
+4.	夏祭り	なつまつり
+natsu matsuri
+Summer Festival
+5.	秋祭り	あきまつり
+aki matsuri
+Autumn Festival / Fall Festival
+6.	雪祭り	ゆきまつり
+yuki matsuri
+Snow Festival
+7.	文化祭	ぶんかさい
+bunkasai
+Culture Festival / Arts Festival
+8.	正月	しょうがつ
+shou gatsu
+New Year / New Year's Day
+9.	花見	はなみ
+hanami
+Cherry Blossom Viewing
+10.	花火	はなび
+hanabi
+Firework
+11.	バレンタインデー
+barentain de-
+Valentine's Day
+12.	雛祭り	ひなまつり
+hina matsuri
+Doll's Festival (March 3rd)
+13.	花祭り	はなまつり
+hana matsuri
+Buddha's birthday festival (April 8th)
+14.	緑の日	みどりのひ
+midori no hi
+Greenery Day (April 29)
+15.	ゴールデンウイーク
+go-ruden ui-ku
+Golden Week (Early May Holiday Season in Japan)
+16.	子供の日	こどものひ
+kodomo no hi
+Children's Day (May 5th)
+17.	母の日	ははのひ
+haha no hi
+Mother's Day
+18.	父の日	ちちのひ
+chichi no hi
+Father's Day
+19.	七夕	たなばた
+tanabata
+The Star Festival (July 7th)
+20.	星祭り	ほしまつり
+hoshi matsuri
+The Star Festival (July 7th)
+21.	お盆	おぼん
+obon
+Bon Festival (mid August)
+22.	灯篭流し	とうろうながし
+tourou nagashi
+Ceremony in which Paper Lanterns are floated down a River (August 15/16)
+23.	七五三	しちごさん
+shichi go san
+Festival for 3-year-old Boys and Girls, 5-year-old Boys and 7-year-old Girls (November 15)
+24.	文化の日	ぶんかのひ
+bunka no hi
+Culture Day (November 3)
+25.	クリスマス
+kurisumasu
+Christmas
+26.	大晦日	おおみそか
+oomisoka
+New Year's Eve (December 31st)
+27.	夏休み	なつやすみ
+natsu yasumi
+Summer Vacation
+28.	冬休み	ふゆやすみ
+fuyu yasumi	Winter Vacation
+29.	誕生日	たんじょうび
+tanjoubi
+Birthday
+30.	入学式	にゅうがくしき
+nyuugaku shiki
+School Entrance Ceremony
+31.	成人式	せいじんしき
+seijin shiki
+Coming-of-Age Ceremony
+32.	成年式	せいねんしき
+seinen shiki
+Coming-of-Age Ceremony
+33.	卒業式	そつぎょうしき
+sotsugyou shiki
+Graduation Ceremony
+34.	結婚式	けっこんしき
+kekkon shiki
+Wedding Ceremony
+35.	葬式	そうしき
+sou shiki
+Funeral
+36.	選挙	せんきょ
+senkyo
+Election
+37.	ハロウィーン
+haroui-n
+Halloween
