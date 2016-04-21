@@ -35,7 +35,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="XX"
+        android:text="--"
         android:id="@+id/highest_temp"
         android:layout_gravity="center_horizontal"
         android:textSize="30dp"
@@ -155,7 +155,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="XX"
+        android:text="--"
         android:id="@+id/lowest_temp"
         android:gravity="center|left"
         android:textSize="30dp"
