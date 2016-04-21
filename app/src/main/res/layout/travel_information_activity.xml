@@ -25,7 +25,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_toStartOf="@+id/to_edittext"
-        android:layout_toLeftOf="@+id/to_edittext" />
+        android:layout_toLeftOf="@+id/to_edittext"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,14 +35,14 @@
         android:onClick="showTimePickerDialog"
         android:id="@+id/time_picker_button"
         android:height="100dp"
-        android:textSize="30dp"
-        android:layout_below="@+id/date_picker_button"
-        android:layout_alignRight="@+id/to_edittext"
-        android:layout_alignEnd="@+id/to_edittext"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:textSize="20dp"
         android:background="@drawable/big_button"
-        />
+        android:layout_alignTop="@+id/date_picker_button"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/date_picker_button"
+        android:lines="2"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,14 +50,16 @@
         android:onClick="showDatePickerDialog"
         android:id="@+id/date_picker_button"
         android:height="100dp"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:layout_below="@+id/from_edittext"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/big_button"/>
+        android:layout_marginTop="20dp"
+        android:background="@drawable/big_button"
+        android:layout_toStartOf="@+id/to_edittext"
+        android:lines="2"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -78,7 +82,9 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignLeft="@+id/to_text_view"
-        android:layout_alignStart="@+id/to_text_view" />
+        android:layout_alignStart="@+id/to_text_view"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -88,7 +94,9 @@
         android:textSize="20dp"
         android:layout_below="@+id/title"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp" />
 
     <TextView
         android:layout_width="50dp"
@@ -98,7 +106,9 @@
         android:textSize="20dp"
         android:layout_below="@+id/title"
         android:layout_alignRight="@+id/travel_button"
-        android:layout_alignEnd="@+id/travel_button" />
+        android:layout_alignEnd="@+id/travel_button"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp" />
 
     <org.honorato.multistatetogglebutton.MultiStateToggleButton
         android:id="@+id/search_type_toggle_button"
@@ -139,7 +149,9 @@
         android:gravity="center"
         android:layout_below="@+id/time_picker_button"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="10dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -150,7 +162,9 @@
         android:gravity="center"
         android:layout_below="@+id/search_type_textview"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="10dp" />
 
     <TextView
         android:layout_width="wrap_content"

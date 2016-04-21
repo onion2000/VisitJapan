@@ -9,6 +9,6 @@
 
     <color name="highest_temp">@color/md_red_A400</color>
     <color name="lowest_temp">@color/md_blue_A200</color>
-    <color name="prob_precipitation">@color/md_teal_200</color>
+    <color name="prob_precipitation">@color/md_green_600</color>
 
 </resources>

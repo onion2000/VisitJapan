@@ -213,13 +213,13 @@ public class TravelActivity extends AppCompatActivity {
 
     private static void setTime() {
         if(selectedHour <10 && selectedMins <10){
-            timePicker.setText("Time: 0" + selectedHour + ":0" +selectedMins);
+            timePicker.setText("Time:\n0" + selectedHour + ":0" +selectedMins);
         }else if(selectedHour <10 && selectedMins >10 ){
-            timePicker.setText("Time: 0" + selectedHour + ":" +selectedMins);
+            timePicker.setText("Time:\n0" + selectedHour + ":" +selectedMins);
         }else if(selectedHour >10 && selectedMins <10){
-            timePicker.setText("Time: " + selectedHour + ":0" +selectedMins);
+            timePicker.setText("Time:\n" + selectedHour + ":0" +selectedMins);
         }else {
-            timePicker.setText("Time: " + selectedHour + ":" + selectedMins);
+            timePicker.setText("Time:\n" + selectedHour + ":" + selectedMins);
         }
     }
 }
