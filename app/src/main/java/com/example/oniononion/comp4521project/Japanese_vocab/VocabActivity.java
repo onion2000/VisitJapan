@@ -3,9 +3,8 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 
 import com.example.oniononion.comp4521project.NavigationDrawerInstaller;
 import com.example.oniononion.comp4521project.R;
@@ -19,6 +18,15 @@ public class VocabActivity  extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Transition mEnterTran =
+                TransitionInflater.from(this).
+                        inflateTransition(R.transition.enter_transition);
+        Transition mReturnTran =
+                TransitionInflater.from(this).
+                        inflateTransition(R.transition.return_transition);
+
+        getWindow().setEnterTransition(mEnterTran);
+        getWindow().setReturnTransition(mReturnTran);
         setContentView(R.layout.vocabulary_activity);
 
         NavigationDrawerInstaller.installOnActivity(this);

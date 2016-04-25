@@ -55,10 +55,10 @@ public class OnedayWeatherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Transition mEnterTran =
                 TransitionInflater.from(this).
-                        inflateTransition(R.transition.currency_enter_transition);
+                        inflateTransition(R.transition.enter_transition);
         Transition mReturnTran =
                 TransitionInflater.from(this).
-                        inflateTransition(R.transition.currency_return_transition);
+                        inflateTransition(R.transition.return_transition);
 
         getWindow().setEnterTransition(mEnterTran);
         getWindow().setReturnTransition(mReturnTran);

@@ -2,12 +2,10 @@ package com.example.oniononion.comp4521project.Currency_converter;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.transition.Fade;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -55,10 +53,10 @@ public class ConverterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Transition mEnterTran =
                 TransitionInflater.from(this).
-                        inflateTransition(R.transition.currency_enter_transition);
+                        inflateTransition(R.transition.enter_transition);
         Transition mReturnTran =
                 TransitionInflater.from(this).
-                        inflateTransition(R.transition.currency_return_transition);
+                        inflateTransition(R.transition.return_transition);
 
         getWindow().setEnterTransition(mEnterTran);
         getWindow().setReturnTransition(mReturnTran);

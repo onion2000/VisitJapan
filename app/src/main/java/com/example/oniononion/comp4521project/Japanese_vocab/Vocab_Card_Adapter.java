@@ -14,6 +14,8 @@ import java.util.ArrayList;
 /**
  * Created by oniononion on 2016/04/20.
  */
+
+// This is the adapter of recycler card view for vocab list
 public class Vocab_Card_Adapter extends RecyclerView.Adapter<Vocab_Card_Adapter.ViewHolder> {
     private Context mContext;
     private ArrayList<String> vocab_hiragana ;
@@ -37,6 +39,7 @@ public class Vocab_Card_Adapter extends RecyclerView.Adapter<Vocab_Card_Adapter.
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, int i) {
+        // set the value of each card view
         if(vocab_hiragana.size()>0) {
             viewHolder.m_vocab_hiragana.setText(vocab_hiragana.get(i).toString());
             viewHolder.m_vocab_romaji.setText(vocab_romaji.get(i).toString());
@@ -48,17 +51,16 @@ public class Vocab_Card_Adapter extends RecyclerView.Adapter<Vocab_Card_Adapter.
     @Override
     public int getItemCount() {
         return vocab_hiragana.size();
-
     }
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        // The content of each card view
         public TextView m_vocab_hiragana;
         public TextView m_vocab_romaji;
         public TextView m_vocab_meaning;
         public final View mView;
         public Context mCon;
-
 
         public ViewHolder(View v, Context context) {
             super(v);

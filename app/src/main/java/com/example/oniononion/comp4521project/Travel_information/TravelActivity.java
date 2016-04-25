@@ -6,21 +6,14 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.format.DateFormat;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TimePicker;
 
 import com.example.oniononion.comp4521project.NavigationDrawerInstaller;
@@ -60,10 +53,10 @@ public class TravelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Transition mEnterTran =
                 TransitionInflater.from(this).
-                        inflateTransition(R.transition.currency_enter_transition);
+                        inflateTransition(R.transition.enter_transition);
         Transition mReturnTran =
                 TransitionInflater.from(this).
-                        inflateTransition(R.transition.currency_return_transition);
+                        inflateTransition(R.transition.return_transition);
 
         getWindow().setEnterTransition(mEnterTran);
         getWindow().setReturnTransition(mReturnTran);
