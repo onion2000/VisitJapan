@@ -17,7 +17,6 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
-import static com.example.oniononion.comp4521project.MainActivity.isOnline;
 
 /**
  * Created by oniononion on 12/3/2016.
@@ -50,7 +49,7 @@ public class NavigationDrawerInstaller {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         Intent intent;
-                        if(isOnline(act.getApplicationContext())) {
+                        if(CheckConnectivityNotification.isOnline(act.getApplicationContext())) {
                             switch (position) {
                                 case 2:
 
@@ -81,7 +80,7 @@ public class NavigationDrawerInstaller {
 
                             }
                         }else{
-                            MainActivity.showInternetDialog();
+                            CheckConnectivityNotification.checkOnline(act);
                         }
                         return true;
                     }
