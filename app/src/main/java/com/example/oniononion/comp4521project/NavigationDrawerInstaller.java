@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.example.oniononion.comp4521project.Currency_converter.ConverterActivity;
 import com.example.oniononion.comp4521project.Japanese_vocab.VocabActivity;
+import com.example.oniononion.comp4521project.Translation.TranslationActivity;
 import com.example.oniononion.comp4521project.Travel_information.TravelActivity;
 import com.example.oniononion.comp4521project.Weather_forecast.OnedayWeatherActivity;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
@@ -52,7 +53,8 @@ public class NavigationDrawerInstaller {
                         if(CheckConnectivityNotification.isOnline(act.getApplicationContext())) {
                             switch (position) {
                                 case 2:
-
+                                    intent = new Intent(act, TranslationActivity.class);
+                                    act.startActivity(intent);
                                     break;
                                 case 3:
                                     intent = new Intent(act, OnedayWeatherActivity.class);

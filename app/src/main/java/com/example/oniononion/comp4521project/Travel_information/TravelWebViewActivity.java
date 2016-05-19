@@ -18,7 +18,6 @@ public class TravelWebViewActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.travel_infomation_webview);
 
-
         url= getIntent().getExtras().getString("url");
 
         travelWebView = (WebView)findViewById(R.id.travel_webview);

@@ -18,6 +18,7 @@ import android.widget.ImageButton;
 
 import com.example.oniononion.comp4521project.Currency_converter.ConverterActivity;
 import com.example.oniononion.comp4521project.Japanese_vocab.VocabActivity;
+import com.example.oniononion.comp4521project.Translation.TranslationActivity;
 import com.example.oniononion.comp4521project.Travel_information.TravelActivity;
 import com.example.oniononion.comp4521project.Weather_forecast.OnedayWeatherActivity;
 
@@ -81,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (v.getId()) {
                     case R.id.translation:
-
+                        intent = new Intent(MainActivity.this, TranslationActivity.class);
+                        startActivity(intent, options.toBundle());
                         break;
                     case R.id.weather_forecast:
                         intent = new Intent(MainActivity.this, OnedayWeatherActivity.class);

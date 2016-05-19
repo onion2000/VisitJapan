@@ -1,11 +1,11 @@
-package com.example.oniononion.comp4521project.Japanese_vocab;
+package com.example.oniononion.comp4521project.Tourist_info;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 /**
- * Created by oniononion on 2016/04/20.
+ * Created by ylcheung on 19/5/16.
  */
 public class PagerAdapter  extends FragmentStatePagerAdapter {
     int mNumOfTabs;
@@ -20,15 +20,15 @@ public class PagerAdapter  extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                return new VocabMainFragment();
-            case 1:
-                return new PhrasesFragment();
-            case 2:
-                return new PhrasesFragment2();
-            case 3:
-                return new WordsFragment();
-            case 4:
-                return new WordsFragment2();
+                return new SearchFragment1();
+//            case 1:
+//                return new PhrasesFragment();
+//            case 2:
+//                return new PhrasesFragment2();
+//            case 3:
+//                return new WordsFragment();
+//            case 4:
+//                return new WordsFragment2();
             default:
                 return null;
         }
