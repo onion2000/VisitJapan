@@ -1,6 +1,7 @@
 package com.example.oniononion.comp4521project.Currency_converter;
 
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.oniononion.comp4521project.NavigationDrawerInstaller;
 import com.example.oniononion.comp4521project.Object.Currency;
@@ -89,27 +91,33 @@ public class ConverterActivity extends AppCompatActivity {
     }
 
     private void calculationResult() {
-        String temp = input.getText().toString();
-        double input_double;
-        if(isNumeric(temp)&&(!temp.isEmpty())){
-            input_double = Double.valueOf(temp);
-            if (input_double == Math.round(input_double)) {
-                from_amount.setText(temp + ".00");
+        if(rate_array.size()!=0) {
+            String temp = input.getText().toString();
+            double input_double;
+            if (isNumeric(temp) && (!temp.isEmpty())) {
+                input_double = Double.valueOf(temp);
+                if (input_double == Math.round(input_double)) {
+                    from_amount.setText(temp + ".00");
+                } else {
+                    from_amount.setText(temp);
+                }
             } else {
-                from_amount.setText(temp);
+                input_double = 1;
+                from_amount.setText("1.00");
             }
-        }else{
-            input_double = 1;
-            from_amount.setText("1.00");
-        }
-        from_type.setText("JPY =");
+            from_type.setText("JPY =");
 
-        double resultAmount = input_double * rate_array.get(current_position);
-        resultAmount=roundToSignificantFigures(resultAmount,7);
-        result.setText(String.valueOf(resultAmount) + " "+ currency_array.get(current_position).getShort_name());
+            double resultAmount = input_double * rate_array.get(current_position);
+            resultAmount = roundToSignificantFigures(resultAmount, 7);
+            result.setText(String.valueOf(resultAmount) + " " + currency_array.get(current_position).getShort_name());
+
+        }else{
+            Toast.makeText( getApplicationContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void reverse_calculationResult() {
+        if(rate_array.size()!=0) {
         String temp = input.getText().toString();
         double input_double;
         if(isNumeric(temp)&&(!temp.isEmpty())){
@@ -128,6 +136,9 @@ public class ConverterActivity extends AppCompatActivity {
         double resultAmount = input_double * (1/rate_array.get(current_position));
         resultAmount=roundToSignificantFigures(resultAmount,7);
         result.setText(String.valueOf(resultAmount) + " JPY");
+        }else{
+            Toast.makeText( getApplicationContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public static boolean isNumeric(String str) {
@@ -156,20 +167,28 @@ public class ConverterActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                Elements content = doc.select("table.tablesorter.ratesTable");
 
-                Elements tbody = content.first().getElementsByTag("tbody");
-                Elements links = tbody.select("tr");
-                for (Element link : links) {
-                    Element tempTr = link.select("td").first();
-                    String currency_name = tempTr.text();
-                    Log.d(TAG, "currency name :" + currency_name);
-                    Element tempSrc = link.select("td.rtRates").first().children().first();
-                    String currency_rate_string = tempSrc.text();
-                    float currency_rate = Float.valueOf(currency_rate_string);
-                    Log.d(TAG, "currency rate string :" + currency_rate_string);
-                    Currency info = new Currency(currency_name, currency_rate);
-                    currency_array.add(info);
+
+                if(doc!=null) {
+                    Elements content = doc.select("table.tablesorter.ratesTable");
+
+                    Elements tbody = content.first().getElementsByTag("tbody");
+                    Elements links = tbody.select("tr");
+                    for (Element link : links) {
+                        Element tempTr = link.select("td").first();
+                        String currency_name = tempTr.text();
+                        Log.d(TAG, "currency name :" + currency_name);
+                        Element tempSrc = link.select("td.rtRates").first().children().first();
+                        String currency_rate_string = tempSrc.text();
+                        float currency_rate = Float.valueOf(currency_rate_string);
+                        Log.d(TAG, "currency rate string :" + currency_rate_string);
+                        Currency info = new Currency(currency_name, currency_rate);
+                        currency_array.add(info);
+                    }
+                }else{
+                    Looper.prepare();
+                    Toast.makeText( getApplicationContext(), "Website Not Found", Toast.LENGTH_SHORT).show();
+
                 }
 
             }
