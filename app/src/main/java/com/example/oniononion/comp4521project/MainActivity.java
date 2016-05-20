@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
 
+import com.example.oniononion.comp4521project.Culture_info.CultureMenuActivity;
 import com.example.oniononion.comp4521project.Currency_converter.ConverterActivity;
 import com.example.oniononion.comp4521project.Japanese_vocab.VocabActivity;
 import com.example.oniononion.comp4521project.Translation.TranslationActivity;
@@ -64,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
         travel_info.setOnClickListener(buttonClickListener);
         ImageButton vocabulary = (ImageButton) findViewById(R.id.vocabulary);
         vocabulary.setOnClickListener(buttonClickListener);
-
+        ImageButton culture = (ImageButton) findViewById(R.id.local_culture);
+        culture.setOnClickListener(buttonClickListener);
 
 
 
@@ -94,7 +96,8 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent, options.toBundle());
                         break;
                     case R.id.local_culture:
-
+                        intent = new Intent(MainActivity.this, CultureMenuActivity.class);
+                        startActivity(intent, options.toBundle());
                         break;
                     case R.id.tourist_information:
 

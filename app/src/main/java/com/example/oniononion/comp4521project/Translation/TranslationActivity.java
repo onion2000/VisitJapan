@@ -1,12 +1,8 @@
 package com.example.oniononion.comp4521project.Translation;
 
-import android.app.Service;
-import android.content.Intent;
 import android.media.MediaDataSource;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
@@ -21,8 +17,6 @@ import com.example.oniononion.comp4521project.ToolbarInstaller;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;

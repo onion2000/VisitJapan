@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 
+import com.example.oniononion.comp4521project.Culture_info.CultureMenuActivity;
 import com.example.oniononion.comp4521project.Currency_converter.ConverterActivity;
 import com.example.oniononion.comp4521project.Japanese_vocab.VocabActivity;
 import com.example.oniononion.comp4521project.Translation.TranslationActivity;
@@ -65,6 +66,8 @@ public class NavigationDrawerInstaller {
                                     act.startActivity(intent);
                                     break;
                                 case 5:
+                                    intent = new Intent(act, CultureMenuActivity.class);
+                                    act.startActivity(intent);
                                     break;
                                 case 6:
                                     break;
