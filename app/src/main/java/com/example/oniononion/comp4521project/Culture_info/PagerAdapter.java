@@ -10,24 +10,25 @@ import android.support.v4.app.FragmentStatePagerAdapter;
  */
 public class PagerAdapter  extends FragmentStatePagerAdapter {
     int mNumOfTabs;
-    CultureFragment people = CultureFragment.newInstance(CultureType.PEOPLE);
-    CultureFragment religion = CultureFragment.newInstance(CultureType.RELIGION);
-    CultureFragment social = CultureFragment.newInstance(CultureType.SOCIAL);
+    CultureFragment culture;
+    ReligionFragment religion;
 
     public PagerAdapter(FragmentManager fm, int NumOfTabs) {
         super(fm);
         this.mNumOfTabs = NumOfTabs;
+        this.culture = new CultureFragment();
+        this.religion = new ReligionFragment();
     }
 
     @Override
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return people;
+                return culture;
             case 1:
                 return religion;
-            case 2:
-                return social;
+//            case 2:
+//                return social;
             default:
                 return null;
         }

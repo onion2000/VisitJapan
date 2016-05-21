@@ -1,5 +1,6 @@
 package com.example.oniononion.comp4521project.Translation;
 
+import android.media.AudioManager;
 import android.media.MediaDataSource;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -87,17 +88,12 @@ public class TranslationActivity extends AppCompatActivity {
     }
 
     private void playSound() throws Exception {
-        URL playuri = new URL(gguri + "q=" + result.getText().toString().replace(" ","%20"));
-        HttpURLConnection con = (HttpURLConnection) playuri.openConnection();
-        con.setRequestMethod("GET");
-        con.setRequestProperty("User-Agent", "Mozilla/5.0");
-        if (con.getResponseCode() != 200) {
-            System.err.println("Error from Google: HTTP" + con.getResponseCode() + "\t" + con.getResponseMessage());
-        }else{
-            MediaPlayer mp = new MediaPlayer();
-            mp.setDataSource((MediaDataSource) con.getContent());
-            mp.start();
-        }
+        MediaPlayer player = new MediaPlayer();
+        String playuri = gguri + "q=" + result.getText().toString().replace(" ","%20");
+        player.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        player.setDataSource(playuri);
+        player.prepare();
+        player.start();
     }
 
     protected View.OnClickListener buttonClickListener = new View.OnClickListener() {

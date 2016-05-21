@@ -1,4 +1,4 @@
-package com.example.oniononion.comp4521project.Culture_info;
+package com.example.oniononion.comp4521project.Tourist_info;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -12,10 +12,9 @@ import com.example.oniononion.comp4521project.R;
 import com.example.oniononion.comp4521project.ToolbarInstaller;
 
 /**
- * Created by ylcheung on 23/4/2016.
+ * Created by ylcheung on 22/5/16.
  */
-public class CultureMenuActivity extends AppCompatActivity {
-
+public class TouristActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,18 +27,17 @@ public class CultureMenuActivity extends AppCompatActivity {
 
         getWindow().setEnterTransition(mEnterTran);
         getWindow().setReturnTransition(mReturnTran);
-        setContentView(R.layout.culture_activity);
+        setContentView(R.layout.vocabulary_activity);
 
         NavigationDrawerInstaller.installOnActivity(this);
         ToolbarInstaller.installOnActivity(this);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.culture_tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("People"));
-        tabLayout.addTab(tabLayout.newTab().setText("Religions"));
-//        tabLayout.addTab(tabLayout.newTab().setText("Social"));
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout.addTab(tabLayout.newTab().setText("Restaurants"));
+        tabLayout.addTab(tabLayout.newTab().setText("Useful Phrases"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.culture_pager);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         final PagerAdapter adapter = new PagerAdapter
                 (getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);

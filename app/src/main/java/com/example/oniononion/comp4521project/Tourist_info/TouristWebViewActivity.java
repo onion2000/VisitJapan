@@ -1,4 +1,4 @@
-package com.example.oniononion.comp4521project.Travel_information;
+package com.example.oniononion.comp4521project.Tourist_info;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,9 +10,9 @@ import android.widget.Toast;
 import com.example.oniononion.comp4521project.R;
 
 /**
- * Created by oniononion on 16/3/2016.
+ * Created by ylcheung on 21/5/16.
  */
-public class TravelWebViewActivity extends Activity {
+public class TouristWebViewActivity extends Activity {
     String url;
     WebView travelWebView;
     @Override

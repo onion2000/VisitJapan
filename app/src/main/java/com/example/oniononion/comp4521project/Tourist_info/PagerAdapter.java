@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 /**
  * Created by ylcheung on 19/5/16.
  */
-public class PagerAdapter  extends FragmentStatePagerAdapter {
+public class PagerAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;
 
     public PagerAdapter(FragmentManager fm, int NumOfTabs) {
@@ -17,18 +17,11 @@ public class PagerAdapter  extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-
         switch (position) {
             case 0:
-                return new SearchFragment1();
-//            case 1:
-//                return new PhrasesFragment();
-//            case 2:
-//                return new PhrasesFragment2();
-//            case 3:
-//                return new WordsFragment();
-//            case 4:
-//                return new WordsFragment2();
+                return new RestaurantFragment();
+            case 1:
+                return new HotelFragment();
             default:
                 return null;
         }

@@ -1,6 +1,5 @@
 package com.example.oniononion.comp4521project.Culture_info;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,7 +10,10 @@ import android.widget.TextView;
 
 import com.example.oniononion.comp4521project.R;
 
-public class CultureFragment extends Fragment {
+/**
+ * Created by ylcheung on 22/5/16.
+ */
+public class ReligionFragment extends Fragment {
     private WebView cultureWebView;
 
     TextView title;
@@ -21,7 +23,7 @@ public class CultureFragment extends Fragment {
         View v = inflater.inflate(R.layout.culture_content_webview, container, false);
 
         cultureWebView = (WebView) v.findViewById(R.id.culture_webview);
-        cultureWebView.loadUrl("file:///android_asset/people.html");
+        cultureWebView.loadUrl("file:///android_asset/religion.html");
 
         title = (TextView)v.findViewById(R.id.title);
 
