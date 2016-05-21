@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
@@ -14,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.oniononion.comp4521project.NavigationDrawerInstaller;
 import com.example.oniononion.comp4521project.Object.WeatherInfo;
@@ -98,40 +100,47 @@ public class OnedayWeatherActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                Element content = doc.getElementById("map-box");
+                if(doc!=null) {
+                    Element content = doc.getElementById("map-box");
 
-                Elements links = content.getElementsByTag("a");
-                for (Element link : links) {
-                    Element tempDiv = link.children().first();
-                    Element tempP = tempDiv.select("p.city-name").first();
-                    String city_name = tempP.text();
-                    Log.d(TAG, "cityname :" + city_name);
-                    Element tempSrc = tempDiv.select("span.icon").first().children().first();
-                    String image_url = tempSrc.attr("src");
-                    image_url = image_url.substring(2, image_url.length());
-                    Log.d(TAG, "image_url :" + image_url);
-                    Element tempSpan = tempDiv.select("span.high_temp.span_c").first();
-                    String high_temp = tempSpan.text();
-                    Log.d(TAG, "high_temp :" + high_temp);
-                    Element tempSpan2 = tempDiv.select("span.low_temp.span_c").first();
-                    String low_temp = tempSpan2.text();
-                    Log.d(TAG, "low_temp :" + low_temp);
-                    Element tempSpan3 = tempDiv.select("span.prob_rain").first();
-                    String prob_rain = tempSpan3.text();
-                    Log.d(TAG, "prob_rain :" + prob_rain);
-                    WeatherInfo info = new WeatherInfo(city_name, image_url, high_temp, low_temp, prob_rain);
-                    array_info.add(info);
+                    Elements links = content.getElementsByTag("a");
+                    for (Element link : links) {
+                        Element tempDiv = link.children().first();
+                        Element tempP = tempDiv.select("p.city-name").first();
+                        String city_name = tempP.text();
+                        Log.d(TAG, "cityname :" + city_name);
+                        Element tempSrc = tempDiv.select("span.icon").first().children().first();
+                        String image_url = tempSrc.attr("src");
+                        image_url = image_url.substring(2, image_url.length());
+                        Log.d(TAG, "image_url :" + image_url);
+                        Element tempSpan = tempDiv.select("span.high_temp.span_c").first();
+                        String high_temp = tempSpan.text();
+                        Log.d(TAG, "high_temp :" + high_temp);
+                        Element tempSpan2 = tempDiv.select("span.low_temp.span_c").first();
+                        String low_temp = tempSpan2.text();
+                        Log.d(TAG, "low_temp :" + low_temp);
+                        Element tempSpan3 = tempDiv.select("span.prob_rain").first();
+                        String prob_rain = tempSpan3.text();
+                        Log.d(TAG, "prob_rain :" + prob_rain);
+                        WeatherInfo info = new WeatherInfo(city_name, image_url, high_temp, low_temp, prob_rain);
+                        array_info.add(info);
+                    }
+                    showDetails(LocIndex);
+                    if (!spinnerInitial) {
+                        spinnerInitial = true;
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                InitializeSpinner();
+                            }
+                        });
+                    }
+                }else{
+                    Looper.prepare();
+                    Toast.makeText(getApplicationContext(), "Website Not Found", Toast.LENGTH_SHORT).show();
+
                 }
-                showDetails(LocIndex);
-                if (!spinnerInitial) {
-                    spinnerInitial=true;
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            InitializeSpinner();
-                        }
-                    });
-                }
+
             }
         });
         thread.start();
