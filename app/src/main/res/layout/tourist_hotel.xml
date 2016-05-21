@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="@drawable/background_selector"
+    android:id="@+id/layout">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hotel / Ryokan Search"
+        android:id="@+id/hotel_title"
+        android:textSize="30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.05"
+        android:gravity="center"
+        android:textStyle="bold|italic"
+        android:layout_below="@+id/toolbar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location:"
+        android:id="@+id/loc_label"
+        android:textSize="30dp"
+        android:layout_below="@+id/hotel_title"
+        android:layout_alignParentStart="true" />
+
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/big_locations"
+        android:layout_below="@+id/loc_label"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:spinnerMode="dialog" />
+
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/small_locations"
+        android:layout_below="@+id/big_locations"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:spinnerMode="dialog" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Distance:"
+        android:id="@+id/dis_label"
+        android:layout_below="@+id/small_locations"
+        android:layout_alignParentStart="true"
+        android:textSize="30dp" />
+
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:id="@+id/distance_view"
+        android:layout_below="@+id/dis_label"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="metres"
+        android:id="@+id/metre_label"
+        android:layout_below="@+id/dis_label"
+        android:layout_toEndOf="@+id/distance_view"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Restaurant Type:"
+        android:id="@+id/type_label"
+        android:layout_below="@+id/distance_view"
+        android:layout_alignParentStart="true"
+        android:textSize="30dp" />
+
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/view2"
+        android:layout_below="@+id/type_label"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

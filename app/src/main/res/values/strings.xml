@@ -11,4 +11,160 @@
         <item>Ticket</item>
         <item>IC</item>
     </string-array>
+    <string-array name="big_locations">
+        <item>Hokkaido</item>
+        <item>Tohoku</item>
+        <item>Kanto</item>
+        <item>Chubu</item>
+        <item>Kansai</item>
+        <item>Chugoku</item>
+        <item>Shikoku</item>
+        <item>Kyushu</item>
+    </string-array>
+    <string-array name="small_locations">
+        <item>Hokkaido</item>
+        <item>Aomori</item>
+        <item>Iwate</item>
+        <item>Miyagi</item>
+        <item>Akita</item>
+        <item>Yamagata</item>
+        <item>Fukushima</item>
+        <item>Ibaraki</item>
+        <item>Tochigi</item>
+        <item>Gunma</item>
+        <item>Saitama</item>
+        <item>Ibaraki</item>
+        <item>Tochigi</item>
+        <item>Gunma</item>
+        <item>Saitama</item>
+        <item>Chiba</item>
+        <item>Tokyo</item>
+        <item>Kanagawa</item>
+        <item>Niigata</item>
+        <item>Toyama</item>
+        <item>Ishikawa</item>
+        <item>Fukui</item>
+        <item>Yamanashi</item>
+        <item>Nagano</item>
+        <item>Gifu</item>
+        <item>Shizuoka</item>
+        <item>Aichi</item>
+        <item>Mie</item>
+        <item>Shiga</item>
+        <item>Kyoto</item>
+        <item>Osaka</item>
+        <item>Hyogo</item>
+        <item>Nara</item>
+        <item>Wakayama</item>
+        <item>Tottori</item>
+        <item>Shimane</item>
+        <item>Okayama</item>
+        <item>Hiroshima</item>
+        <item>Yamaguchi</item>
+        <item>Tokushima</item>
+        <item>Kagawa</item>
+        <item>Ehime</item>
+        <item>Kochi</item>
+        <item>Fukuoka</item>
+        <item>Saga</item>
+        <item>Nagasaki</item>
+        <item>Kumamoto</item>
+        <item>Oita</item>
+        <item>Miyazaki</item>
+        <item>Kagoshima</item>
+        <item>Okinawa</item>
+    </string-array>
+    <string-array name="Hokkaido">
+        <item>Hokkaido</item>
+    </string-array>
+    <string-array name="Tohoku">
+        <item>Aomori</item>
+        <item>Iwate</item>
+        <item>Miyagi</item>
+        <item>Akita</item>
+        <item>Yamagata</item>
+        <item>Fukushima</item>
+    </string-array>
+    <string-array name="Kanto">
+        <item>Ibaraki</item>
+        <item>Tochigi</item>
+        <item>Gunma</item>
+        <item>Saitama</item>
+        <item>Ibaraki</item>
+        <item>Tochigi</item>
+        <item>Gunma</item>
+        <item>Saitama</item>
+        <item>Chiba</item>
+        <item>Tokyo</item>
+        <item>Kanagawa</item>
+    </string-array>
+    <string-array name="Chubu">
+        <item>Niigata</item>
+        <item>Toyama</item>
+        <item>Ishikawa</item>
+        <item>Fukui</item>
+        <item>Yamanashi</item>
+        <item>Nagano</item>
+        <item>Gifu</item>
+        <item>Shizuoka</item>
+        <item>Aichi</item>
+    </string-array>
+    <string-array name="Kansai">
+        <item>Mie</item>
+        <item>Shiga</item>
+        <item>Kyoto</item>
+        <item>Osaka</item>
+        <item>Hyogo</item>
+        <item>Nara</item>
+        <item>Wakayama</item>
+    </string-array>
+    <string-array name="Chugoku">
+        <item>Tottori</item>
+        <item>Shimane</item>
+        <item>Okayama</item>
+        <item>Hiroshima</item>
+        <item>Yamaguchi</item>
+    </string-array>
+    <string-array name="Shikoku">
+        <item>Tokushima</item>
+        <item>Kagawa</item>
+        <item>Ehime</item>
+        <item>Kochi</item>
+    </string-array>
+    <string-array name="Kyushu">
+        <item>Fukuoka</item>
+        <item>Saga</item>
+        <item>Nagasaki</item>
+        <item>Kumamoto</item>
+        <item>Oita</item>
+        <item>Miyazaki</item>
+        <item>Kagoshima</item>
+        <item>Okinawa</item>
+    </string-array>
+    <string-array name="RestaurantType">
+        <item>Japanese cuisine</item>
+        <item>Western cuisine</item>
+        <item>Chinese cuisine</item>
+        <item>Asian/Ethnic/Borderless</item>
+        <item>B-class gourmet cuisine</item>
+        <item>Cafe/Sweet</item>
+        <item>Izakaya</item>
+        <item>Dining bars/Beer restaurants</item>
+        <item>Party Halls/Karaoke/Entertainment</item>
+        <item>Family dining/Fast food</item>
+        <item>Other Cuisine</item>
+    </string-array>
+    <string-array name="RestaurantCode">
+        <item>CTG100</item>
+        <item>CTG200</item>
+        <item>CTG300</item>
+        <item>CTG400</item>
+        <item>CTG900</item>
+        <item>CTG500</item>
+        <item>CTG610</item>
+        <item>CTG640</item>
+        <item>CTG700</item>
+        <item>CTG800</item>
+        <item>CTG1000</item>
+    </string-array>
 </resources>

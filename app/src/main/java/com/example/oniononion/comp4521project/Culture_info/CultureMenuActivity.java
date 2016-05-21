@@ -33,13 +33,13 @@ public class CultureMenuActivity extends AppCompatActivity {
         NavigationDrawerInstaller.installOnActivity(this);
         ToolbarInstaller.installOnActivity(this);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.culture_tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("People"));
         tabLayout.addTab(tabLayout.newTab().setText("Religions"));
         tabLayout.addTab(tabLayout.newTab().setText("Social"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.culture_pager);
         final PagerAdapter adapter = new PagerAdapter
                 (getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);

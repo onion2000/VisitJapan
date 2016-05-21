@@ -21,9 +21,10 @@ public class CultureFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         filePath = getArguments().getString("FILEPATH");
 
+
         View v = inflater.inflate(R.layout.culture_content_webview, container, false);
 
-        cultureWebView = (WebView) cultureWebView.findViewById(R.id.culture_webview);
+        cultureWebView = (WebView) v.findViewById(R.id.culture_webview);
         cultureWebView.loadUrl(filePath);
 
         title = (TextView)v.findViewById(R.id.title);
