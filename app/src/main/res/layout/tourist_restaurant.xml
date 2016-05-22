@@ -131,8 +131,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.05"
         android:background="@drawable/rounded_button"
-        android:layout_marginTop="47dp"
-        android:layout_below="@+id/textView3"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/lowcost"
         android:layout_toEndOf="@+id/lowcost" />
 
 </RelativeLayout>

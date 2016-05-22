@@ -36,7 +36,9 @@ public class CultureMenuActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.culture_tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("People"));
         tabLayout.addTab(tabLayout.newTab().setText("Religions"));
-//        tabLayout.addTab(tabLayout.newTab().setText("Social"));
+        tabLayout.addTab(tabLayout.newTab().setText("Social"));
+        tabLayout.addTab(tabLayout.newTab().setText("Sports"));
+        tabLayout.addTab(tabLayout.newTab().setText("Food"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.culture_pager);

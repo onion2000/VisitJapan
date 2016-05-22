@@ -32,7 +32,7 @@ public class TravelWebViewActivity extends Activity {
         if(URLUtil.isValidUrl(url)){
             travelWebView.loadUrl(url);
         }else{
-            Toast.makeText(getApplicationContext(), "Website Not Valid", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Website Not Valid, please check network or update app.", Toast.LENGTH_SHORT).show();
         }
     }
 

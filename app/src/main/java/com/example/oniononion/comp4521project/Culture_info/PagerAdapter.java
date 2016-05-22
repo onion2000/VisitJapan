@@ -12,12 +12,18 @@ public class PagerAdapter  extends FragmentStatePagerAdapter {
     int mNumOfTabs;
     CultureFragment culture;
     ReligionFragment religion;
+    SocialFragment social;
+    SportsFragment sports;
+    FoodFragment food;
 
     public PagerAdapter(FragmentManager fm, int NumOfTabs) {
         super(fm);
         this.mNumOfTabs = NumOfTabs;
         this.culture = new CultureFragment();
         this.religion = new ReligionFragment();
+        this.social = new SocialFragment();
+        this.sports = new SportsFragment();
+        this.food = new FoodFragment();
     }
 
     @Override
@@ -27,8 +33,12 @@ public class PagerAdapter  extends FragmentStatePagerAdapter {
                 return culture;
             case 1:
                 return religion;
-//            case 2:
-//                return social;
+            case 2:
+                return social;
+            case 3:
+                return sports;
+            case 4:
+                return food;
             default:
                 return null;
         }

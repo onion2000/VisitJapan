@@ -167,4 +167,25 @@
         <item>CTG800</item>
         <item>CTG1000</item>
     </string-array>
+    <string-array name="roomtype">
+        <item>Single room</item>
+        <item>Double room</item>
+        <item>Twin room</item>
+        <item>Japanese-style room</item>
+        <item>Others</item>
+    </string-array>
+    <string-array name="hoteltype">
+        <item>Hotel</item>
+        <item>Ryokan</item>
+        <item>Youth hostels / Hostels</item>
+        <item>Inns</item>
+        <item>Others</item>
+    </string-array>
+    <string-array name="hotelcode">
+        <item>1</item>
+        <item>2</item>
+        <item>5</item>
+        <item>3%2C4</item>
+        <item>6%2C7%2C8%2C9</item>
+    </string-array>
 </resources>

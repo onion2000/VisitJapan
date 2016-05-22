@@ -14,33 +14,33 @@ import com.example.oniononion.comp4521project.R;
  */
 public class TouristWebViewActivity extends Activity {
     String url;
-    WebView travelWebView;
+    WebView touristWebView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.travel_information_webview);
+        setContentView(R.layout.tourist_webview);
 
         url= getIntent().getExtras().getString("url");
 
-        travelWebView = (WebView)findViewById(R.id.travel_webview);
-        travelWebView.setWebViewClient(new MyBrowser());
+        touristWebView = (WebView)findViewById(R.id.tourist_result_webview);
+        touristWebView.setWebViewClient(new MyBrowser());
 
-        travelWebView.getSettings().setJavaScriptEnabled(true);    // the website are using javascript
-        travelWebView.getSettings().setLoadWithOverviewMode(true);
-        travelWebView.getSettings().setBuiltInZoomControls(true);  // the webview zoom in/out
+        touristWebView.getSettings().setJavaScriptEnabled(true);    // the website are using javascript
+        touristWebView.getSettings().setLoadWithOverviewMode(true);
+        touristWebView.getSettings().setBuiltInZoomControls(true);  // the webview zoom in/out
 
         if(URLUtil.isValidUrl(url)){
-            travelWebView.loadUrl(url);
+            touristWebView.loadUrl(url);
         }else{
-            Toast.makeText(getApplicationContext(), "Website Not Valid", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Website Not Valid, please check network or update app.", Toast.LENGTH_SHORT).show();
         }
     }
 
     @Override
     public void onBackPressed() {
         // This method specifies the WebView has a back history item
-        if (travelWebView.canGoBack()) {
-            travelWebView.goBack();
+        if (touristWebView.canGoBack()) {
+            touristWebView.goBack();
             return;
         }
 
