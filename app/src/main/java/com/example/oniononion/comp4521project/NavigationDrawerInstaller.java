@@ -7,6 +7,7 @@ import android.view.View;
 import com.example.oniononion.comp4521project.Culture_info.CultureMenuActivity;
 import com.example.oniononion.comp4521project.Currency_converter.ConverterActivity;
 import com.example.oniononion.comp4521project.Japanese_vocab.VocabActivity;
+import com.example.oniononion.comp4521project.Tourist_info.TouristActivity;
 import com.example.oniononion.comp4521project.Translation.TranslationActivity;
 import com.example.oniononion.comp4521project.Travel_information.TravelActivity;
 import com.example.oniononion.comp4521project.Weather_forecast.OnedayWeatherActivity;
@@ -70,6 +71,8 @@ public class NavigationDrawerInstaller {
                                     act.startActivity(intent);
                                     break;
                                 case 6:
+                                    intent = new Intent(act, TouristActivity.class);
+                                    act.startActivity(intent);
                                     break;
                                 case 7:
                                     intent = new Intent(act, VocabActivity.class);
