@@ -121,7 +121,7 @@ public class TravelActivity extends AppCompatActivity {
 
     private String produce_url() {
 
-        String Month, Day, Hour,Mins;
+        String Month, Day, Hour, Mins;
         Month = (selectedMonth< 10) ? ( "0"+ String.valueOf(selectedMonth) ) : String.valueOf(selectedMonth);
         Day = (selectedday<10)? ( "0"+ String.valueOf(selectedday) ) : String.valueOf(selectedday);
         Hour =  (selectedHour<10)? ( "0"+ String.valueOf(selectedHour) ) : String.valueOf(selectedHour);
