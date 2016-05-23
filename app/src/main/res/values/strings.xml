@@ -181,11 +181,16 @@
         <item>Inns</item>
         <item>Others</item>
     </string-array>
-    <string-array name="hotelcode">
-        <item>1</item>
-        <item>2</item>
-        <item>5</item>
-        <item>3%2C4</item>
-        <item>6%2C7%2C8%2C9</item>
+    <string-array name="hoteldistance">
+        <item>500</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>5000</item>
+        <item>10000</item>
+        <item>30000</item>
+        <item>50000</item>
+        <item>100000</item>
     </string-array>
+
+
 </resources>

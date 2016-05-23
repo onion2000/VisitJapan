@@ -40,7 +40,7 @@ public class HotelFragment extends Fragment {
         //linking the objects
         biglocspin = (Spinner) v.findViewById(R.id.big_locations);
         smalllocspin = (Spinner) v.findViewById(R.id.small_locations);
-        distspin = (Spinner) v.findViewById(R.id.hotel_distance_view);
+        distspin = (Spinner) v.findViewById(R.id.hotel_distance_view);// distspin points to null
         hoteltypespin = (Spinner) v.findViewById(R.id.hoteltype);
         roomtypespin = (Spinner) v.findViewById(R.id.roomtype);
         lowcostspin = (Spinner) v.findViewById(R.id.hotellowcost);
@@ -63,10 +63,10 @@ public class HotelFragment extends Fragment {
         smalllocspin.setAdapter(smalllocateadapter);
 
         ArrayAdapter<String> distadapter;
-        String[] disarray = {"500", "1000", "2000", "5000", "10000", "30000", "50000", "100000"};
+        String[] disarray = getResources().getStringArray(R.array.hoteldistance);
         distadapter = new ArrayAdapter<>(this.getActivity(), android.R.layout.simple_spinner_item, disarray);
         distadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        distspin.setAdapter(distadapter);
+        distspin.setAdapter(distadapter); // distspin points to null
 
         ArrayAdapter<String> hoteltypeadapter;
         String[] hoteltypearray = getResources().getStringArray(R.array.hoteltype);
@@ -95,7 +95,7 @@ public class HotelFragment extends Fragment {
         searchbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TouristActivity.this, TouristWebViewActivity.class);
+                Intent intent = new Intent(getActivity(), TouristWebViewActivity.class);
                 result = produce_url();
                 intent.putExtra("url", result);
                 startActivity(intent);
@@ -169,7 +169,7 @@ public class HotelFragment extends Fragment {
         Integer big = biglocspin.getSelectedItemPosition() + 1;
         Integer small = indexOfString((String) smalllocspin.getSelectedItem(), getResources().getStringArray(R.array.small_locations)) + 1;
         String distance = distspin.getSelectedItem().toString();
-        String[] typearray = getResources().getStringArray(R.array.hotelcode);
+        String[] typearray = {"1", "2", "5", "3,4", "6,7,8,9"};;
         Integer roomtype = roomtypespin.getSelectedItemPosition() + 1;
         String hoteltype = typearray[hoteltypespin.getSelectedItemPosition()];
         String high = highcostspin.getSelectedItem().toString();

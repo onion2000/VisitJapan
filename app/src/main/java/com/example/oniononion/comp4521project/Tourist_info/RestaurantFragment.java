@@ -88,7 +88,7 @@ public class RestaurantFragment extends Fragment {
         searchbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TouristActivity.this, TouristWebViewActivity.class);
+                Intent intent = new Intent(getActivity(), TouristWebViewActivity.class);
                 result = produce_url();
                 intent.putExtra("url", result);
                 startActivity(intent);

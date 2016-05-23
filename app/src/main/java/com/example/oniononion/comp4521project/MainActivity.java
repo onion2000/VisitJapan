@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.Transition;
@@ -23,24 +24,28 @@ import com.example.oniononion.comp4521project.Tourist_info.TouristActivity;
 import com.example.oniononion.comp4521project.Translation.TranslationActivity;
 import com.example.oniononion.comp4521project.Travel_information.TravelActivity;
 import com.example.oniononion.comp4521project.Weather_forecast.OnedayWeatherActivity;
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 
 public class MainActivity extends AppCompatActivity {
-   // private static Dialog InternetAlertDialog;
-    //TODO: delete all the unnecessary things
-    //TODO: write comment
-    // TODO: change dialog to notification
-    //TODO: vocal
-   private static AlertDialog.Builder InternetAlertDialog;
+    private static AlertDialog.Builder InternetAlertDialog;
     private Activity mActivity = this;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      //  getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
+        //  getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-       // Transition mEnterTran = new Fade();
-       // Transition mReturnTran = new Fade();
-       Transition mReenterTran =
+        // Transition mEnterTran = new Fade();
+        // Transition mReturnTran = new Fade();
+        Transition mReenterTran =
                 TransitionInflater.from(this).
                         inflateTransition(R.transition.main_activity_reenter_transition);
         Transition mExitTran =
@@ -68,12 +73,16 @@ public class MainActivity extends AppCompatActivity {
         vocabulary.setOnClickListener(buttonClickListener);
         ImageButton culture = (ImageButton) findViewById(R.id.local_culture);
         culture.setOnClickListener(buttonClickListener);
-
+        ImageButton tourist = (ImageButton) findViewById(R.id.tourist_information);
+        tourist.setOnClickListener(buttonClickListener);
 
 
         ImageButton exit = (ImageButton) findViewById(R.id.exit);
         exit.setOnClickListener(buttonClickListener);
 
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     protected View.OnClickListener buttonClickListener = new View.OnClickListener() {
@@ -81,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             Intent intent;
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this);
-            if(CheckConnectivityNotification.isOnline(getApplicationContext()) || (v.getId()==R.id.exit) ) {
+            if (CheckConnectivityNotification.isOnline(getApplicationContext()) || (v.getId() == R.id.exit)) {
 
                 switch (v.getId()) {
                     case R.id.translation:
@@ -121,14 +130,53 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                 }
-            }else{
+            } else {
                 CheckConnectivityNotification.checkOnline(mActivity);
 
             }
 
-    }
+        }
 
     };
 
 
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Main Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://com.example.oniononion.comp4521project/http/host/path")
+        );
+        AppIndex.AppIndexApi.start(client, viewAction);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Main Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://com.example.oniononion.comp4521project/http/host/path")
+        );
+        AppIndex.AppIndexApi.end(client, viewAction);
+        client.disconnect();
+    }
 }
