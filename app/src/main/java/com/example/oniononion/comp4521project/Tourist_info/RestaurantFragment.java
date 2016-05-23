@@ -30,6 +30,8 @@ public class RestaurantFragment extends Fragment {
     Spinner highcostspin;
     Button searchbtn;
 
+    ArrayAdapter<String> smalllocateadapter;
+
     String itemname[] = null;
 
     @Override
@@ -55,7 +57,7 @@ public class RestaurantFragment extends Fragment {
         biglocspin.setAdapter(biglocateadapter);
         biglocspin.setOnItemSelectedListener(SpinnerListener); //only this spinner needs action
 
-        ArrayAdapter<String> smalllocateadapter;
+
         String[] smalllocatearray = getResources().getStringArray(R.array.small_locations);
         smalllocateadapter = new ArrayAdapter<>(this.getActivity(), android.R.layout.simple_spinner_item, smalllocatearray);
         smalllocateadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -100,9 +102,10 @@ public class RestaurantFragment extends Fragment {
 
     public void updateSpinner(){
 
-        ArrayAdapter<String> toAdapter = new ArrayAdapter<>(this.getActivity(), android.R.layout.simple_spinner_item, itemname);
-        toAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        smalllocspin.setAdapter(toAdapter);
+        smalllocateadapter = new ArrayAdapter<>(this.getActivity(), android.R.layout.simple_spinner_item, itemname);
+        smalllocateadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        smalllocateadapter.notifyDataSetChanged();
+        smalllocspin.setAdapter(smalllocateadapter);
 
     }
 

@@ -19,9 +19,11 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new RestaurantFragment();
+                return new RestaurantWebFragment();
             case 1:
-                return new HotelFragment();
+                return new HotelWebFragment();
+            case 2:
+                return new SightWebFragment();
             default:
                 return null;
         }

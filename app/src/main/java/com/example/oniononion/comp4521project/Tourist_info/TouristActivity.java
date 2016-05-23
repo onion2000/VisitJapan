@@ -35,6 +35,7 @@ public class TouristActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tourist_tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Restaurants"));
         tabLayout.addTab(tabLayout.newTab().setText("Hotels / Ryokan"));
+        tabLayout.addTab(tabLayout.newTab().setText("Sightseeing Spot"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.tourist_pager);

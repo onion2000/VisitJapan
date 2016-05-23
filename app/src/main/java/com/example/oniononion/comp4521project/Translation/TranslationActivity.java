@@ -1,9 +1,11 @@
 package com.example.oniononion.comp4521project.Translation;
 
+import android.app.Activity;
 import android.media.AudioManager;
 import android.media.MediaDataSource;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
@@ -68,23 +70,20 @@ public class TranslationActivity extends AppCompatActivity {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                Document doc = null;
-                String transurl = uri + input.getText().toString();
-                try {
-                    doc = Jsoup.connect(transurl).timeout(5000).get();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            Document doc = null;
+            String transurl = uri + input.getText().toString().replace(" ","%20");
+            try {
+                doc = Jsoup.connect(transurl).timeout(5000).get();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-                try{
-                    Element translation = doc.getElementsByClass("dl_target_word").first();
-                    jptrans = translation.text();
-                }catch(Exception e){
-                    Toast.makeText(getApplicationContext(), "Input not valid, please check your input or network.", Toast.LENGTH_SHORT).show();
-                }
-
-
-
+            try{
+                Element translation = doc.getElementsByClass("dl_target_word").first();
+                jptrans = translation.text();
+            }catch(Exception e){
+                jptrans = "Error 404.";
+            }
             }
         });
 
