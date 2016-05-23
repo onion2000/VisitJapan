@@ -1,6 +1,8 @@
 package com.example.oniononion.comp4521project.Japanese_vocab;
 
 import android.content.res.Resources;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import com.example.oniononion.comp4521project.R;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -22,7 +25,7 @@ import java.util.ArrayList;
  * Created by oniononion on 2016/04/20.
  */
 
-public class PhrasesFragment extends Fragment {
+public class PhrasesFragment extends Fragment implements MyItemClickListener{
     private ArrayList<String> vocab_hiragana ;
     private ArrayList<String> vocab_romaji;
     private ArrayList<String> vocab_meaning;
@@ -75,6 +78,21 @@ public class PhrasesFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onItemClick(View view, int position) {
+        MediaPlayer player = new MediaPlayer();
+        String soundtxt = vocab_hiragana.get(position);
+        String playuri = "http://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&" + "q=" + soundtxt.replace(" ","%20");
+        player.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        try {
+            player.setDataSource(playuri);
+            player.prepare();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        player.start();
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
