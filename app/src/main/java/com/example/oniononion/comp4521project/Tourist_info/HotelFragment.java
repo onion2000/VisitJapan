@@ -19,6 +19,7 @@ import com.example.oniononion.comp4521project.R;
  */
 public class HotelFragment extends Fragment {
     private String result="http://www.jnto.go.jp/restaurant-search/eng/list.php";
+    View v;
 
     TextView title;
     Spinner biglocspin;
@@ -36,16 +37,17 @@ public class HotelFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         //linking the layout
-        View v = inflater.inflate(R.layout.tourist_restaurant, container, false);
+         v = inflater.inflate(R.layout.tourist_hotel, container, false);
+
         //linking the objects
-        biglocspin = (Spinner) v.findViewById(R.id.big_locations);
-        smalllocspin = (Spinner) v.findViewById(R.id.small_locations);
-        distspin = (Spinner) v.findViewById(R.id.hotel_distance_view);// distspin points to null
-        hoteltypespin = (Spinner) v.findViewById(R.id.hoteltype);
-        roomtypespin = (Spinner) v.findViewById(R.id.roomtype);
-        lowcostspin = (Spinner) v.findViewById(R.id.hotellowcost);
-        highcostspin = (Spinner) v.findViewById(R.id.hotelhighcost);
-        searchbtn = (Button) v.findViewById(R.id.hotelsearch);
+        biglocspin       = (Spinner) v.findViewById(R.id.big_locations);
+        smalllocspin     = (Spinner) v.findViewById(R.id.small_locations);
+        distspin         = (Spinner) v.findViewById(R.id.hotel_distance);
+        hoteltypespin    = (Spinner) v.findViewById(R.id.hoteltype);
+        roomtypespin     = (Spinner) v.findViewById(R.id.roomtype);
+        lowcostspin      = (Spinner) v.findViewById(R.id.hotellowcost);
+        highcostspin     = (Spinner) v.findViewById(R.id.hotelhighcost);
+        searchbtn        = (Button) v.findViewById(R.id.hotelsearch);
 
         title= (TextView)v.findViewById(R.id.title);
 
@@ -169,7 +171,7 @@ public class HotelFragment extends Fragment {
         Integer big = biglocspin.getSelectedItemPosition() + 1;
         Integer small = indexOfString((String) smalllocspin.getSelectedItem(), getResources().getStringArray(R.array.small_locations)) + 1;
         String distance = distspin.getSelectedItem().toString();
-        String[] typearray = {"1", "2", "5", "3,4", "6,7,8,9"};;
+        String[] typearray = {"1", "2", "5", "3%2C4", "6%2C7%2C8%2C9"};;
         Integer roomtype = roomtypespin.getSelectedItemPosition() + 1;
         String hoteltype = typearray[hoteltypespin.getSelectedItemPosition()];
         String high = highcostspin.getSelectedItem().toString();

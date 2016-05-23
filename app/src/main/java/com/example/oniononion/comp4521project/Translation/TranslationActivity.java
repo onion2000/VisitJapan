@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.oniononion.comp4521project.R;
 import com.example.oniononion.comp4521project.ToolbarInstaller;
@@ -75,8 +76,14 @@ public class TranslationActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                Element translation = doc.getElementsByClass("dl_target_word").first();
-                jptrans = translation.text();
+                try{
+                    Element translation = doc.getElementsByClass("dl_target_word").first();
+                    jptrans = translation.text();
+                }catch(Exception e){
+                    Toast.makeText(getApplicationContext(), "Input not valid, please check your input or network.", Toast.LENGTH_SHORT).show();
+                }
+
+
 
             }
         });

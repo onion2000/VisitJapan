@@ -27,17 +27,17 @@ public class TouristActivity extends AppCompatActivity {
 
         getWindow().setEnterTransition(mEnterTran);
         getWindow().setReturnTransition(mReturnTran);
-        setContentView(R.layout.vocabulary_activity);
+        setContentView(R.layout.tourist_activity);
 
         NavigationDrawerInstaller.installOnActivity(this);
         ToolbarInstaller.installOnActivity(this);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tourist_tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Restaurants"));
-        tabLayout.addTab(tabLayout.newTab().setText("Useful Phrases"));
+        tabLayout.addTab(tabLayout.newTab().setText("Hotels / Ryokan"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.tourist_pager);
         final PagerAdapter adapter = new PagerAdapter
                 (getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);

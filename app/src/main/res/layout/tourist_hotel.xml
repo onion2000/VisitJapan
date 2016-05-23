@@ -7,25 +7,13 @@
     android:id="@+id/layout">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hotel / Ryokan Search"
-        android:id="@+id/hotel_title"
-        android:textSize="30dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.05"
-        android:gravity="center"
-        android:textStyle="bold|italic"
-        android:layout_below="@+id/toolbar" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Location:"
         android:id="@+id/loc_label"
-        android:textSize="30dp"
-        android:layout_below="@+id/hotel_title"
-        android:layout_alignParentStart="true" />
+        android:textSize="25dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar" />
 
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:layout_width="wrap_content"
@@ -48,37 +36,29 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Distance:"
+        android:text="Distance (metres):"
         android:id="@+id/dis_label"
         android:layout_below="@+id/small_locations"
         android:layout_alignParentStart="true"
-        android:textSize="30dp" />
+        android:textSize="25dp" />
 
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:id="@+id/hotel_distance_view"
+        android:id="@+id/hotel_distance"
         android:layout_below="@+id/dis_label"
         android:layout_alignParentStart="true"
-        android:spinnerMode="dialog" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="metres"
-        android:id="@+id/metre_label"
-        android:layout_below="@+id/dis_label"
-        android:layout_toEndOf="@+id/hotel_distance_view"
-        android:textSize="30dp" />
+        android:spinnerMode="dialog"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hotel Type:"
         android:id="@+id/type_label"
-        android:layout_below="@+id/hotel_distance_view"
+        android:layout_below="@+id/hotel_distance"
         android:layout_alignParentStart="true"
-        android:textSize="30dp" />
+        android:textSize="25dp" />
 
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:layout_width="wrap_content"
@@ -96,7 +76,7 @@
         android:id="@+id/room_label"
         android:layout_below="@+id/hoteltype"
         android:layout_alignParentStart="true"
-        android:textSize="30dp" />
+        android:textSize="25dp" />
 
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:layout_width="wrap_content"
@@ -114,7 +94,7 @@
         android:id="@+id/costlabel"
         android:layout_below="@+id/roomtype"
         android:layout_alignParentStart="true"
-        android:textSize="30dp" />
+        android:textSize="25dp" />
 
     <Spinner
         android:layout_width="150dp"
@@ -129,7 +109,7 @@
         android:layout_height="wrap_content"
         android:text="to"
         android:id="@+id/textView2"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:layout_alignBottom="@+id/hotellowcost"
         android:layout_toEndOf="@+id/hotellowcost" />
 
@@ -149,8 +129,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.05"
         android:background="@drawable/rounded_button"
-        android:layout_marginTop="33dp"
-        android:layout_below="@+id/hotellowcost"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/textView2"
+        android:layout_toEndOf="@+id/hotellowcost"
+        android:layout_marginTop="15dp" />
 
 </RelativeLayout>

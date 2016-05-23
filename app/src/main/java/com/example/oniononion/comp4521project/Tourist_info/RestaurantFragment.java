@@ -99,9 +99,11 @@ public class RestaurantFragment extends Fragment {
     }
 
     public void updateSpinner(){
+
         ArrayAdapter<String> toAdapter = new ArrayAdapter<>(this.getActivity(), android.R.layout.simple_spinner_item, itemname);
         toAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         smalllocspin.setAdapter(toAdapter);
+
     }
 
     protected Spinner.OnItemSelectedListener SpinnerListener = new Spinner.OnItemSelectedListener() {
