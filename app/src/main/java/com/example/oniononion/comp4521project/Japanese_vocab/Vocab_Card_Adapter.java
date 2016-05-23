@@ -78,6 +78,7 @@ public class Vocab_Card_Adapter extends RecyclerView.Adapter<Vocab_Card_Adapter.
             m_vocab_hiragana = (TextView) v.findViewById(R.id.vocab_hiragana_text);
             m_vocab_romaji = (TextView) v.findViewById(R.id.vocab_romaji_text);
             m_vocab_meaning = (TextView) v.findViewById(R.id.vocab_meaning_text);
+            v.setOnClickListener(this);
             mListener = listener;
         }
 

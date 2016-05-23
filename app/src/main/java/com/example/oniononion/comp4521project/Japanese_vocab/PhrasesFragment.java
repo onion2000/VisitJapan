@@ -50,6 +50,7 @@ public class PhrasesFragment extends Fragment implements MyItemClickListener{
         vocab_card_adapter = new Vocab_Card_Adapter(getActivity(), vocab_hiragana, vocab_romaji, vocab_meaning);
 
         mRecyclerView.setAdapter(vocab_card_adapter);
+        vocab_card_adapter.setOnItemClickListener(this);
 
         return v;
     }
@@ -82,7 +83,7 @@ public class PhrasesFragment extends Fragment implements MyItemClickListener{
     public void onItemClick(View view, int position) {
         MediaPlayer player = new MediaPlayer();
         String soundtxt = vocab_hiragana.get(position);
-        String playuri = "http://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&" + "q=" + soundtxt.replace(" ","%20");
+        String playuri = "http://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&" + "q=" + soundtxt.replace("\t","%20");
         player.setAudioStreamType(AudioManager.STREAM_MUSIC);
         try {
             player.setDataSource(playuri);
