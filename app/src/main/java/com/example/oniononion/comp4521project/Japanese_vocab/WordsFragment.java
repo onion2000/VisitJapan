@@ -80,7 +80,7 @@ public class WordsFragment extends Fragment implements MyItemClickListener{
     public void onItemClick(View view, int position) {
         MediaPlayer player = new MediaPlayer();
         String soundtxt = vocab_hiragana.get(position);
-        String playuri = "http://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&" + "q=" + soundtxt.substring(4);
+        String playuri = "http://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&" + "q=" + soundtxt.split("\t")[1].split(" ")[0];
         player.setAudioStreamType(AudioManager.STREAM_MUSIC);
         try {
             player.setDataSource(playuri);
